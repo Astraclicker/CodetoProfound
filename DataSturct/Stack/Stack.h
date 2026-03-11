@@ -1,17 +1,21 @@
 #pragma once
 
-namespace mds {
-    template<typename T>
-    struct node {
+namespace mds
+{
+    template <typename T>
+    struct node
+    {
         T data;
         node *down;
     };
 
-    template<typename T>
-    class stack {
+    template <typename T>
+    class stack
+    {
     protected:
         node<T> *my_node;
         unsigned int length;
+
     public:
         // 含参构造构造
         explicit stack(T data);
@@ -28,10 +32,10 @@ namespace mds {
         // 返回栈顶数据
         T top();
 
-        //检测栈是否为空
+        // 检测栈是否为空
         bool empty();
 
-        //返回栈节点个数
+        // 返回栈节点个数
         [[nodiscard]] unsigned int size() const;
     };
 
