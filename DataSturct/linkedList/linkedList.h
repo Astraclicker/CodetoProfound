@@ -1,26 +1,59 @@
-#ifndef TEST_LINKEDLIST_H
-#define TEST_LINKEDLIST_H
-#define REG true  // regular
-#define OPP false // oppose
-#include <memory>
-#include <iostream>
-
-template <typename T>
-
-class node
-{
-protected:
-    T data;
-    unsigned int index;
-    node *next;
+#pragma once
+template<typename T>
+struct node {
     node *last;
+    T data;
+    node *next;
+};
+
+template<typename T>
+class list {
+protected:
+    node<T> *node_head;
+    node<T> *node_end;
 
 public:
+    //迭代器类实现
+    class iterator {
+    protected:
+        node<T> *my_node;
+
+    public:
+        //构造迭代器对象
+        iterator();
+
+        iterator(node<T> *my_node);
+
+        //前置++操作
+        iterator &operator++() {
+            if (my_node != nullptr) {
+                my_node = my_node->next;
+            }
+            return *this;
+        }
+
+        //前置--操作
+        iterator &operator--() {
+            if (my_node != nullptr) {
+                my_node = my_node->last;
+            }
+            return *this;
+        }
+
+        // 解引用
+        T operator*() const { return my_node->data; }
+        T *operator->() const { return &my_node->data; }
+
+        // 比较
+        bool operator==(const iterator &other) const { return my_node == other.my_node; }
+        bool operator!=(const iterator &other) const { return my_node != other.my_node; }
+    };
+
     // 头节点有内容构造链表方法
-    explicit node(T data);
+    explicit list(T data);
 
     // 头节点无内容构造链表方法
-    node();
+    list();
 
     // 头插法插入数据
     void push_front(T new_data);
@@ -28,34 +61,42 @@ public:
     // 尾插法插入数据
     void push_back(T new_data);
 
-    // 链接节点
-    void link_node(unsigned int index_x, unsigned int index_y, bool condition);
+    // 链接节点(构造循环链表)
+    static void link_node(node<T> *x, node<T> *y, bool condition);
 
     // 更新节点
-    void update_node(unsigned int up_index, T new_data);
+    static void update_node(node<T> *my_node, T new_data);
 
     // 删除节点
-    void del_node(unsigned int del_index);
+    static void del_node(node<T> *my_node);
 
     // 插入节点
-    bool insert_node(unsigned int index_x, unsigned int index_y, T new_data);
+    bool insert_node(node<T> *x, T new_data, node<T> *y);
 
-    // 交换节点
-    void swap_node(unsigned int index_x, unsigned int index_y);
+    void insert_node(T new_data, node<T> *my_node);
+
+    void insert_node(node<T> *my_node, T new_data);
+
+    // 交换节点数据
+    void swap_node(node<T> *x, node<T> *y);
 
     // 合并链表
-    bool merge_list(node &obj);
+    bool merge_list(list &obj);
 
     // 打印链表
     void print_list();
 
     // 返回链表长度
-    unsigned int size();
+    unsigned int length();
+
+    //返回头节点
+    iterator begin();
+
+    //返回尾节点
+    iterator end();
 
     // 清空链表
     void clear();
 };
 
-#include "linkedList.tpp"
-
-#endif // TEST_LINKEDLIST_H
+#include "LindedList.tpp"
