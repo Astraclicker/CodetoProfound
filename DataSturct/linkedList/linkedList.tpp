@@ -83,44 +83,21 @@ void list<T>::del_node(node<T> *my_node) {
 
 // 插入节点
 template<typename T>
-bool list<T>::insert_node(node<T> *x, T new_data, node<T> *y) {
-    if (x->next != y) {
-        std::cerr << "error,Invalid insertion position" << std::endl;
-        return false;
+void list<T>::insert_node(T new_data, list<T>::iterator &it) {
+    //在头节点插入数据
+    if (it.my_node->last == nullptr) {
+        this->push_front(new_data);
+        return;
     }
     auto *temp = new node<T>;
 
-    temp->data = new_data;
-    temp->next = y;
-    temp->last = x;
-
-    x->next = temp;
-    y->last = temp;
-    return true;
-}
-
-template<typename T>
-void list<T>::insert_node(T new_data, node<T> *my_node) {
-    auto *temp = new node<T>;
 
     temp->data = new_data;
-    temp->next = my_node;
-    temp->last = my_node->last;
+    temp->next = it.my_node;
+    temp->last = it.my_node->last;
 
-    my_node->last->next = temp;
-    my_node->last = temp;
-}
-
-template<typename T>
-void list<T>::insert_node(node<T> *my_node, T new_data) {
-    auto *temp = new node<T>;
-
-    temp->data = new_data;
-    temp->next = my_node->next;
-    temp->last = my_node;
-
-    my_node->next->last = temp;
-    my_node->next = temp;
+    it.my_node->last->next = temp;
+    it.my_node->last = temp;
 }
 
 // 交换节点数据
@@ -178,10 +155,10 @@ list<T>::iterator list<T>::begin() {
     return iterator{this->node_head};
 }
 
-//返回尾节点
+//返回尾节点的next
 template<typename T>
 list<T>::iterator list<T>::end() {
-    return iterator{this->node_end};
+    return iterator{this->node_end->next};
 }
 
 // 清空链表

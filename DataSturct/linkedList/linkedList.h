@@ -15,10 +15,9 @@ protected:
 public:
     //迭代器类实现
     class iterator {
-    protected:
-        node<T> *my_node;
-
     public:
+        //节点
+        node<T> *my_node;
         //构造迭代器对象
         iterator();
 
@@ -71,11 +70,7 @@ public:
     static void del_node(node<T> *my_node);
 
     // 插入节点
-    bool insert_node(node<T> *x, T new_data, node<T> *y);
-
-    void insert_node(T new_data, node<T> *my_node);
-
-    void insert_node(node<T> *my_node, T new_data);
+    void insert_node(T new_data, list<T>::iterator &it);
 
     // 交换节点数据
     void swap_node(node<T> *x, node<T> *y);
