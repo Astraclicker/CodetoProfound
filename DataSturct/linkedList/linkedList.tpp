@@ -1,4 +1,5 @@
 #pragma once
+#include"linkedList.h"
 #include <iostream>
 // 头节点有内容构造链表方法
 template<typename T>
