@@ -46,7 +46,7 @@ Linux下会编译出一个名为a.out的可执行文件
 ### 1.3 注释简介
 C++注释有两种
 + //(仅注释双斜杠所在行)
-+ /**/(注释两个星号间的所有内容)
++ /*\*/(注释两个星号间的所有内容)
 对某个类或函数等的描述通常写在其声明上方，这样的注释，现代文本编辑器会在开发者使用的时候给出
 ![img](./img/1.3-1.png)
 
@@ -121,10 +121,7 @@ else
 + 后续会学习如何封装自己的类
 + 文件的重定向
 在进行对程序的测试时,用键盘一个一个输入测试样例显然不太明智,而大多数操作系统支持文件重定向,这允许我们将标准输入输出与文件关联起来,使用这个命令可以让程序里的标准输入读取infile文件里的数据,并通过标准输出打印在outfile文件里
->> 程序名称 \<infile \>outfile
-
-
-
+\>\> 程序名称 \\<infile \\>outfile
 
  #### 1.5.2 初识成员函数
  + 成员函数(有时也被称为方法)
@@ -236,7 +233,184 @@ c++算术类型 [^3]
   + 由反斜杠和一个特殊字符组成
 ### 2.4 const限定符
 
-# 第Ⅱ部分 C++标准库
+当需要初始化(const对象必须初始化)一个不变的对象时，可以在声明语句前加上const修饰
+```cpp
+const int MAX = 128;
+```
+被声明为const的对象名通常为大写
+const对象在编译时被编译器替换
+const对象通常只在文件内有效,如果在两个文件内初始化了两个同名的const对象,他们不会相互受到影响,只会在文件内部起作用
+如果想要初始化一个对全局有效的const对象,要加上extern关键字
+```cpp
+extern const int MAX = 128;
+```
+#### 2.4.1 const 的引用
+```cpp
+const int MAX = 128;
+
+const int &_max = MAX;//对常量的引用
+
+int min = 0;
+
+const int &_min = min;//const引用指向非const对象
+
+//int &_max = MAX; 错误的写法
+```
+不可以用非const指向const对象
+在完成对常量的引用之后不可以通过引用变量修改const对象的内容
+允许const引用指向一个非const对象
+```cpp
+double p = 3.1415;
+
+const int &PI = p;
+```
+注意上述写法是非常不好的编译器在处理时类似下面的代码
+```cpp
+const int temp = p;
+
+const int &PI = temp;
+```
+最后const引用并没有绑定到变量p上,而是绑定到了临时变量temp上,这就失去了引用的意义了
+####  2.4.2 指针和const
+```cpp
+int MAX = 128;
+
+int *const max = MAX;
+```
+与引用类似,不能通过修改const指针的值来修改变量的值
+#### 2.4.3 顶层const
+与其他对象不同,指针对象的const可能指的是指针为const,可能指的是指针所指向的对象为const
+```cpp
+int MAX = 128;
+const int* _max = MAX;//底层const
+int *const _max = MAX;//顶层const
+```
+底层const指的是对指针进行const修饰,可以通过修改指针来修改被指向的对象
+顶层const指的是对指针所指向的对象进行const修饰,不可以通过指针来修改
+#### 2.4.4 constexpr 和常量表达式
+*常量表达式*
+常量表达式指的是不会改变并且在编译时就能得到结果的表达式
+```cpp
+const int MAX = 128;
+
+const int _MAX_ = MAX +1;
+```
+上述两个对象均为常量表达式
+```cpp
+int temp = 7;
+
+const int size = vector.size();
+```
+上述两个对象不是常量表达式,一个可以被修改,一个在编译后没有被立刻确定,常量表达式通常被存储在内存的.rodata区上
+*constexpr*
+将变量声明为constexpr来让编译器确定某个表达式是否为常量表达式
+```cpp
+constexpr int mf = 20;
+```
+### 2.5 处理类型
+#### 2.5.1 类型别名
++ 传统方法使用typedef来声明
+```cpp
+typedef double wages;
+
+wages PI = 3.14;
+```
++ 使用别名声明
+```cpp
+using wages = double;
+
+wages PI = 3.14;
+```
+#### 2.5.2 auto类型说明符
+c++11新标准引入了auto
+让编译器自己判断对象的类型
+使用auto声明对象时必须初始化
+#### 2.5.3 decltype类型说明符
+decltype选择并返回操作数的类型
+```cpp
+int x = 9;  
+
+decltype(x) y = 4;
+```
+上述代码通过x的类型来初始化变量y;
+*decltype和引用*
+```cpp
+int test1 = 4;  
+int &test2 = test1;  
+  
+decltype((test1)) v1 = test1;  
+decltype(test2) v2 = test1;
+```
+让decltype的类型变为引用有两种方法
++ 传入的表达式本身是引用类型
++ 给传入的表达式再加上括号
+### 2.6  自定义数据结构
+#### 2.6.3 编写自己的头文件
+如果写了一个自己的头文件,在main.cpp里使用的时候可能会出现多次包含的情况,这样就会报错
+```c
+// head.h
+#ifndef head.h
+#define head.h
+//code
+#endif
+
+```
+这里的意思是:如果没有包含 head.h 就包含head.h,最后结束.
+这么写头文件的保护繁琐,而且当重复引用时程序依然要进入头文件里判断,造成极小的性能开销,所以这里推荐第二种方法
+```c
+#pragma once
+```
+这是编译器的指令,不用进入文件内部进行检查,没有额外的性能开销,最好的是:他方便,但某些极其老旧或特殊的编译器不支持
+## 第五章 语句
+### 5.6 try语句块和异常处理
+#### 5.6.1 throw 表达式
+在throw之前,iostream库中有抛出异常的函数即:std::cerr和std::clog
+```cpp
+std::cerr<<"error the undefine action"<<std::endl;
+
+std::clog<<"time out"<<std::endl;
+```
+但严格来讲这并非抛出异常,而是打印了一条错误信息,接下来使用throw真正意义上的抛出异常
+```cpp
+throw runtime_error ("error the undefine action");
+```
+在这段代码中,程序抛出了一个runtime_error异常,并把控制权交给能处理该异常的代码.
+类型 runtime_error 是标准库异常类型中的一种,定义在stdexcept头文件里.
+对于runtime_error 对象,我们必须初始化他,方法是传入string对象或者c风格字符串
+#### 5.6.2 try 语句块
+```cpp
+try {  
+    if (false) {  
+        throw std::runtime_error("error");  
+    }  
+} catch (std::runtime_error &err) {  
+    std::cerr << err.what() << std::endl;
+    }
+
+```
+try语句块内的语句可以正常执行,其内部的throw抛出的异常可以被try语句块后的catch语句捕获,并根据catch括号内不同的对象声明(异常声明)执行不同的catch
+
+本例中 catch接收一个runtime_error类型的异常,并声明其对象的引用err,然后进行处理,这里的处理是调用了runtime_error的对象err的what成员,返回异常信息,也就是构造runtime_error对象是的error
+#### 5.6.3 标准异常
+c++标准库定义了一组类,用于报告异常,他们定义在了一下四个头文件里
++ exception 定义了最通用的异常类exception 他只报告异常的发生，不提供任何额外信息
++ stdexcept 定义了几种常见的异常类
+
+*stdexcept中定义的异常类* 
+
+| 类名               | 描述                      |
+| ---------------- | ----------------------- |
+| exception        | 最常见的问题                  |
+| runtime_error    | 只有在运行时才检测出的问题           |
+| range_error      | 运行时错误,生成的结果超出了有意义的范围    |
+| overflow_error   | 运行时错误,计算上溢              |
+| underflow_error  | 运行时错误,计算下溢              |
+| logic_error      | 程序逻辑错误                  |
+| domain_error     | 逻辑错误,参数对应的结果值不存在        |
+| invalid_argument | 逻辑错误,无效参数               |
+| length_error     | 逻辑错误,试图创建一个超出该类型最大长度的对象 |
+| out_of_range     | 逻辑错误,使用一个超出有效范围的值       |
+
 ## 第八章 IO 库
 ### 8.1 IO类
 
