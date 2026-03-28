@@ -1,0 +1,30 @@
+# 小型项目构建方法
+
+# src:项目源文件
+# include:项目头文件
+# main.cpp:程序入口
+
+# 指定cmake最小版本
+cmake_minimum_required(VERSION 3.29.0)
+
+# 指定项目名称
+project(test_1)
+
+# 指定项目语言及其版本(这里是c++11及以上)
+set(CMAKE_CXX_STANDARD 11)
+
+# 指定头文件目录
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
+# 扫描指定目录下的cpp文件(${PROJECT_SOURCE_DIR}/src),并将其保存在宏(SRC)中
+aux_source_directory(${PROJECT_SOURCE_DIR}/src SRC)
+
+# 构建可执行文件
+add_executable(
+    test_1
+    ${PROJECT_SOURCE_DIR}/main.cpp
+    SRC
+)
+
+# 指定可执行文件生成目录
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
