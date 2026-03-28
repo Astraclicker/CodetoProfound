@@ -1,0 +1,53 @@
+# 更好的管理方法
+
+# 指定cmake最小版本
+cmake_minimum_required(VERSION 3.29.0)
+
+# 指定项目所用语言及其最小版本
+set(CMAKE_CXX_STANDARD 11)
+
+# 指定项目名称
+project(test_2)
+
+# 设置可执行文件输出目录
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
+
+#设置动态库输出目录
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+
+# 抓取源文件
+aux_source_directory(${CMAKE_SOURCE_DIR}/src SRC_LIST)
+
+# 生成动态库(名称为_test_2)
+add_library(
+    _test_2
+    SHARED
+    ${SRC_LIST}
+)
+
+# 将动态库中使用到的源文件与头文件关联
+target_include_directories(
+    _test_2
+    PUBLIC
+    ${CMAKE_SOURCE_DIR}/include
+)
+
+# 构建项目
+add_executable(
+    test_2
+    main.cpp
+)
+
+# 将项目与头文件相关联
+target_link_directories(
+    test_2
+    PUBLIC
+    ${CMAKE_SOURCE_DIR}/include
+)
+
+#将项目与动态库链接
+target_link_libraries(
+    test_2
+    PUBLIC
+    _test_2
+)
