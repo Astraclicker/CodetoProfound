@@ -65,6 +65,7 @@ public class hello_world {
 |short|2字节(16bit)|-2^15^ ~ 2^15^-1|
 |long|8字节(64bit)|-2^63^ ~ 2^63^-1|
 |byte|1字节(8bit)|-2^7^ ~ 2^7^-1|
+## 3.6 字符串
 
 [^1]:[Java白皮书](https://www.oracle.com/java/technologies/language-environment.html)
 [^2]: 这种方法使java的运行速率比原生的程序慢很多,且不可对内存进行操作
