@@ -191,7 +191,7 @@ $ f(b) - f(a) = f'(\xi)(b - a) $
 则至少存在一点 $\xi \in (a,b)$，使得
 $ \frac{f(b) - f(a)}{g(b) - g(a)} = \frac{f'(\xi)}{g'(\xi)} $
 
-# 定积分
+# 不定定积分
 ## 积分法
 ### 第一换元积分法
 $\int u\cdot v'\,dx = \int u\,dv$
@@ -202,3 +202,23 @@ $\int u\,dv = \int u \cdot v'\,dx$
 ### 分部积分法
 $\int u\,dv = u\cdot v - \int v\,du$
 积分函数交换优先级:$e^x>\sin x,\cos x>x>x^2>x^3$
+# 定积分
+## 定积分的性质
++ $\int_a^af(x)\,dx = 0$
++ $\int_a^bf(x)\,dx = -\int_b^af(x)\,dx$
++ $\int_a^b \left(\alpha f(x)+\beta g(x)\right)\,dx = \alpha\int_a^bf(x)\,dx + \beta\int_a^bg(x)\,dx\qquad(\alpha 和\beta 均为常数)$
++ $\int_a^bf(x)\,dx = \int_a^cf(x)\,dx + \int_c^bf(x)\,dx$
++ $\left|\int_a^bf(x)\,dx\right|\leqslant \int_a^b\left|f(x)\right|\,dx$ 
++ $若f(x)在[a,b]上连续,则至少\exist \xi \in[a,b] 使\int_a^b f(x)\,dx = f(\xi)\cdot(b-a)$
++ $\int_0^\pi x\cdot f(\sin x)\,dx = \frac{\pi}{2}\int_0^\pi f(\sin x)\,dx$
+## 微积分基本公式
+### 积分求导
+$\left(\int_a^{\varphi(x)}f(t)\,dt\right)' = f\left(\varphi(x)\right)\cdot\varphi'(x)$
+$\left( \int_{g(x)}^{h(x)} f(t) \, dt \right)' = f(h(x)) \cdot h'(x) - f(g(x)) \cdot g'(x)$
+其实这两个公式一样
+### 牛顿莱布尼茨公式
+$若函数f(x)在区间[a, b]上连续,且F(x)是 f(x)的一个原函数,则$
+
+$
+\int_a^b f(x) \, dx = F(x)|_a^b = F(b) - F(a)
+$
