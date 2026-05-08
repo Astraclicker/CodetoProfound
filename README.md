@@ -1,5 +1,6 @@
 # CodetoProfound
 计算机技术学习仓库
+**让手搓再次伟大**
 ## 目前包含
 + Java
 + C/C++
