@@ -3,3 +3,6 @@ cmake_test_1/bin
 
 cmake_test_2/build
 cmake_test_2/bin
+
+cmake_test_3/bin
+cmake_test_3/build
