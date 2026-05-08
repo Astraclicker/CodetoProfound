@@ -222,3 +222,62 @@ $若函数f(x)在区间[a, b]上连续,且F(x)是 f(x)的一个原函数,则$
 $
 \int_a^b f(x) \, dx = F(x)|_a^b = F(b) - F(a)
 $
+## 反常积分
+### 无穷限的反常积分
+若$f(x)在[a,+\infty)上连续$
+$\int_a^{+\infty}f(x)\,dx = \lim\limits_{b\rightarrow+\infty}\int_a^bf(x)\,dx$
+如果极限存在,则$\int_a^{+\infty}f(x)\,dx收敛$
+如果极限不存在,则$\int_a^{+\infty}f(x)\,dx发散$
+### 无界函数的反常积分
+设函数 \(f(x)\) 在 \((a, b]\) 上有定义，且当 \(x \to a^+\) 时 \(f(x)\) 无界（\(a\) 为瑕点），则定义
+
+$
+\int_a^b f(x) \, dx = \lim_{\varepsilon \to 0^+} \int_{a+\varepsilon}^b f(x) \, dx,
+$
+
+若极限存在且有限，则称反常积分**收敛**，否则**发散**。
+
+若瑕点 \(c \in (a, b)\)，需拆分：
+
+$
+\int_a^b f(x) \, dx = \int_a^c f(x) \, dx + \int_c^b f(x) \, dx,
+$
+
+两个极限分别独立存在时原积分收敛。
+## 定积分的应用
+### 求面积
+
+### 求弧长
+#### 参数方程
+$
+弧:\begin{cases} 
+x = \varphi(t) 
+\\
+y = \varphi(t)
+\end{cases}
+\\
+t\in[\alpha ,\beta]
+$
+
+$
+弧长L = \int_\alpha^\beta\sqrt{[\varphi'(t)]^2 + [\mu'(t)]^2}\,dt
+$
+#### 直角坐标
+$
+y  = f(x) ,x\in[a.b]
+//
+弧长L =\int_a^b\sqrt{(f'(x))^2+1}
+$
+#### 极坐标
+$
+弧:\begin{cases} 
+x = \varphi(\theta) \cdot\cos \theta
+\\
+y = \mu(\theta)\cdot\sin \theta
+\end{cases}
+\\
+\theta\in[\alpha ,\beta]
+$
+$
+弧长 L = \int_\alpha^\beta\sqrt{\varphi^2(\theta) +[\mu'(\theta)]^2}
+$
