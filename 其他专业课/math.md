@@ -281,3 +281,72 @@ $
 $
 弧长 L = \int_\alpha^\beta\sqrt{\varphi^2(\theta) +[\mu'(\theta)]^2}
 $
+# 微分方程
+**微分方程**:含函数的导数或微分的方程
+**微分方程的阶数**:未知函数的导数的最高阶数
+## 可分离变量的微分方程
++ 将x和y分别放在等号两边
++ 对两边同时求不定积分
+## 齐次方程
+$\frac{dy}{dx} = g\left(\frac{y}{x}\right)\Rightarrow\frac{y}{x}整体出现$
+
++ ①设$\frac{y}{x} = u$
++ ②$y = x\cdot u $
++ ③$\frac{dy}{dx} = u+x\cdot \frac{du}{dx}$
+$\frac{dy}{dx} = g\left(\frac{y}{x}\right)\Rightarrow u+x\cdot \frac{du}{dx} = g(u)\Rightarrow 可分离变量的微分方程$
+## 一阶线性微分方程
+**未知函数满足线性关系即为线性微分方程**
+$\frac{dy}{dx} + P(x)y = Q(x)
+\\
+\,\uparrow \qquad\,\,\,\,\,\,\,\,\,\,\uparrow
+\\
+\,y'\qquad  \,\,\,\,\,\,\,\,y
+$
++ **$Q(x) = 0 $**
+  一阶齐次线性方程
+  + 1:分离x与y,写在等号两边
+  + 2:两边求积分
++ **$Q(x)\not = 0$** 
+   一阶非齐次线性微分方程
+  + ①化成标准形式$y'+P(x)y = Q(x)0$
+  + ②$y=e^{-\int P(x)\,dx}\cdot \left(\int Q(x)\cdot e^{\int P(x)\, dx}\,dx +c\right)$
+## 伯努利方程
+$y'+P(x)y = Q(x)\cdot y^n$
++ ① 两边除以$y^n$
+  $y^{-n}\cdot y'+P(x)y^{1-n} = Q(x)$
++ ② 转化
+    $y^{-n}\cdot \frac{dy}{dx}+P(x)y^{1-n} = Q(x)$
+    $\frac{1}{1-n}\cdot\frac{dy^{1-n}}{dx}+P(x)y^{1-n} = Q(x)$
++ ③ 令$z = y^{1-n}$
+  $z'+(1-n)P(x)\cdot z = (1-n)Q(x)$
+## 可降阶的高阶微分方程
+**(1) $y^{(n)} = f(x)$**
+两边求n阶导
+**(2)$y^{(n)} = f\left(x,y^{(n-1)}\right)$**
+①令$u = y^{(n-1)} \Rightarrow u' = y^{(n)}$
+②求解微分方程
+**(3)$y'' = f(y,y')$**
+①令$y' = p \Rightarrow y'' = p\cdot \frac{dp}{dy}$
+②$p\cdot \frac{dp}{dy} = f(y,y')$
+③求解
+## 二阶常系数线性微分方程
+**标准形式:$y''+py'+qy = f(x)$**
+### 二阶常系数齐次线性微分方程($f(x) = 0$)
+①$y''\rightarrow r^2,y'\rightarrow r,y\rightarrow 1$
+$特征方程:r^2+pr+q = 0$
+②求解$r_1,r_2$
+$$
+\begin{cases}
+  r_1 \not =r_2 \rightarrow \qquad y_1 = e^{r_1x},y_2 = e^{r_2x}
+  \\
+  r_1 = r_2 \rightarrow \qquad y_1 = e^{r_1x},y_2 = xe^{r_1x},
+  \\
+  两个共轭复根\rightarrow\qquad y_1 = e^{\alpha x}\cos\beta x,y_2 = e^{\alpha x}\sin \beta x \qquad(r= \alpha \pm\beta i)
+\end{cases}
+\\
+y = c_1y_1+c_2y_2
+$$
+### 二阶常系数齐次线性微分方程($f(x)\not = 0$)
+①设$\overline{y}$为$y''+py'+qy = 0的通解$
+  $y^*$为$y''+py'+qy = f(x)$的一个特解
+②$y''+py'+qy = f(x)$的通解为$y = \overline{y}+y^*$
