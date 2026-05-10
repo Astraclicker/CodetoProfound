@@ -264,7 +264,25 @@ $
 两个极限分别独立存在时原积分收敛。
 ## 定积分的应用
 ### 求面积
+#### 直角坐标
+**X 型(y关于x的方程$y = f(x)$)**
+![alt text](../img/PixPin_2026-05-10_14-18-44.png)
+$S_{阴影} =\int_a^b\left(f(x)-g(x)\right)\,dx$
+**y型(x关于y的方程$x=g(y)$)**
+![alt text](../img/PixPin_2026-05-10_14-58-02.png)
+$S_{阴影} = \int_c^d\left(\varphi(y)-g(y)\right)\,dy$
 
+#### 极坐标
+$\rho = \rho(\theta)\qquad \theta\in[\alpha,\beta]$
+$S = \int_\alpha^\beta\frac{1}{2}\rho^2(\theta)\,d\theta$
+### 求旋转体的体积
+$y = f(x)\qquad x\in[\alpha,\beta]$
+![alt text](../img/PixPin_2026-05-10_15-15-06.png)
+$V = \int_\alpha^\beta\pi f^2(x)\,dx$
+****
+$y_1 = f_1(x) \qquad y_2 = f_2(x)\qquad x\in[\alpha,\beta]$
+![alt text](../img/PixPin_2026-05-10_15-19-55.png)
+$V =\pi \int_\alpha^\beta \left(f_1^2(x)-f_2^2(x)\right)\,dx$
 ### 求弧长
 #### 参数方程
 $
