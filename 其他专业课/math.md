@@ -528,11 +528,187 @@ $
 
 ## 求偏导数法则
 
-**对x求偏导**: 将y看作常数,对x求导
-**对y求偏导**: 将x看作常数,对y求导
+**对 x 求偏导**: 将 y 看作常数, 对 x 求导
+**对 y 求偏导**: 将 x 看作常数, 对 y 求导
 
 ## 高阶偏导数
 
-+ 对x的二阶偏导:$f_{xx}(x,y) = \frac{\partial}{\partial x}\left(\frac{\partial f}{\partial x}\right)$
-+ 混合偏导:$f_{xy} (x,y) = \frac{\partial}{\partial y}\left(\frac{\partial f}{\partial x}\right)$$
-**二阶混合偏导数若连续,则必相等**
++ 对 x 的二阶偏导: $f_{xx}(x,y) = \frac{\partial}{\partial x}\left(\frac{\partial f}{\partial x}\right)$
++ 混合偏导: $f_{xy} (x,y) = \frac{\partial}{\partial y}\left(\frac{\partial f}{\partial x}\right)$$
+**二阶混合偏导数若连续, 则必相等**
+
+# 全微分
+
+**偏增量**
+$f(x+\Delta x,y) - f(x+y) \approx f_x(x,y)\Delta x$
+$f(x,y+\Delta y) - f(x+y) \approx f_y(x,y)\Delta y$
+其中, 约等号左边为 **偏增量**, 右边为 **偏微分**
+**全增量**
+$\Delta z  = f(x + \Delta x,y+ \Delta y) -f(x,y)$
+$\Delta z =f_x(x,y)\Delta x +f_y(x,y)\Delta y + o(\rho) \qquad 若满足\rho = \sqrt{(\Delta x)^2+(\Delta y)^2}则z = f(x,y)可微分$
+
+其中 **全微分**: $dz = f_x(x,y)\Delta x +f_y(x,y)\Delta y$
+
++ 若二元函数可偏导, 这个二元函数不一定连续
++ 若二元函数可微分, 这个二元函数连续
++ 若二元函数的偏导存在且连续, 则其可微分
++ 若二元函数可微分, 则其偏导必存在, 且 $d z =f_x(x,y)d x +f_y(x,y)d y $
+
+# 多元函数的求导法则
+
+## 关于单变量
+
+$$
+z = f(u, v) \qquad
+\begin{cases}
+u = \varphi (t)
+\\
+v = \mu(t)
+\end{cases}
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\frac{dz}{dt} = \frac{\partial z}{\partial u}\cdot \frac{du}{dt}+\frac{\partial z}{\partial v}\cdot \frac{dv}{dt}
+$$
+## 关于多变量
+$$
+z = f(u, v) \qquad
+\begin{cases}
+u = \varphi (x, y)
+\\
+v = \mu(x, y)
+\end{cases}
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\begin{cases}
+\frac{\partial z}{\partial x} = \frac{\partial z}{\partial u}\cdot \frac{\partial u}{\partial x} + \frac{\partial z}{\partial v}\cdot \frac{\partial v}{\partial x}
+\\
+\frac{\partial z}{\partial y} = \frac{\partial z}{\partial u}\cdot \frac{\partial u}{\partial y} + \frac{\partial z}{\partial v}\cdot \frac{\partial v}{\partial y}
+\end{cases}
+$$
+
+## 部分关于多变量
+$$
+z = f(u, v) \qquad
+\begin{cases}
+u = \varphi (x, y)
+\\
+v = \mu(y)
+\end{cases}
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\begin{cases}
+\frac{\partial z}{\partial x} = \frac{\partial z}{\partial u}\cdot \frac{\partial u}{\partial x}
+\\
+\frac{\partial z}{\partial y} = \frac{\partial z}{\partial u}\cdot \frac{\partial u}{\partial y} + \frac{\partial z}{\partial v}\cdot \frac{d v}{d y}
+\end{cases}
+$$
+
+**一元函数: 求导, 多元函数: 求偏导**
+
+# 全微分形式不变性
+$$
+z = f(u, v) \qquad dz =\frac{\partial z}{\partial u}du+ \frac{\partial z}{\partial v}dv
+$$
+
+# 隐函数求导法则
+
+## 一元函数隐函数求导
+1: 直接进行隐函数求导即可
+2:
+$
+若 F(x, y)是关于 x, y 的二元函数 \qquad 且 F(x, y) = 0
+$
+
+$\frac{dy}{dx} = -\frac{F_x(x,y)}{F_y(x,y)}$
+## 多元函数隐函数求导
+### 常规多元函数
+$F(x,y,z) = 0$
+$\frac{\partial z}{\partial x} = \frac{F_x(x,y,z)}{F_z(x,y,z)}$
+$\frac{\partial z}{\partial y} = \frac{F_y(x,y,z)}{F_z(x,y,z)}$
+
+### 多元函数方程组
+$
+\begin{cases}
+  xu-yv = 0
+  \\
+  yu+xv = 0
+\end{cases}
+\qquad
+\begin{cases}
+u = \varphi(x, y) 
+\\
+v = \mu(x, y)
+\end{cases}
+$
+两边同时对 x 求偏导
+$
+\begin{cases}
+u+xu_x-yv_x = 0
+\\
+yu_x+v+xv_x = 0
+\end{cases}
+$
+$
+\qquad\Downarrow
+$
+
+$
+\begin{cases}
+xu_x-yv_x =-u
+\\
+yu_x+xv_x = -v
+\end{cases}
+\Rightarrow
+\begin{cases}
+u_x = \frac {\left|\begin{array} {c}-u&-y \\ -v&x\end{array}\right|}{\left|\begin{array}{c}x & -y \\ y & x\end{array}\right|}
+\\
+v_x = \frac {\left|\begin{array} {c}x&-u \\ y&-v\end{array}\right|}{\left|\begin{array}{c}x & -y \\ y & x\end{array}\right|}
+\end{cases}
+$
+
+# 一元向量值函数及其导数
+
+## 一元向量值函数
+### 由曲线确定的向量
+$曲线:\begin{cases}
+  x = \varphi (t)
+  \\
+  y = \mu(t)
+  \\
+  z = \omega(t)
+\end{cases}$
+$则向量 :\vec{f(t)} = \left(\varphi(t),\mu(t),\omega(t)\right)$
+### 向量极限
+$\lim\limits_{t \rightarrow t_0}\vec{f(t)} = \left(\lim\limits_{t \rightarrow t_0}f_1(t),\lim\limits_{t \rightarrow t_0}f_2(t),\lim\limits_{t \rightarrow t_0}f_3(t)\right)$
+
+# 空间曲线的切线与法平面
+
+$设空间曲线:\vec{f(x)} = \left(\varphi (t), \mu (t),\omega(t) \right)$
+$切向量 : \vec{T} = \vec{f'(x)} = \left(\varphi' (t), \mu '(t),\omega'(t) \right)$
+
+## 空间曲线的切线
+点向式 : $\frac{x-x_0}{\varphi' (t)} = \frac{y-y_0}{\mu '(t)} = \frac{z-z_0}{\omega'(t)}$
+## 空间曲线的法平面
+点法式: $\varphi' (t)\cdot(x-x_0) + \mu '(t)\cdot(y-y_0)+\omega'(t)\cdot(z-z_0)$
+# 空间曲面的切平面与法线
+设空间曲面F(x,y,z) = 0
+$\vec{n} = \left(F_x(x_0,y_0,z_0),F_y(x_0,y_0,z_0),F_z(x_0,y_0,z_0)\right)$
+### 空间曲面的切平面
+点法式:$F_x(x_0,y_0,z_0)(x-x_0) + F_y(x_0,y_0,z_0)(y-y_0) + F_z(x_0,y_0,z_0)(z-z_0) = 0$
+### 空间曲面的法显
+点向式: $\frac{x-x_0}{F_x(x_0,y_0,z_0)} = \frac{y-y_0}{F_y(x_0,y_0,z_0)} = \frac{z-z_0}{F_z(x_0,y_0,z_0)}$
