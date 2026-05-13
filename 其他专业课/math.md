@@ -211,11 +211,13 @@ $$
 
 ### 跳跃间断点
 
-$f(x) =\begin{cases}
+$$
+f(x) =\begin{cases}
     x-1(x < 0)\\
     0(x = 0)\\
     x+1(x > 0)
-\end{cases} $
+\end{cases}
+$$
 ![alt text](../img/jump.jpg)
 
   **间断点**
@@ -259,9 +261,9 @@ $(1+x)^\alpha = 1 + \alpha x + \frac{\alpha(\alpha-1)}{2!}x^2 + \cdots + \frac{\
 + 在开区间 $(a,b)$ 内可导。
 
 则至少存在一点 $\xi \in (a,b)$，使得
-$ f'(\xi) = \frac{f(b) - f(a)}{b - a} $
+$f'(\xi) = \frac{f(b) - f(a)}{b - a}$
 或等价地
-$ f(b) - f(a) = f'(\xi)(b - a) $
+$f(b) - f(a) = f'(\xi)(b - a)$
 
 #### 柯西中值定理
 
@@ -272,7 +274,7 @@ $ f(b) - f(a) = f'(\xi)(b - a) $
 + $g'(x) \neq 0$（或至少 $g'(x)$ 与 $f'(x)$ 不同时为零）。
 
 则至少存在一点 $\xi \in (a,b)$，使得
-$ \frac{f(b) - f(a)}{g(b) - g(a)} = \frac{f'(\xi)}{g'(\xi)} $
+$\frac{f(b) - f(a)}{g(b) - g(a)} = \frac{f'(\xi)}{g'(\xi)}$
 
 # 不定定积分
 
@@ -302,7 +304,7 @@ $\int u\,dv = u\cdot v - \int v\,du$
 + $\int_a^b \left(\alpha f(x)+\beta g(x)\right)\,dx = \alpha\int_a^bf(x)\,dx + \beta\int_a^bg(x)\,dx\qquad(\alpha 和\beta 均为常数)$
 + $\int_a^bf(x)\,dx = \int_a^cf(x)\,dx + \int_c^bf(x)\,dx$
 + $\left|\int_a^bf(x)\,dx\right|\leqslant \int_a^b\left|f(x)\right|\,dx$
-+ $若f(x)在[a,b]上连续,则至少\exist \xi \in[a,b] 使\int_a^b f(x)\,dx = f(\xi)\cdot(b-a)$
++ $若f(x)在[a,b]上连续,则至少 \exist  \xi \in[a,b] 使\int_a^b f(x)\,dx = f(\xi)\cdot(b-a)$
 + $\int_0^\pi x\cdot f(\sin x)\,dx = \frac{\pi}{2}\int_0^\pi f(\sin x)\,dx$
 
 ## 微积分基本公式
@@ -317,9 +319,7 @@ $\left( \int_{g(x)}^{h(x)} f(t) \, dt \right)' = f(h(x)) \cdot h'(x) - f(g(x)) \
 
 $若函数f(x)在区间[a, b]上连续,且F(x)是 f(x)的一个原函数,则$
 
-$
-\int_a^b f(x) \, dx = F(x)|_a^b = F(b) - F(a)
-$
+$\int_a^b f(x) \, dx = F(x)|_a^b = F(b) - F(a)$
 
 ## 反常积分
 
@@ -334,17 +334,13 @@ $\int_a^{+\infty}f(x)\,dx = \lim\limits_{b\rightarrow+\infty}\int_a^bf(x)\,dx$
 
 设函数 \(f(x)\) 在 \((a, b]\) 上有定义，且当 \(x \to a^+\) 时 \(f(x)\) 无界（\(a\) 为瑕点），则定义
 
-$
-\int_a^b f(x) \, dx = \lim_{\varepsilon \to 0^+} \int_{a+\varepsilon}^b f(x) \, dx,
-$
+$\int_a^b f(x) \, dx = \lim_{\varepsilon \to 0^+} \int_{a+\varepsilon}^b f(x) \, dx,$
 
 若极限存在且有限，则称反常积分 **收敛**，否则 **发散**。
 
 若瑕点 \(c \in (a, b)\)，需拆分：
 
-$
-\int_a^b f(x) \, dx = \int_a^c f(x) \, dx + \int_c^b f(x) \, dx,
-$
+$\int_a^b f(x) \, dx = \int_a^c f(x) \, dx + \int_c^b f(x) \, dx,$
 
 两个极限分别独立存在时原积分收敛。
 
@@ -380,7 +376,7 @@ $V =\pi \int_\alpha^\beta \left(f_1^2(x)-f_2^2(x)\right)\,dx$
 
 #### 参数方程
 
-$
+$$
 弧:\begin{cases}
 x = \varphi(t)
 \\
@@ -388,7 +384,7 @@ y = \varphi(t)
 \end{cases}
 \\
 t\in [\alpha ,\beta]
-$
+$$
 
 $
 弧长 L = \int_\alpha^\beta\sqrt{[\varphi'(t)]^2 + [\mu'(t)]^2}\, dt
@@ -396,15 +392,16 @@ $
 
 #### 直角坐标
 
-$
+$$
 y  = f(x) , x\in [a.b]
-//
+$$
+$$
 弧长 L =\int_a^b\sqrt{(f'(x))^2+1}
-$
+$$
 
 #### 极坐标
 
-$
+$$
 弧:\begin{cases}
 x = \varphi(\theta) \cdot\cos \theta
 \\
@@ -412,10 +409,10 @@ y = \mu(\theta)\cdot\sin \theta
 \end{cases}
 \\
 \theta\in [\alpha ,\beta]
-$
-$
+$$
+$$
 弧长 L = \int_\alpha^\beta\sqrt{\varphi^2(\theta) +[\mu'(\theta)]^2}
-$
+$$
 
 # 微分方程
 
@@ -439,14 +436,15 @@ $\frac{dy}{dx} = g\left(\frac{y}{x}\right)\Rightarrow u+x\cdot \frac{du}{dx} = g
 ## 一阶线性微分方程
 
 **未知函数满足线性关系即为线性微分方程**
-$\frac{dy}{dx} + P(x)y = Q(x)
+$$
+\frac{dy}{dx} + P(x)y = Q(x)
 \\
 \,\uparrow \qquad\,\,\,\,\,\,\,\,\,\,\uparrow
 \\
 \, y'\qquad  \,\,\,\,\,\,\,\, y
-$
+$$
 
-+ **$Q(x) = 0 $**
++ **$Q(x) = 0$**
   一阶齐次线性方程
   + 1: 分离 x 与 y, 写在等号两边
   + 2: 两边求积分
@@ -489,7 +487,7 @@ $y'+P(x)y = Q(x)\cdot y^n$
 $特征方程:r^2+pr+q = 0$
 ② 求解 $r_1,r_2$
 
-$
+$$
 \begin{cases}
   r_1 \not = r_2 \rightarrow \qquad y_1 = e^{r_1x}, y_2 = e^{r_2x}
   \\
@@ -499,7 +497,7 @@ $
 \end{cases}
 \\
 y = c_1y_1+c_2y_2
-$
+$$
 
 ### 二阶常系数齐次线性微分方程($f(x)\not = 0$)
 
@@ -629,10 +627,8 @@ $$
 
 ## 一元函数隐函数求导
 1: 直接进行隐函数求导即可
-2:
-$
-若 F(x, y)是关于 x, y 的二元函数 \qquad 且 F(x, y) = 0
-$
+
+2:$若 F(x, y)是关于 x, y 的二元函数 \qquad 且 F(x, y) = 0$
 
 $\frac{dy}{dx} = -\frac{F_x(x,y)}{F_y(x,y)}$
 ## 多元函数隐函数求导
@@ -642,7 +638,7 @@ $\frac{\partial z}{\partial x} = \frac{F_x(x,y,z)}{F_z(x,y,z)}$
 $\frac{\partial z}{\partial y} = \frac{F_y(x,y,z)}{F_z(x,y,z)}$
 
 ### 多元函数方程组
-$
+$$
 \begin{cases}
   xu-yv = 0
   \\
@@ -654,20 +650,20 @@ u = \varphi(x, y)
 \\
 v = \mu(x, y)
 \end{cases}
-$
+$$
 两边同时对 x 求偏导
-$
+$$
 \begin{cases}
 u+xu_x-yv_x = 0
 \\
 yu_x+v+xv_x = 0
 \end{cases}
-$
-$
+$$
+$$
 \qquad\Downarrow
-$
+$$
 
-$
+$$
 \begin{cases}
 xu_x-yv_x =-u
 \\
@@ -679,7 +675,7 @@ u_x = \frac {\left|\begin{array} {c}-u&-y \\ -v&x\end{array}\right|}{\left|\begi
 \\
 v_x = \frac {\left|\begin{array} {c}x&-u \\ y&-v\end{array}\right|}{\left|\begin{array}{c}x & -y \\ y & x\end{array}\right|}
 \end{cases}
-$
+$$
 
 # 一元向量值函数及其导数
 
