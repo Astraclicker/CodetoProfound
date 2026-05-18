@@ -429,7 +429,7 @@ $$
 $\frac{dy}{dx} = g\left(\frac{y}{x}\right)\Rightarrow\frac{y}{x}整体出现$
 
 + ① 设 $\frac{y}{x} = u$
-+ ② $y = x\cdot u $
++ ② $y = x\cdot u$
 + ③ $\frac{dy}{dx} = u+x\cdot \frac{du}{dx}$
 $\frac{dy}{dx} = g\left(\frac{y}{x}\right)\Rightarrow u+x\cdot \frac{du}{dx} = g(u)\Rightarrow 可分离变量的微分方程$
 
@@ -438,10 +438,6 @@ $\frac{dy}{dx} = g\left(\frac{y}{x}\right)\Rightarrow u+x\cdot \frac{du}{dx} = g
 **未知函数满足线性关系即为线性微分方程**
 $$
 \frac{dy}{dx} + P(x)y = Q(x)
-\\
-\,\uparrow \qquad\,\,\,\,\,\,\,\,\,\,\uparrow
-\\
-\, y'\qquad  \,\,\,\,\,\,\,\, y
 $$
 
 + **$Q(x) = 0$**
@@ -550,7 +546,7 @@ $\Delta z =f_x(x,y)\Delta x +f_y(x,y)\Delta y + o(\rho) \qquad 若满足\rho = \
 + 若二元函数可偏导, 这个二元函数不一定连续
 + 若二元函数可微分, 这个二元函数连续
 + 若二元函数的偏导存在且连续, 则其可微分
-+ 若二元函数可微分, 则其偏导必存在, 且 $d z =f_x(x,y)d x +f_y(x,y)d y $
++ 若二元函数可微分, 则其偏导必存在, 且 $d z =f_x(x,y)d x +f_y(x,y)d y$
 
 # 多元函数的求导法则
 
@@ -681,13 +677,13 @@ $$
 
 ## 一元向量值函数
 ### 由曲线确定的向量
-$曲线:\begin{cases}
+$$曲线:\begin{cases}
   x = \varphi (t)
   \\
   y = \mu(t)
   \\
   z = \omega(t)
-\end{cases}$
+\end{cases}$$
 $则向量 :\vec{f(t)} = \left(\varphi(t),\mu(t),\omega(t)\right)$
 ### 向量极限
 $\lim\limits_{t \rightarrow t_0}\vec{f(t)} = \left(\lim\limits_{t \rightarrow t_0}f_1(t),\lim\limits_{t \rightarrow t_0}f_2(t),\lim\limits_{t \rightarrow t_0}f_3(t)\right)$
@@ -706,5 +702,50 @@ $切向量 : \vec{T} = \vec{f'(x)} = \left(\varphi' (t), \mu '(t),\omega'(t) \ri
 $\vec{n} = \left(F_x(x_0,y_0,z_0),F_y(x_0,y_0,z_0),F_z(x_0,y_0,z_0)\right)$
 ### 空间曲面的切平面
 点法式:$F_x(x_0,y_0,z_0)(x-x_0) + F_y(x_0,y_0,z_0)(y-y_0) + F_z(x_0,y_0,z_0)(z-z_0) = 0$
-### 空间曲面的法显
+### 空间曲面的法线
 点向式: $\frac{x-x_0}{F_x(x_0,y_0,z_0)} = \frac{y-y_0}{F_y(x_0,y_0,z_0)} = \frac{z-z_0}{F_z(x_0,y_0,z_0)}$
+# 方向导数与梯度
+## 方向导数
+$\begin{cases}
+  x =x_0+t\cos \alpha
+  \\
+  y = y_0+t \cos \beta
+\end{cases}$
+t为变化前的点和变化后的点之间的距离
+$\frac{\partial f}{\partial l} = \lim\limits_{t\rightarrow0^+}\frac{f(x_0+t\cos \alpha,y_0+t \cos \beta) - f(x_0,y_0)}{t}$
+
+**$定理:f(x,y)在p_0可微分,则沿任意方向l的方向导数存在,且\frac{\partial f}{\partial l}|_{(x_0,y_0)} = f_x(x_0,y_0)\cos \alpha +f_y(x_0,y_0)\cos \beta$**
+## 梯度
+**梯度是一个向量**
+
+$设函数:z=f(x,y) 点p_0(x_0,y_0)在函数上$
+$则函数在p_0处的梯度为 \nabla f(x_0,y_0) = f_x(x_0,y_0)\vec{i}+f_y(x_0,y_0)\vec{j} 即为\left(f_x(x_0,y_0),f_y(x_0,y_0)\right)$
+
+结合方向导数:
+$\frac{\partial f}{\partial l}|_{(x_0,y_0)} = \left(f_x(x_0,y_o),f_y(x_0.y_0)\right)\cdot(\cos \alpha ,\cos \beta)$(注:此为两个向量的数量积)
+$= \left| \nabla f(x_0,y_0)\right| \cdot \cos \theta \qquad \theta 为 梯度与p_0处方向的夹角$ 
++ 梯度方向:在$p_0 点,z=f(x,y) 增加最快的方向$
++ 梯度反方向:在$p_0 点,z=f(x,y) 减少最快的方向$
++ 与梯度成$90^。方向: 函数值变化率为0$
+### 等值线
+$\begin{cases}
+  z=f(x,y)
+  \\
+  z = c
+\end{cases}$
+$等值线 f(x,y) = c 在(x_0,y_0) 处的切线斜率为 k_1 = -\frac{f_x(x_0,y_0)}{f_y(x_0,y_0)}$
+$法线斜率:k_2 =\frac{f_y(x_0,y_0)}{f_x(x_0,y_0)}$
+$则法向量:\vec{n} = \left(f_x(x_0,y_o),f_y(x_0.y_0)\right)\qquad即:法向量\vec{n} =\frac{\nabla f(x_0,y_0)}{\left|\nabla f(x_0,y_0)\right|}$
+$可得出:\frac{\partial f}{\partial n} = |\nabla f(x_0,y_0)|\qquad方向导数=梯度的模$
+# 多元函数的极值
+
+## 必要条件
+$若z=f(x,y) 在点(x_0,y_0)有偏导数,且点(x_0,y_0)可以取到极值,则 f_x(x_0,y_0) = 0,f_y(x_0,y_0) = 0,(x_0,y_0)为驻点$
+## 充分条件
++ ①$令 f_x(x,y) =0\qquad f_y(x,y) =0 求驻点(x_0,y_0)$
++ ②$A=f_{xx}(x_0,y_0), B = f_{xy}(x_0,y_0),C = f_{yy}(x_0,y_0)$
+  + 若$AC-B^2>0,则f(x,y)有极值$
+    + $若A>0,有极小值,极小值为f(x_0,y_0)$
+    + $若A<0,有极大值,极大值为f(x_0,y_0)$
+  + 若$AC-B^2<0,则f(x,y)无极值$
+  + 若$AC-B^2=0,则无法确定$
