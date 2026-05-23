@@ -1,0 +1,3 @@
+[submodule "DataStruct"]
+	path = DataStruct
+	url = https://github.com/Astraclicker/DataStruct.git
