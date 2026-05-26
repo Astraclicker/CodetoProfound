@@ -749,3 +749,146 @@ $若z=f(x,y) 在点(x_0,y_0)有偏导数,且点(x_0,y_0)可以取到极值,则 f
     + $若A<0,有极大值,极大值为f(x_0,y_0)$
   + 若$AC-B^2<0,则f(x,y)无极值$
   + 若$AC-B^2=0,则无法确定$
+
+# 二重积分
+
+## 二重积分的定义与性质
+
+### 定义
+
+设 $f(x,y)$ 是有界闭区域 $D$ 上的有界函数。将 $D$ 任意分成 $n$ 个小闭区域 $\Delta\sigma_1,\Delta\sigma_2,\dots,\Delta\sigma_n$（也用 $\Delta\sigma_i$ 表示其面积），在每个 $\Delta\sigma_i$ 上任取一点 $(\xi_i,\eta_i)$，作乘积 $f(\xi_i,\eta_i)\Delta\sigma_i$ 并求和 $\sum_{i=1}^n f(\xi_i,\eta_i)\Delta\sigma_i$。当各小区域直径的最大值 $\lambda\to0$ 时，若该和的极限存在且与分割及取点无关，则称此极限值为 $f(x,y)$ 在 $D$ 上的二重积分，记作
+
+$$
+\iint_D f(x,y)\,d\sigma = \lim_{\lambda\to0}\sum_{i=1}^n f(\xi_i,\eta_i)\Delta\sigma_i
+$$
+
+其中 $f(x,y)$ 称为**被积函数**，$D$ 称为**积分区域**，$d\sigma$ 称为**面积元素**。
+
+**可积条件：** 若 $f(x,y)$ 在闭区域 $D$ 上连续，则 $f(x,y)$ 在 $D$ 上可积。
+
+**几何意义：** 当 $f(x,y)\geqslant0$ 时，二重积分 $\iint_D f(x,y)\,d\sigma$ 等于以 $D$ 为底、以 $f(x,y)$ 为曲顶的曲顶柱体的体积。
+
+### 性质
+
+1. **线性性质：**
+   $$
+   \iint_D \bigl(\alpha f(x,y)+\beta g(x,y)\bigr)\,d\sigma = \alpha\iint_D f(x,y)\,d\sigma + \beta\iint_D g(x,y)\,d\sigma
+   $$
+
+2. **可加性：** 若 $D = D_1\cup D_2$ 且 $D_1\cap D_2$ 无内点，则
+   $$
+   \iint_D f(x,y)\,d\sigma = \iint_{D_1} f(x,y)\,d\sigma + \iint_{D_2} f(x,y)\,d\sigma
+   $$
+
+3. **保号性：** 若在 $D$ 上 $f(x,y)\geqslant g(x,y)$，则 $\iint_D f(x,y)\,d\sigma \geqslant \iint_D g(x,y)\,d\sigma$
+
+4. **估值不等式：** 设 $M,m$ 分别为 $f(x,y)$ 在 $D$ 上的最大值与最小值，$\sigma$ 为 $D$ 的面积，则
+   $$
+   m\sigma \leqslant \iint_D f(x,y)\,d\sigma \leqslant M\sigma
+   $$
+
+5. **中值定理：** 若 $f(x,y)$ 在闭区域 $D$ 上连续，则至少存在一点 $(\xi,\eta)\in D$，使得
+   $$
+   \iint_D f(x,y)\,d\sigma = f(\xi,\eta)\cdot\sigma
+   $$
+
+## 二重积分 | 直角坐标
+
+直角坐标下面积元素 $d\sigma = dx\,dy$，即
+
+$$
+\iint_D f(x,y)\,d\sigma = \iint_D f(x,y)\,dx\,dy
+$$
+
+### X 型区域
+
+若区域 $D$ 可表示为 $a\leqslant x\leqslant b,\;\varphi_1(x)\leqslant y\leqslant\varphi_2(x)$，则
+
+$$
+\iint_D f(x,y)\,dx\,dy = \int_a^b \left[\int_{\varphi_1(x)}^{\varphi_2(x)} f(x,y)\,dy\right]dx
+$$
+
+**计算步骤：** 先对 $y$ 积分（将 $x$ 视为常数），再对 $x$ 积分。
+
+### Y 型区域
+
+若区域 $D$ 可表示为 $c\leqslant y\leqslant d,\;\psi_1(y)\leqslant x\leqslant\psi_2(y)$，则
+
+$$
+\iint_D f(x,y)\,dx\,dy = \int_c^d \left[\int_{\psi_1(y)}^{\psi_2(y)} f(x,y)\,dx\right]dy
+$$
+
+**计算步骤：** 先对 $x$ 积分（将 $y$ 视为常数），再对 $y$ 积分。
+
+> 若 $D$ 既非 X 型也非 Y 型，可用平行于坐标轴的直线将 $D$ 划分为若干 X 型或 Y 型子区域，利用可加性分别积分后相加。
+
+## 二重积分 | 极坐标
+
+当积分区域为圆域、环域或扇形区域时，通常用极坐标计算更简便。
+
+**坐标变换：**
+$$
+\begin{cases}
+x = r\cos\theta \\[2pt]
+y = r\sin\theta
+\end{cases}
+\qquad (r\geqslant0,\;0\leqslant\theta\leqslant2\pi)
+$$
+
+**面积元素：** $dx\,dy = r\,dr\,d\theta$
+
+$$
+\iint_D f(x,y)\,dx\,dy = \iint_D f(r\cos\theta,\,r\sin\theta)\;r\,dr\,d\theta
+$$
+
+### 极坐标下的积分次序
+
+先对 $r$ 积分（将 $\theta$ 视为常数），再对 $\theta$ 积分。
+
+**常见情形：**
+
+1. 极点位于区域 $D$ 外部（$D$ 由射线 $\theta=\alpha,\theta=\beta$ 与曲线 $r=r_1(\theta),r=r_2(\theta)$ 围成）：
+   $$
+   \iint_D f(r\cos\theta,r\sin\theta)\,r\,dr\,d\theta = \int_\alpha^\beta d\theta \int_{r_1(\theta)}^{r_2(\theta)} f(r\cos\theta,r\sin\theta)\,r\,dr
+   $$
+
+2. 极点位于区域 $D$ 内部边界上（$D$ 由 $\theta=\alpha,\theta=\beta$ 与 $r=r(\theta)$ 围成）：
+   $$
+   \iint_D f(r\cos\theta,r\sin\theta)\,r\,dr\,d\theta = \int_\alpha^\beta d\theta \int_0^{r(\theta)} f(r\cos\theta,r\sin\theta)\,r\,dr
+   $$
+
+3. 极点位于区域 $D$ 内部（$D$ 由曲线 $r=r(\theta)$ 围成）：
+   $$
+   \iint_D f(r\cos\theta,r\sin\theta)\,r\,dr\,d\theta = \int_0^{2\pi} d\theta \int_0^{r(\theta)} f(r\cos\theta,r\sin\theta)\,r\,dr
+   $$
+
+## 二重积分的换元法
+
+设 $f(x,y)$ 在 $xOy$ 平面的闭区域 $D$ 上连续。作变量代换
+
+$$
+\begin{cases}
+x = x(u,v) \\[2pt]
+y = y(u,v)
+\end{cases}
+$$
+
+且满足：
+- $x(u,v),y(u,v)$ 在 $uOv$ 平面的闭区域 $D'$ 上具有一阶连续偏导数；
+- 变换将 $D'$ 一一对应地映射到 $D$；
+- **雅可比行列式** $J(u,v) = \frac{\partial(x,y)}{\partial(u,v)} = \begin{vmatrix} \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\[4pt] \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \end{vmatrix} \neq 0$。
+
+则
+
+$$
+\iint_D f(x,y)\,dx\,dy = \iint_{D'} f\bigl(x(u,v),\,y(u,v)\bigr)\,|J(u,v)|\,du\,dv
+$$
+
+**直角坐标 $\to$ 极坐标即为特例：**
+
+$$
+J(r,\theta) = \begin{vmatrix}\frac{\partial x}{\partial r} & \frac{\partial x}{\partial\theta} \\[4pt] \frac{\partial y}{\partial r} & \frac{\partial y}{\partial\theta}\end{vmatrix}
+= \begin{vmatrix}\cos\theta & -r\sin\theta \\ \sin\theta & r\cos\theta\end{vmatrix} = r
+$$
+
+故 $dx\,dy = r\,dr\,d\theta$，与极坐标公式一致。
