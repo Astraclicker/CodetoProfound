@@ -1382,3 +1382,118 @@ $$
 2. **上三角形分块矩阵：** $\begin{vmatrix} A & B \\ 0 & C \end{vmatrix} = |A| \cdot |C|$
 
 3. **下三角形分块矩阵：** $\begin{vmatrix} A & 0 \\ B & C \end{vmatrix} = |A| \cdot |C|$
+
+### 矩阵的秩
+
+#### 矩阵的子式
+
+在 $m \times n$ 矩阵 $A$ 中，任意选取 $k$ 行 $k$ 列 $(1 \le k \le \min(m, n))$，位于这些行与列交叉处的 $k^2$ 个元素，按原有的相对位置组成的 $k$ 阶行列式，称为 $A$ 的一个 **$k$ 阶子式**。
+
+> 注意：矩阵的子式是一个**行列式**（数值），而非矩阵。
+
+**示例：**
+
+对矩阵 $A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}$：
+
+- 选取第 1、2 行和第 1、2 列，得到 2 阶子式 $\begin{vmatrix} 1 & 2 \\ 4 & 5 \end{vmatrix} = -3$
+- 选取第 1、3 行和第 2、3 列，得到 2 阶子式 $\begin{vmatrix} 2 & 3 \\ 8 & 9 \end{vmatrix} = -6$
+
+#### 矩阵的秩的定义
+
+**定义：** 在 $m \times n$ 矩阵 $A$ 中，非零子式的最高阶数称为 $A$ 的 **秩**，记作 $r(A)$ 或 $\operatorname{rank}(A)$。
+
+$$
+r(A) = \max\{\,k \mid A \text{ 存在 } k \text{ 阶非零子式}\,\}
+$$
+
+- 若 $A$ 的所有 $r+1$ 阶子式（如果存在）都为零，则 $r(A) = r$
+- 规定：**零矩阵的秩为 $0$**，即 $r(0) = 0$
+- 显然，$0 \le r(A) \le \min(m, n)$
+
+**示例：**
+
+1. $A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}$，有 $|A| = 0$（3 阶子式为零），但存在非零 2 阶子式 $\begin{vmatrix} 1 & 2 \\ 4 & 5 \end{vmatrix} = -3 \neq 0$，故 $r(A) = 2$。
+
+2. $B = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}$，有 $|B| = 1 \neq 0$，故 $r(B) = 3$。
+
+#### 满秩矩阵
+
+设 $A$ 为 $m \times n$ 矩阵，$r(A) = r$。
+
+##### 行满秩
+
+若 $r = m$（即秩等于行数），则称 $A$ 为 **行满秩矩阵**。
+
+$$
+r(A) = m \le n
+$$
+
+##### 列满秩
+
+若 $r = n$（即秩等于列数），则称 $A$ 为 **列满秩矩阵**。
+
+$$
+r(A) = n \le m
+$$
+
+##### 满秩
+
+若 $r = \min(m, n)$（即秩达到最大值），则称 $A$ 为 **满秩矩阵**。
+
+##### 降秩
+
+若 $r < \min(m, n)$，则称 $A$ 为 **降秩矩阵**（或 **亏秩矩阵**）。
+
+##### 性质
+
+**对于 $n$ 阶方阵 $A$：**
+
++ $A \text{ 满秩} \iff r(A) = n \iff |A| \neq 0 \iff A \text{ 可逆} \iff A \text{ 非奇异}$
++ $A \text{ 降秩} \iff r(A) < n \iff |A| = 0 \iff A \text{ 不可逆} \iff A \text{ 奇异}$
+
+#### 秩的性质
+
+1. **转置不变性：** $r(A) = r(A^T) = r(A^TA) = r(AA^T)$
+2. **初等变换不改变秩：** 若 $A \cong B$（$A$ 与 $B$ 等价），则 $r(A) = r(B)$
+3. **若A,B为同型矩阵**,$则A \cong B \iff r(A) = r(B)$
+4. **乘以可逆矩阵不改变秩：** 若 $P$、$Q$ 可逆，则 $r(PA) = r(AQ) = r(PAQ) = r(A)$
+5. **与 $k$ 倍的关系：** $r(kA) = r(A)$（$k \neq 0$）
+6. $若A\not ={0},则 A的任意两行(列)元素对应成比例 \iff r(A) = 1$
+7. $若A为行阶梯形矩阵,则r(A)为A中非零行的行数$
+8. **和的秩：** $r(A + B) \le r(A) + r(B)$
+9. **积的秩：**
+   - $r(AB) \le \min\{r(A), r(B)\}$
+   - 若 $A$ 列满秩，则 $r(AB) = r(B)$
+   - 若 $B$ 行满秩，则 $r(AB) = r(A)$
+10. $A,B 同为 m\times n 矩阵,则r(A \pm B) \leq r(A) + r(B)$
+11. **Sylvester 不等式：** $r(A) + r(B) - n \le r(AB) \le \min\{r(A), r(B)\}$（$A$ 为 $m \times n$，$B$ 为 $n \times p$）
+12. $若A为m\times n矩阵,B为n\times s 矩阵,且 AB = 0 ,则 r(A)+r(B) \leq n$
+13. **Frobenius 不等式：** $r(AB) + r(BC) \le r(B) + r(ABC)$
+14. **分块矩阵的秩：**
+   - $r\begin{pmatrix} A & 0 \\ 0 & B \end{pmatrix} = r(A) + r(B)$
+   - $r\begin{pmatrix} A & B \\ C & D \end{pmatrix} \ge r(A) + r(D - CA^{-1}B)$（当 $A$ 可逆时等号成立）
+15. **与伴随矩阵的秩关系：**
+    设 $A$ 为 $n$ 阶方阵，则
+    $$
+    r(A^*) = \begin{cases}
+    n, & r(A) = n \\
+    1, & r(A) = n-1 \\
+    0, & r(A) < n-1
+    \end{cases}
+    $$
+16. **秩的求法：** 通过初等行变换将矩阵化为行阶梯形矩阵，**非零行的行数即为矩阵的秩**。
+
+#### 示例：用初等行变换求秩
+
+求 $A = \begin{pmatrix} 1 & 2 & 3 & 4 \\ 2 & 4 & 6 & 8 \\ 1 & 1 & 1 & 1 \end{pmatrix}$ 的秩。
+
+$$
+\begin{aligned}
+A &= \begin{pmatrix} 1 & 2 & 3 & 4 \\ 2 & 4 & 6 & 8 \\ 1 & 1 & 1 & 1 \end{pmatrix}
+\xrightarrow{r_2 - 2r_1} \begin{pmatrix} 1 & 2 & 3 & 4 \\ 0 & 0 & 0 & 0 \\ 1 & 1 & 1 & 1 \end{pmatrix} \\
+&\xrightarrow{r_3 - r_1} \begin{pmatrix} 1 & 2 & 3 & 4 \\ 0 & 0 & 0 & 0 \\ 0 & -1 & -2 & -3 \end{pmatrix}
+\xrightarrow{r_2 \leftrightarrow r_3} \begin{pmatrix} 1 & 2 & 3 & 4 \\ 0 & -1 & -2 & -3 \\ 0 & 0 & 0 & 0 \end{pmatrix}
+\end{aligned}
+$$
+
+行阶梯形矩阵有 2 个非零行，故 $r(A) = 2$。
