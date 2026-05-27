@@ -965,9 +965,29 @@ $$
 
 **逆矩阵具有唯一性,一个可逆矩阵的逆矩阵有且只有一个**
 
+#### 标准形矩阵
+
+对于任意 $m \times n$ 矩阵 $A$，设 $r(A) = r$，则 $A$ 经过有限次初等行变换和初等列变换，总可以化为如下形式，称为 $A$ 的 **标准形矩阵**（从左上角开始前 $r$ 个主对角元为 $1$，其余元素全为 $0$）：
+
+$$
+\begin{pmatrix}
+1 &        &        &   &   &   \\
+  & \ddots &        &   &   &   \\
+  &        & 1      &   &   &   \\
+  &        &        & 0 &   &   \\
+  &        &        &   & \ddots &   \\
+  &        &        &   &   & 0
+\end{pmatrix}
+$$
+
+- 当 $r = m = n$ 时，标准形即为单位矩阵 $E_n$。
+
 #### 可逆的充要条件
 
-$A$ 可逆 $\iff$ $|A| \neq 0$（$A$ 为非奇异矩阵）
+1. $A$ 可逆 $\iff$ $|A| \neq 0$（$A$ 为非奇异矩阵）
+2. $n$ 阶方阵 $A$ 可逆 $\iff$ $A$ 可以表示为有限个初等矩阵的乘积 $\iff$ $A$ 与单位矩阵等价
+3. $n$ 阶方阵 $A$ 可逆 $\iff$ $A$的标准形矩阵为单位矩阵$E$
+4. $n$ 阶方阵 $A$ 可逆 $\iff$ $A$可以表示成有限个初等矩阵的乘积
 
 #### 逆矩阵公式
 
@@ -1238,29 +1258,6 @@ $$
 3. **初等矩阵的转置矩阵仍为同种类型的初等矩阵**
 4. **矩阵可逆的充要条件：** $n$ 阶方阵 $A$ 可逆 $\iff$ $A$ 可以表示为有限个初等矩阵的乘积 $\iff$ $A$ 与单位矩阵等价
 
-### 矩阵的秩
-
-矩阵 $A$ 中最高阶非零子式的阶数称为 $A$ 的 **秩**，记作 $r(A)$ 或 $\operatorname{rank}(A)$。
-
-**等价定义：** 矩阵 $A$ 的行向量组（或列向量组）的极大无关组所含向量的个数。
-
-**性质：**
-1. $0 \le r(A_{m \times n}) \le \min(m, n)$
-2. $r(A) = r(A^T)$
-3. $r(AB) \le \min(r(A), r(B))$
-4. $r(kA) = r(A)$（$k \neq 0$）
-5. 初等变换不改变矩阵的秩
-
-**示例：**
-$$
-A = \begin{pmatrix}
-1 & 2 & 3 \\
-4 & 5 & 6 \\
-7 & 8 & 9
-\end{pmatrix}
-$$
-$|A| = 0$，但存在 2 阶子式 $\begin{vmatrix} 1 & 2 \\ 4 & 5 \end{vmatrix} = -3 \neq 0$，故 $r(A) = 2$。
-
 ### 分块矩阵
 
 将一个大矩阵用若干条纵、横线分割成若干小块，每个小块看作一个子矩阵（子块），这种以子块为元素的矩阵称为 **分块矩阵**。
@@ -1283,4 +1280,105 @@ $$
 $$
 \begin{vmatrix} A & 0 \\ 0 & B \end{vmatrix} = |A| \cdot |B|
 $$
+#### 特殊分块矩阵
 
+##### 上三角形分块矩阵
+
+形如 $\begin{pmatrix} A & B \\ 0 & C \end{pmatrix}$ 的分块矩阵称为 **上三角形分块矩阵**，其中 $A$、$C$ 为方阵。
+
+当 $A$、$C$ 可逆时，其行列式为 $|A| \cdot |C|$。
+
+##### 下三角形分块矩阵
+
+形如 $\begin{pmatrix} A & 0 \\ B & C \end{pmatrix}$ 的分块矩阵称为 **下三角形分块矩阵**，其中 $A$、$C$ 为方阵。
+
+当 $A$、$C$ 可逆时，其行列式为 $|A| \cdot |C|$。
+
+##### 对角形分块矩阵
+
+形如 $\begin{pmatrix} A_1 & & \\ & \ddots & \\ & & A_n \end{pmatrix}$ 的分块矩阵称为 **对角形分块矩阵**（也称准对角矩阵），其中各 $A_i$ 均为方阵。
+
+#### 分块矩阵的运算
+
+分块矩阵的运算规则与普通矩阵一致，只需将子块视为元素即可，但需保证各子块的维数满足相应条件。
+
+##### 加法
+
+设 $A$、$B$ 为同型矩阵，且按相同方式分块：
+
+$$
+A = \begin{pmatrix} A_{11} & \cdots & A_{1t} \\ \vdots & \ddots & \vdots \\ A_{s1} & \cdots & A_{st} \end{pmatrix},\quad
+B = \begin{pmatrix} B_{11} & \cdots & B_{1t} \\ \vdots & \ddots & \vdots \\ B_{s1} & \cdots & B_{st} \end{pmatrix}
+$$
+
+则 $A + B = \begin{pmatrix} A_{11}+B_{11} & \cdots & A_{1t}+B_{1t} \\ \vdots & \ddots & \vdots \\ A_{s1}+B_{s1} & \cdots & A_{st}+B_{st} \end{pmatrix}$
+
+##### 数乘
+
+$kA = \begin{pmatrix} kA_{11} & \cdots & kA_{1t} \\ \vdots & \ddots & \vdots \\ kA_{s1} & \cdots & kA_{st} \end{pmatrix}$
+
+##### 乘法
+
+设 $A$ 为 $m \times n$ 矩阵，$B$ 为 $n \times p$ 矩阵，按分块条件（$A$ 的列分法与 $B$ 的行分法一致）分块：
+
+$$
+A = \begin{pmatrix} A_{11} & \cdots & A_{1t} \\ \vdots & \ddots & \vdots \\ A_{s1} & \cdots & A_{st} \end{pmatrix},\quad
+B = \begin{pmatrix} B_{11} & \cdots & B_{1r} \\ \vdots & \ddots & \vdots \\ B_{t1} & \cdots & B_{tr} \end{pmatrix}
+$$
+
+则 $C = AB$ 为 $m \times p$ 矩阵，其子块 $C_{ij} = \sum_{k=1}^{t} A_{ik} B_{kj}$。
+
+### 分块矩阵的转置
+
+对分块矩阵 $A = \begin{pmatrix} A_{11} & \cdots & A_{1t} \\ \vdots & \ddots & \vdots \\ A_{s1} & \cdots & A_{st} \end{pmatrix}$，其转置为：
+
+$$
+A^T = \begin{pmatrix} A_{11}^T & \cdots & A_{s1}^T \\ \vdots & \ddots & \vdots \\ A_{1t}^T & \cdots & A_{st}^T \end{pmatrix}
+$$
+
+即先整体转置（行列互换），再对每个子块各自转置。
+
+**特别地：**
+
+- 对角形分块矩阵转置仍为对角形：$\begin{pmatrix} A_1 & & \\ & \ddots & \\ & & A_n \end{pmatrix}^T = \begin{pmatrix} A_1^T & & \\ & \ddots & \\ & & A_n^T \end{pmatrix}$
+- 上三角形分块矩阵转置变为下三角形：$\begin{pmatrix} A & B \\ 0 & C \end{pmatrix}^T = \begin{pmatrix} A^T & 0 \\ B^T & C^T \end{pmatrix}$
+- 下三角形分块矩阵转置变为上三角形：$\begin{pmatrix} A & 0 \\ B & C \end{pmatrix}^T = \begin{pmatrix} A^T & B^T \\ 0 & C^T \end{pmatrix}$
+
+### 分块矩阵的逆矩阵
+
+分块矩阵的逆一般无统一的简单表达式，可通过设未知子块解矩阵方程求得。对于 $2 \times 2$ 分块方阵 $\begin{pmatrix} A & B \\ C & D \end{pmatrix}$，设其逆为 $\begin{pmatrix} X & Y \\ Z & W \end{pmatrix}$， $AX + BZ = E$ 
+
+**特别地，对于特殊分块矩阵，逆矩阵有简洁公式：**
+
+- **对角形分块矩阵**（各 $A_i$ 均可逆）：
+
+$$
+\begin{pmatrix} A_1 & & \\ & \ddots & \\ & & A_n \end{pmatrix}^{-1} = \begin{pmatrix} A_1^{-1} & & \\ & \ddots & \\ & & A_n^{-1} \end{pmatrix}
+$$
+
+- **上三角形分块矩阵**（$A$、$C$ 可逆）：
+
+$$
+\begin{pmatrix} A & B \\ 0 & C \end{pmatrix}^{-1} = \begin{pmatrix} A^{-1} & -A^{-1}BC^{-1} \\ 0 & C^{-1} \end{pmatrix}
+$$
+
+- **下三角形分块矩阵**（$A$、$C$ 可逆）：
+
+$$
+\begin{pmatrix} A & 0 \\ B & C \end{pmatrix}^{-1} = \begin{pmatrix} A^{-1} & 0 \\ -C^{-1}BA^{-1} & C^{-1} \end{pmatrix}
+$$
+
+### 分块方阵的行列式
+
+对于 $2 \times 2$ 分块方阵 $\begin{pmatrix} A & B \\ C & D \end{pmatrix}$，其行列式可通过 **Schur 补** 化为低阶行列式计算：
+
+- 当 $A$ 可逆时，$\begin{vmatrix} A & B \\ C & D \end{vmatrix} = |A| \cdot |D - CA^{-1}B|$
+- 当 $D$ 可逆时，$\begin{vmatrix} A & B \\ C & D \end{vmatrix} = |D| \cdot |A - BD^{-1}C|$
+
+**特别地，对于特殊分块矩阵，行列式可直接计算：**
+
+1. **对角形分块矩阵：** $\begin{vmatrix} A_1 & & \\ & \ddots & \\ & & A_n \end{vmatrix} = |A_1| \cdots |A_n|$
+
+2. **上三角形分块矩阵：** $\begin{vmatrix} A & B \\ 0 & C \end{vmatrix} = |A| \cdot |C|$
+
+3. **下三角形分块矩阵：** $\begin{vmatrix} A & 0 \\ B & C \end{vmatrix} = |A| \cdot |C|$
