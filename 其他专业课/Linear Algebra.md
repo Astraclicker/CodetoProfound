@@ -1497,3 +1497,272 @@ A &= \begin{pmatrix} 1 & 2 & 3 & 4 \\ 2 & 4 & 6 & 8 \\ 1 & 1 & 1 & 1 \end{pmatri
 $$
 
 行阶梯形矩阵有 2 个非零行，故 $r(A) = 2$。
+# 向量
+
+## 向量的概念和线性运算
+
+### **n 维向量**
+
+由 $n$ 个有顺序的数 $a_1, a_2, \dots, a_n$ 组成的数组称为 **$n$ 维向量**，记作：
+
+$$
+\boldsymbol{\alpha} = (a_1, a_2, \dots, a_n) \quad \text{(行向量)} \qquad
+\boldsymbol{\alpha} = \begin{pmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{pmatrix} \quad \text{(列向量)}
+$$
+
+其中 $a_i$ 称为向量的第 $i$ 个分量（$i = 1, 2, \dots, n$）。
+
+- **行向量**：分量横排，$1 \times n$ 矩阵
+- **列向量**：分量竖排，$n \times 1$ 矩阵
+- 通常用希腊字母 $\boldsymbol{\alpha}, \boldsymbol{\beta}, \boldsymbol{\gamma}$ 表示向量
+
+### **常见向量**
+
+- **零向量：** 所有分量均为 $0$ 的向量，记作 $\boldsymbol{0} = (0, 0, \dots, 0)$
+- **负向量：** 向量 $\boldsymbol{\alpha} = (a_1, a_2, \dots, a_n)$ 的负向量为 $-\boldsymbol{\alpha} = (-a_1, -a_2, \dots, -a_n)$
+- **单位向量：** $\boldsymbol{e}_i = (0, \dots, 0, 1, 0, \dots, 0)$，第 $i$ 个分量为 $1$，其余为 $0$
+
+### 向量的转置
+
+- **转置定义：** 将向量的行与列互换。行向量的转置是列向量，列向量的转置是行向量
+- **行向量转列向量：** 若 $\boldsymbol{\alpha} = (a_1, a_2, \dots, a_n)$，则其转置为 $\boldsymbol{\alpha}^T = \begin{pmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{pmatrix}$
+- **列向量转行向量：** 若 $\boldsymbol{\beta} = \begin{pmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{pmatrix}$，则其转置为 $\boldsymbol{\beta}^T = (b_1, b_2, \dots, b_n)$
+- **性质：**
+  1. $(\boldsymbol{\alpha}^T)^T = \boldsymbol{\alpha}$（转置的转置是自身）
+  2. $(\boldsymbol{\alpha} + \boldsymbol{\beta})^T = \boldsymbol{\alpha}^T + \boldsymbol{\beta}^T$（转置对加法保持线性）
+  3. $(k\boldsymbol{\alpha})^T = k\boldsymbol{\alpha}^T$（数乘与转置可交换）
+
+### **向量的线性运算**
+
+#### **向量加法**
+
+设 $\boldsymbol{\alpha} = (a_1, a_2, \dots, a_n)$，$\boldsymbol{\beta} = (b_1, b_2, \dots, b_n)$，则：
+
+$$
+\boldsymbol{\alpha} + \boldsymbol{\beta} = (a_1 + b_1, a_2 + b_2, \dots, a_n + b_n)
+$$
+
+**性质：**
+1. $\boldsymbol{\alpha} + \boldsymbol{\beta} = \boldsymbol{\beta} + \boldsymbol{\alpha}$（交换律）
+2. $(\boldsymbol{\alpha} + \boldsymbol{\beta}) + \boldsymbol{\gamma} = \boldsymbol{\alpha} + (\boldsymbol{\beta} + \boldsymbol{\gamma})$（结合律）
+3. $\boldsymbol{\alpha} + \boldsymbol{0} = \boldsymbol{\alpha}$
+4. $\boldsymbol{\alpha} + (-\boldsymbol{\alpha}) = \boldsymbol{0}$
+
+#### **数乘向量**
+
+设 $k$ 为实数（或复数），$\boldsymbol{\alpha} = (a_1, a_2, \dots, a_n)$，则：
+
+$$
+k\boldsymbol{\alpha} = (ka_1, ka_2, \dots, ka_n)
+$$
+
+**性质：**
+1. $k(l\boldsymbol{\alpha}) = (kl)\boldsymbol{\alpha}$
+2. $(k + l)\boldsymbol{\alpha} = k\boldsymbol{\alpha} + l\boldsymbol{\alpha}$
+3. $k(\boldsymbol{\alpha} + \boldsymbol{\beta}) = k\boldsymbol{\alpha} + k\boldsymbol{\beta}$
+4. $1 \cdot \boldsymbol{\alpha} = \boldsymbol{\alpha}$
+
+#### **向量减法**
+
+$$
+\boldsymbol{\alpha} - \boldsymbol{\beta} = \boldsymbol{\alpha} + (-\boldsymbol{\beta}) = (a_1 - b_1, a_2 - b_2, \dots, a_n - b_n)
+$$
+
+### **示例**
+
+设 $\boldsymbol{\alpha} = (1, -2, 3)$，$\boldsymbol{\beta} = (0, 4, -1)$：
+
+$$
+\boldsymbol{\alpha} + \boldsymbol{\beta} = (1, 2, 2),\quad
+3\boldsymbol{\alpha} = (3, -6, 9),\quad
+2\boldsymbol{\alpha} - \boldsymbol{\beta} = (2, -8, 7)
+$$
+
+## 向量的线性组合与线性表示
+
+### **线性组合**
+
+给定 $m$ 个 $n$ 维向量 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m$ 和 $m$ 个数 $k_1, k_2, \dots, k_m$，则称
+
+$$
+k_1\boldsymbol{\alpha}_1 + k_2\boldsymbol{\alpha}_2 + \cdots + k_m\boldsymbol{\alpha}_m
+$$
+
+为向量组 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m$ 的一个 **线性组合**，$k_1, k_2, \dots, k_m$ 称为 **组合系数**。
+
+### **线性表示**
+
+若向量 $\boldsymbol{\beta}$ 可以表示为向量组 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m$ 的线性组合，即存在数 $k_1, k_2, \dots, k_m$ 使得：
+
+$$
+\boldsymbol{\beta} = k_1\boldsymbol{\alpha}_1 + k_2\boldsymbol{\alpha}_2 + \cdots + k_m\boldsymbol{\alpha}_m
+$$
+
+则称 $\boldsymbol{\beta}$ 可由向量组 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m$ **线性表示**（或 **线性表出**）。
+
+### **线性表示的判定**
+
+向量 $\boldsymbol{\beta}$ 可由 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m$ 线性表示 $\iff$ 方程组 $x_1\boldsymbol{\alpha}_1 + x_2\boldsymbol{\alpha}_2 + \cdots + x_m\boldsymbol{\alpha}_m = \boldsymbol{\beta}$ 有解
+
+用矩阵语言描述：设 $A = (\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m)$，则
+
+$$
+\boldsymbol{\beta} \text{ 可由 } \boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_m \text{ 线性表示} \iff r(A) = r(A, \boldsymbol{\beta})
+$$
+
+即系数矩阵的秩等于增广矩阵的秩。
+
+### **示例**
+
+判断 $\boldsymbol{\beta} = (1, 2, 3)$ 能否由 $\boldsymbol{\alpha}_1 = (1, 0, 1)$，$\boldsymbol{\alpha}_2 = (0, 1, 1)$，$\boldsymbol{\alpha}_3 = (1, 1, 2)$ 线性表示。
+
+解方程组：
+$$
+x_1\begin{pmatrix}1\\0\\1\end{pmatrix} + x_2\begin{pmatrix}0\\1\\1\end{pmatrix} + x_3\begin{pmatrix}1\\1\\2\end{pmatrix} = \begin{pmatrix}1\\2\\3\end{pmatrix}
+$$
+
+得：
+$$
+\begin{cases}
+x_1 + x_3 = 1 \\
+x_2 + x_3 = 2 \\
+x_1 + x_2 + 2x_3 = 3
+\end{cases}
+$$
+
+解得 $x_1 = 1 - t,\; x_2 = 2 - t,\; x_3 = t$（$t$ 为任意常数），故 $\boldsymbol{\beta}$ 可由 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3$ 线性表示。
+
+### **等价向量组**
+
+若向量组 $A$ 中的每个向量都可由向量组 $B$ 线性表示，则称向量组 $A$ 可由向量组 $B$ **线性表示**。
+
+若向量组 $A$ 与向量组 $B$ 可以互相线性表示，则称 $A$ 与 $B$ **等价**。
+
+**性质：**
+1. 反身性：每个向量组与自身等价
+2. 对称性：若 $A$ 与 $B$ 等价，则 $B$ 与 $A$ 等价
+3. 传递性：若 $A$ 与 $B$ 等价，$B$ 与 $C$ 等价，则 $A$ 与 $C$ 等价
+
+## 向量的线性相关性
+
+### **线性相关与线性无关**
+
+#### **线性相关**
+
+设有 $n$ 维向量组 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m$，若存在 **不全为零** 的数 $k_1, k_2, \dots, k_m$ 使得：
+
+$$
+k_1\boldsymbol{\alpha}_1 + k_2\boldsymbol{\alpha}_2 + \cdots + k_m\boldsymbol{\alpha}_m = \boldsymbol{0}
+$$
+
+则称向量组 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m$ **线性相关**。
+
+#### **线性无关**
+
+若只有当 $k_1 = k_2 = \cdots = k_m = 0$ 时，才有
+
+$$
+k_1\boldsymbol{\alpha}_1 + k_2\boldsymbol{\alpha}_2 + \cdots + k_m\boldsymbol{\alpha}_m = \boldsymbol{0}
+$$
+
+则称向量组 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m$ **线性无关**。
+
+### **判定定理**
+
+1. **齐次方程组判定：** 向量组 $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_m$ 线性相关 $\iff$ 齐次线性方程组 $x_1\boldsymbol{\alpha}_1 + \cdots + x_m\boldsymbol{\alpha}_m = \boldsymbol{0}$ 有非零解
+
+2. **秩的判定：** 设 $A = (\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m)$，则
+   - 线性相关 $\iff r(A) < m$
+   - 线性无关 $\iff r(A) = m$
+
+3. **单个向量：** 单个向量 $\boldsymbol{\alpha}$ 线性相关 $\iff \boldsymbol{\alpha} = \boldsymbol{0}$；单个非零向量线性无关
+
+4. **两个向量：** 两个向量线性相关 $\iff$ 对应分量成比例
+
+5. **$n+1$ 个 $n$ 维向量：** 任意 $n+1$ 个 $n$ 维向量必线性相关
+
+6. **方阵判定：** $m$ 个 $m$ 维向量线性相关 $\iff$ 它们构成的行列式 $|\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_m| = 0$
+
+### **重要性质**
+
+1. 若向量组线性相关，则至少有一个向量可由其余向量线性表示
+2. 若向量组线性无关，而添加一个向量后线性相关，则添加的向量可由原向量组唯一线性表示
+3. 若向量组 $I$ 线性无关，且可由向量组 $II$ 线性表示，则 $|I| \le |II|$（向量个数不超过 $II$ 的个数）
+4. 若向量组 $I$ 可由向量组 $II$ 线性表示，且 $|I| > |II|$，则 $I$ 必线性相关
+5. **缩短组与延长组：**
+   - 若向量组线性无关，则其任何部分组也线性无关（**无关组的子组仍无关**）
+   - 若向量组线性相关，则其任何包含它的更大组也线性相关（**相关组的扩组仍相关**）
+   - 若 $n$ 维向量组线性无关，则在每个向量上添加一个分量得到的 $n+1$ 维向量组也线性无关（**无关组延长仍无关**）
+   - 若 $n$ 维向量组线性相关，则删去每个向量的同一分量后得到的 $n-1$ 维向量组也线性相关（**相关组缩短仍相关**）
+
+### **最大无关组**
+
+#### **定义**
+
+设向量组 $A$ 中存在 $r$ 个向量 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_r$ 满足：
+1. $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_r$ 线性无关
+2. $A$ 中任意 $r+1$ 个向量都线性相关（或者说 $A$ 中任一向量都可由这 $r$ 个向量线性表示）
+
+则称 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_r$ 为向量组 $A$ 的一个 **最大线性无关组**（简称 **最大无关组**）。
+
+#### **性质**
+
+1. 向量组的 **最大无关组不唯一**，但每个最大无关组所含向量个数相同
+2. 向量组的秩等于其最大无关组中向量的个数
+3. 向量组 $A$ 与它的任意一个最大无关组等价
+4. 向量组的任意两个最大无关组之间等价
+
+### **向量组的秩**
+
+**定义：** 向量组 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m$ 的最大无关组所含向量的个数称为该向量组的 **秩**，记作 $r(\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m)$。
+
+**性质：**
+1. $0 \le r(\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_m) \le m$
+2. 向量组线性无关 $\iff$ 秩 $= m$；线性相关 $\iff$ 秩 $< m$
+3. 等价向量组有相同的秩
+4. **矩阵的秩 = 行向量组的秩 = 列向量组的秩**
+5. 若向量组 $I$ 可由向量组 $II$ 线性表示，则 $r(I) \le r(II)$
+
+### **示例**
+
+判断向量组 $\boldsymbol{\alpha}_1 = (1, 1, 1)$，$\boldsymbol{\alpha}_2 = (1, 2, 3)$，$\boldsymbol{\alpha}_3 = (1, 3, 6)$ 的线性相关性。
+
+**解法一（秩）：**
+
+$$
+A = \begin{pmatrix}
+1 & 1 & 1 \\
+1 & 2 & 3 \\
+1 & 3 & 6
+\end{pmatrix}
+\xrightarrow{r_2 - r_1}
+\begin{pmatrix}
+1 & 1 & 1 \\
+0 & 1 & 2 \\
+1 & 3 & 6
+\end{pmatrix}
+\xrightarrow{r_3 - r_1}
+\begin{pmatrix}
+1 & 1 & 1 \\
+0 & 1 & 2 \\
+0 & 2 & 5
+\end{pmatrix}
+\xrightarrow{r_3 - 2r_2}
+\begin{pmatrix}
+1 & 1 & 1 \\
+0 & 1 & 2 \\
+0 & 0 & 1
+\end{pmatrix}
+$$
+
+$r(A) = 3 = m$，故向量组线性无关。
+
+**解法二（行列式）：**
+$$
+|\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3| = \begin{vmatrix}
+1 & 1 & 1 \\
+1 & 2 & 3 \\
+1 & 3 & 6
+\end{vmatrix} = 1 \cdot 2 \cdot 6 + 1 \cdot 3 \cdot 1 + 1 \cdot 1 \cdot 3 - 1 \cdot 2 \cdot 1 - 1 \cdot 3 \cdot 1 - 1 \cdot 1 \cdot 6 = 12 + 3 + 3 - 2 - 3 - 6 = 7 \neq 0
+$$
+故向量组线性无关。
