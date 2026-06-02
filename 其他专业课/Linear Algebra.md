@@ -1612,7 +1612,7 @@ $$
 
 即系数矩阵的秩等于增广矩阵的秩。
 
-### **示例**
+**示例**
 
 判断 $\boldsymbol{\beta} = (1, 2, 3)$ 能否由 $\boldsymbol{\alpha}_1 = (1, 0, 1)$，$\boldsymbol{\alpha}_2 = (0, 1, 1)$，$\boldsymbol{\alpha}_3 = (1, 1, 2)$ 线性表示。
 
@@ -1631,6 +1631,9 @@ x_1 + x_2 + 2x_3 = 3
 $$
 
 解得 $x_1 = 1 - t,\; x_2 = 2 - t,\; x_3 = t$（$t$ 为任意常数），故 $\boldsymbol{\beta}$ 可由 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3$ 线性表示。
+
+### 性质
++ $向量组 a_1 ,a_2, \dots,a_n 中任一向量a_i 均可由本向量组线性表示$
 
 ### **等价向量组**
 
@@ -1679,9 +1682,21 @@ $$
 
 4. **两个向量：** 两个向量线性相关 $\iff$ 对应分量成比例
 
-5. **$n+1$ 个 $n$ 维向量：** 任意 $n+1$ 个 $n$ 维向量必线性相关
+5. 如果向量组中有一部分向量(称为部分组)线性相关,则该向量组线性相关
 
-6. **方阵判定：** $m$ 个 $m$ 维向量线性相关 $\iff$ 它们构成的行列式 $|\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_m| = 0$
+6. 如果向量组线性无关.则任一部分也线性无关
+
+7. 含有零向量的向量组必定线性相关,线性无关的向量组必定不含零向量
+
+8. $n维单位坐标向量必定线性无关$
+
+9. $\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_m 线性相关\iff 其中至少有一个向量是其余向量的线性组合$
+
+10. $若向量组\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_m 线性无关,但向量组\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_m,\beta 线性相关,则\beta可由向量组\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_m 线性表示,且表示法唯一$
+
+11. **$n+1$ 个 $n$ 维向量：** 任意 $n+1$ 个 $n$ 维向量必线性相关
+
+12. **方阵判定：** $m$ 个 $m$ 维向量线性相关 $\iff$ 它们构成的行列式 $|\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_m| = 0$
 
 ### **重要性质**
 
@@ -1689,15 +1704,28 @@ $$
 2. 若向量组线性无关，而添加一个向量后线性相关，则添加的向量可由原向量组唯一线性表示
 3. 若向量组 $I$ 线性无关，且可由向量组 $II$ 线性表示，则 $|I| \le |II|$（向量个数不超过 $II$ 的个数）
 4. 若向量组 $I$ 可由向量组 $II$ 线性表示，且 $|I| > |II|$，则 $I$ 必线性相关
-5. **缩短组与延长组：**
+5. $若向量组 I 和II 均线性无关,且I和II可以互相线性表示,则|I| = |II|$
+6. **缩短组与延长组：**
    - 若向量组线性无关，则其任何部分组也线性无关（**无关组的子组仍无关**）
    - 若向量组线性相关，则其任何包含它的更大组也线性相关（**相关组的扩组仍相关**）
    - 若 $n$ 维向量组线性无关，则在每个向量上添加一个分量得到的 $n+1$ 维向量组也线性无关（**无关组延长仍无关**）
    - 若 $n$ 维向量组线性相关，则删去每个向量的同一分量后得到的 $n-1$ 维向量组也线性相关（**相关组缩短仍相关**）
 
-### **最大无关组**
+## **极大线性无关组**
 
-#### **定义**
+### 向量组的等价
+
+**定义：** 设有两个向量组 $A: \boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m$ 和 $B: \boldsymbol{\beta}_1, \boldsymbol{\beta}_2, \dots, \boldsymbol{\beta}_n$，若 $A$ 中每个向量都可由 $B$ 线性表示，且 $B$ 中每个向量也都可由 $A$ 线性表示，则称向量组 $A$ 与 $B$ **等价**。
+
+**性质：**
+1. **反身性：** 向量组与自身等价
+2. **对称性：** 若 $A$ 与 $B$ 等价，则 $B$ 与 $A$ 等价
+3. **传递性：** 若 $A$ 与 $B$ 等价，且 $B$ 与 $C$ 等价，则 $A$ 与 $C$ 等价
+4. 若向量组 $A$ 可由 $B$ 线性表示，则 $r(A) \le r(B)$
+5. 若 $A$ 与 $B$ 等价，则 $r(A) = r(B)$（**等价 $\Rightarrow$ 等秩**，反之不成立）
+6. 一个向量组与其任意一个最大无关组等价
+
+### **定义**
 
 设向量组 $A$ 中存在 $r$ 个向量 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_r$ 满足：
 1. $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_r$ 线性无关
@@ -1705,19 +1733,63 @@ $$
 
 则称 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_r$ 为向量组 $A$ 的一个 **最大线性无关组**（简称 **最大无关组**）。
 
-#### **性质**
+### **性质**
 
 1. 向量组的 **最大无关组不唯一**，但每个最大无关组所含向量个数相同
-2. 向量组的秩等于其最大无关组中向量的个数
-3. 向量组 $A$ 与它的任意一个最大无关组等价
-4. 向量组的任意两个最大无关组之间等价
+2. 若向量组本身线性无关,则其线性极大线性无关组为向量组本身
+3. 向量组的秩等于其最大无关组中向量的个数
+4. 向量组 $A$ 与它的任意一个最大无关组等价
+5. 向量组的任意两个最大无关组之间等价
+6. $若向量组I 可由向量组II线性表示,则向量组I的极大线性无关组可由向量组II的极大线性无关组线性表示$
+7. 等价的向量组,其极大线性无关组也等价
+   
+### 求解极大线性无关组
 
-### **向量组的秩**
+**方法（行简化阶梯形法）：**
+1. 以向量组中各向量为**列**构造矩阵 $A$
+2. 对 $A$ 仅施以**初等行变换**，化为**行最简形（简化行阶梯形）**
+3. 每个**首非零元所在列**对应的原向量构成一个极大无关组
+4. 其余向量由该极大无关组线性表示的系数即为行最简形中对应列的元素
+
+> **例：** 求 $\boldsymbol{\alpha}_1=(1,1,2),\ \boldsymbol{\alpha}_2=(1,2,3),\ \boldsymbol{\alpha}_3=(1,3,4)$ 的一个极大无关组，并将其余向量用该组表示
+>
+> 以各向量为列构造矩阵，并施以行变换化为行最简形：
+> $$
+> \begin{aligned}
+> A &= \begin{pmatrix}
+> 1 & 1 & 1 \\
+> 1 & 2 & 3 \\
+> 2 & 3 & 4
+> \end{pmatrix}
+> \xrightarrow[\substack{r_3-2r_1\\r_2-r_1}]{}
+> \begin{pmatrix}
+> 1 & 1 & 1 \\
+> 0 & 1 & 2 \\
+> 0 & 1 & 2
+> \end{pmatrix}
+> \xrightarrow[r_3-r_2]{}
+> \begin{pmatrix}
+> 1 & 1 & 1 \\
+> 0 & 1 & 2 \\
+> 0 & 0 & 0
+> \end{pmatrix} \\
+> &\xrightarrow[r_1-r_2]{}
+> \begin{pmatrix}
+> 1 & 0 & -1 \\
+> 0 & 1 & 2 \\
+> 0 & 0 & 0
+> \end{pmatrix}
+> \end{aligned}
+> $$
+>
+> 首非零元在第 1、2 列，故 $\boldsymbol{\alpha}_1,\boldsymbol{\alpha}_2$ 为一个极大无关组；第 3 列对应系数为 $(-1, 2)^\mathrm{T}$，即 $\boldsymbol{\alpha}_3 = -\boldsymbol{\alpha}_1 + 2\boldsymbol{\alpha}_2$
+
+## **向量组的秩**
 
 **定义：** 向量组 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m$ 的最大无关组所含向量的个数称为该向量组的 **秩**，记作 $r(\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m)$。
 
 **性质：**
-1. $0 \le r(\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_m) \le m$
+1. $0 \le r(\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_m) \le min(向量维数,向量组包含向量个数)$
 2. 向量组线性无关 $\iff$ 秩 $= m$；线性相关 $\iff$ 秩 $< m$
 3. 等价向量组有相同的秩
 4. **矩阵的秩 = 行向量组的秩 = 列向量组的秩**
