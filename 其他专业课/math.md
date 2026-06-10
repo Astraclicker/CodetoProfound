@@ -862,33 +862,206 @@ $$
    \iint_D f(r\cos\theta,r\sin\theta)\,r\,dr\,d\theta = \int_0^{2\pi} d\theta \int_0^{r(\theta)} f(r\cos\theta,r\sin\theta)\,r\,dr
    $$
 
-## 二重积分的换元法
+## 无界区域上的广义二重积分与积分区域对称性
 
-设 $f(x,y)$ 在 $xOy$ 平面的闭区域 $D$ 上连续。作变量代换
+### 无界区域上的广义二重积分
+
+若积分区域 $D$ 是无界区域（如全平面、半平面、有界区域外部等），则定义广义二重积分为有界子区域上二重积分的极限。
+
+**定义：** 设 $D$ 为无界区域，$f(x,y)$ 在 $D$ 上连续。取一列有界闭区域 $\{D_n\}$ 满足 $D_1\subset D_2\subset\cdots\subset D_n\subset\cdots$ 且 $\bigcup_{n=1}^\infty D_n = D$。若极限
+$$
+\iint_D f(x,y)\,d\sigma = \lim_{n\to\infty}\iint_{D_n} f(x,y)\,d\sigma
+$$
+存在且与 $\{D_n\}$ 的取法无关，则称广义二重积分**收敛**，否则**发散**。
+
+**常用取法：**
+- 全平面：$D_n: x^2+y^2\leqslant R^2$，再令 $R\to+\infty$
+- 无界扇形：$D_n: a\leqslant r\leqslant R,\;\alpha\leqslant\theta\leqslant\beta$，再令 $R\to+\infty$
+- 带形区域：$D_n: a\leqslant x\leqslant b,\;c\leqslant y\leqslant n$，再令 $n\to+\infty$
+
+**例：** 计算 $\iint\limits_{x^2+y^2\leqslant+\infty} e^{-(x^2+y^2)}\,dx\,dy$
 
 $$
+\begin{aligned}
+\iint\limits_{x^2+y^2\leqslant R^2} e^{-(x^2+y^2)}\,dx\,dy
+&= \int_0^{2\pi}d\theta\int_0^R e^{-r^2}\cdot r\,dr \\
+&= 2\pi\cdot\left[-\frac12 e^{-r^2}\right]_0^R = \pi(1-e^{-R^2})
+\end{aligned}
+$$
+
+令 $R\to+\infty$ 得：$\iint_{\mathbb{R}^2} e^{-(x^2+y^2)}\,dx\,dy = \pi$
+
+**常用结论：** $\iint_{\mathbb{R}^2} e^{-(x^2+y^2)}\,dx\,dy = \pi$，由此可推出 $\int_{-\infty}^{+\infty} e^{-x^2}\,dx = \sqrt{\pi}$
+
+### 对称性（奇偶性）
+
+利用积分区域的对称性和被积函数的奇偶性可以简化二重积分计算。
+
+### 积分区域关于x轴对称
+
+若 $D$ 关于 $x$ 轴对称（即 $(x,y)\in D \Rightarrow (x,-y)\in D$），记 $D_1 = D\cap\{y\geqslant0\}$ 为上半部分，则
+
+$$
+\iint_D f(x,y)\,d\sigma = 
 \begin{cases}
-x = x(u,v) \\[2pt]
-y = y(u,v)
+2\displaystyle\iint_{D_1} f(x,y)\,d\sigma, & f(x,-y)=f(x,y)\quad(\text{关于 }y\text{ 为偶}) \\[8pt]
+0, & f(x,-y)=-f(x,y)\quad(\text{关于 }y\text{ 为奇})
 \end{cases}
 $$
 
-且满足：
-- $x(u,v),y(u,v)$ 在 $uOv$ 平面的闭区域 $D'$ 上具有一阶连续偏导数；
-- 变换将 $D'$ 一一对应地映射到 $D$；
-- **雅可比行列式** $J(u,v) = \frac{\partial(x,y)}{\partial(u,v)} = \begin{vmatrix} \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\[4pt] \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \end{vmatrix} \neq 0$。
+**例：** $\iint\limits_{x^2+y^2\leqslant1} y\,dx\,dy$，区域关于 $x$ 轴对称，被积函数 $y$ 关于 $y$ 为奇 $\Rightarrow$ 积分为 $0$。
 
-则
+### 积分区域关于y轴对称
 
-$$
-\iint_D f(x,y)\,dx\,dy = \iint_{D'} f\bigl(x(u,v),\,y(u,v)\bigr)\,|J(u,v)|\,du\,dv
-$$
-
-**直角坐标 $\to$ 极坐标即为特例：**
+若 $D$ 关于 $y$ 轴对称（即 $(x,y)\in D \Rightarrow (-x,y)\in D$），记 $D_2 = D\cap\{x\geqslant0\}$ 为右半部分，则
 
 $$
-J(r,\theta) = \begin{vmatrix}\frac{\partial x}{\partial r} & \frac{\partial x}{\partial\theta} \\[4pt] \frac{\partial y}{\partial r} & \frac{\partial y}{\partial\theta}\end{vmatrix}
-= \begin{vmatrix}\cos\theta & -r\sin\theta \\ \sin\theta & r\cos\theta\end{vmatrix} = r
+\iint_D f(x,y)\,d\sigma = 
+\begin{cases}
+2\displaystyle\iint_{D_2} f(x,y)\,d\sigma, & f(-x,y)=f(x,y)\quad(\text{关于 }x\text{ 为偶}) \\[8pt]
+0, & f(-x,y)=-f(x,y)\quad(\text{关于 }x\text{ 为奇})
+\end{cases}
 $$
 
-故 $dx\,dy = r\,dr\,d\theta$，与极坐标公式一致。
+**例：** $\iint\limits_{x^2+y^2\leqslant1} x\,dx\,dy$，区域关于 $y$ 轴对称，被积函数 $x$ 关于 $x$ 为奇 $\Rightarrow$ 积分为 $0$。
+
+### 积分区域关于原点对称
+
+若 $D$ 关于原点对称（即 $(x,y)\in D \Rightarrow (-x,-y)\in D$），记 $D_3$ 为 $D$ 的任意一半（如 $x\geqslant0$ 部分），则
+
+$$
+\iint_D f(x,y)\,d\sigma = 
+\begin{cases}
+2\displaystyle\iint_{D_3} f(x,y)\,d\sigma, & f(-x,-y)=f(x,y) \\[8pt]
+0, & f(-x,-y)=-f(x,y)
+\end{cases}
+$$
+
+**注意：** 关于原点对称等价于先关于 $x$ 轴对称再关于 $y$ 轴对称的复合。
+
+### 积分区域关于$y=x$对称
+
+若 $D$ 关于直线 $y=x$ 对称（即 $(x,y)\in D \Rightarrow (y,x)\in D$），则
+
+$$
+\iint_D f(x,y)\,d\sigma = \iint_D f(y,x)\,d\sigma
+$$
+
+特别地：
+- 若 $f(x,y)=f(y,x)$（对称函数），则此即为原积分本身，无简化，但可与对称轮换技巧结合使用。
+- **常用技巧：** $\iint_D f(x,y)\,d\sigma = \frac12\iint_D \bigl[f(x,y)+f(y,x)\bigr]\,d\sigma$，可使某些复杂积分简化。
+
+**例：** 计算 $\iint\limits_{0\leqslant x,y\leqslant1} \frac{x^2}{1+x^2+y^2}\,dx\,dy$
+
+由对称性，$\iint_D \frac{x^2}{1+x^2+y^2}\,dx\,dy = \iint_D \frac{y^2}{1+x^2+y^2}\,dx\,dy$，则
+
+$$
+\iint_D \frac{x^2}{1+x^2+y^2}\,dx\,dy = \frac12\iint_D \frac{x^2+y^2}{1+x^2+y^2}\,dx\,dy
+$$
+
+# 三重积分
+
+## 三重积分的定义
+
+设 $f(x,y,z)$ 是空间有界闭区域 $\Omega$ 上的有界函数。将 $\Omega$ 任意分成 $n$ 个小闭区域 $\Delta V_1,\Delta V_2,\dots,\Delta V_n$（也用 $\Delta V_i$ 表示其体积），在每个 $\Delta V_i$ 上任取一点 $(\xi_i,\eta_i,\zeta_i)$，作和 $\sum_{i=1}^n f(\xi_i,\eta_i,\zeta_i)\Delta V_i$。当各小区域直径的最大值 $\lambda\to0$ 时，若该和的极限存在且与分割及取点无关，则称此极限值为 $f(x,y,z)$ 在 $\Omega$ 上的三重积分，记作
+
+$$
+\iiint_\Omega f(x,y,z)\,dV = \lim_{\lambda\to0}\sum_{i=1}^n f(\xi_i,\eta_i,\zeta_i)\Delta V_i
+$$
+
+其中 $dV$ 称为**体积元素**。
+
+**可积条件：** 若 $f(x,y,z)$ 在闭区域 $\Omega$ 上连续，则 $f(x,y,z)$ 在 $\Omega$ 上可积。
+
+## 投影法（先一后二）
+
+将空间区域 $\Omega$ 投影到 $xOy$ 平面，得到投影区域 $D_{xy}$。对 $D_{xy}$ 内任一点 $(x,y)$，过该点作平行于 $z$ 轴的直线穿过 $\Omega$，穿入点为 $z=z_1(x,y)$，穿出点为 $z=z_2(x,y)$，则
+
+$$
+\iiint_\Omega f(x,y,z)\,dV = \iint_{D_{xy}} \left[\int_{z_1(x,y)}^{z_2(x,y)} f(x,y,z)\,dz\right] dx\,dy
+$$
+
+**计算步骤：** 先对 $z$ 积分（将 $x,y$ 视为常数），再对 $x,y$ 作二重积分。
+
+类似地，也可投影到 $xOz$ 平面或 $yOz$ 平面：
+
+- 投影到 $xOz$ 平面：$\displaystyle\iiint_\Omega f(x,y,z)\,dV = \iint_{D_{xz}} \left[\int_{y_1(x,z)}^{y_2(x,z)} f(x,y,z)\,dy\right] dx\,dz$
+- 投影到 $yOz$ 平面：$\displaystyle\iiint_\Omega f(x,y,z)\,dV = \iint_{D_{yz}} \left[\int_{x_1(y,z)}^{x_2(y,z)} f(x,y,z)\,dx\right] dy\,dz$
+
+## 截面法（先二后一）
+
+用平行于 $xOy$ 平面的平面 $z=z$ 截区域 $\Omega$，得到截面区域 $D_z$，$z$ 的取值范围为 $[c,d]$，则
+
+$$
+\iiint_\Omega f(x,y,z)\,dV = \int_c^d \left[\iint_{D_z} f(x,y,z)\,dx\,dy\right] dz
+$$
+
+**计算步骤：** 先对 $x,y$ 作二重积分（将 $z$ 视为常数），再对 $z$ 积分。
+
+类似地，也可沿 $x$ 轴或 $y$ 轴方向截取截面。
+
+> **适用场景：** 当截面 $D_z$ 的面积或截面上的二重积分容易计算时（例如 $D_z$ 为圆、椭圆等规则图形），截面法尤为简便。
+
+## 柱坐标
+
+当积分区域具有柱面对称性（如圆柱、圆锥、旋转抛物面等）时，使用柱坐标计算更简便。
+
+**坐标变换：**
+
+$$
+\begin{cases}
+x = r\cos\theta \\[2pt]
+y = r\sin\theta \\[2pt]
+z = z
+\end{cases}
+\qquad (r\geq0,\;0\leq\theta\leq2\pi,\;z\in\mathbb{R})
+$$
+
+**体积元素：** $dV = r\,dr\,d\theta\,dz$
+
+$$
+\iiint_\Omega f(x,y,z)\,dx\,dy\,dz = \iiint_\Omega f(r\cos\theta,\,r\sin\theta,\,z)\;r\,dr\,d\theta\,dz
+$$
+
+**积分次序：** 一般先对 $z$，再对 $r$，最后对 $\theta$，即
+
+$$
+\iiint_\Omega f(x,y,z)\,dV = \int_\alpha^\beta d\theta \int_{r_1(\theta)}^{r_2(\theta)} r\,dr \int_{z_1(r\cos\theta,r\sin\theta)}^{z_2(r\cos\theta,r\sin\theta)} f(r\cos\theta,r\sin\theta,z)\,dz
+$$
+
+> **记忆要点：** 柱坐标 = 极坐标（$x,y$ 方向）+ 直角坐标（$z$ 方向），多出的 $r$ 来自极坐标的面积元素。
+
+## 球坐标
+
+当积分区域具有球面对称性（如球体、锥体与球面围成的区域等）时，使用球坐标计算最简便。
+
+**坐标变换：**
+
+$$
+\begin{cases}
+x = \rho\sin\varphi\cos\theta \\[2pt]
+y = \rho\sin\varphi\sin\theta \\[2pt]
+z = \rho\cos\varphi
+\end{cases}
+\qquad (\rho\geq0,\;0\leq\varphi\leq\pi,\;0\leq\theta\leq2\pi)
+$$
+
+其中 $\rho$ 为点到原点的距离，$\varphi$ 为与 $z$ 轴正方向的夹角（余纬度角），$\theta$ 为在 $xOy$ 平面上与 $x$ 轴正方向的夹角。
+
+**体积元素：** $dV = \rho^2\sin\varphi\,d\rho\,d\varphi\,d\theta$
+
+$$
+\iiint_\Omega f(x,y,z)\,dx\,dy\,dz = \iiint_\Omega f(\rho\sin\varphi\cos\theta,\rho\sin\varphi\sin\theta,\rho\cos\varphi)\;\rho^2\sin\varphi\,d\rho\,d\varphi\,d\theta
+$$
+
+**积分次序：** 一般先对 $\rho$，再对 $\varphi$，最后对 $\theta$，即
+
+$$
+\iiint_\Omega f(x,y,z)\,dV = \int_\alpha^\beta d\theta \int_{\varphi_1(\theta)}^{\varphi_2(\theta)} \sin\varphi\,d\varphi \int_{\rho_1(\varphi,\theta)}^{\rho_2(\varphi,\theta)} f(\rho\sin\varphi\cos\theta,\rho\sin\varphi\sin\theta,\rho\cos\varphi)\,\rho^2\,d\rho
+$$
+
+> **常见情形：**
+> - 球体 $x^2+y^2+z^2\leqslant R^2$：$\rho\in[0,R],\;\varphi\in[0,\pi],\;\theta\in[0,2\pi]$
+> - 上半球体：$\varphi\in[0,\pi/2]$
+> - 圆锥面 $\varphi=\varphi_0$ 与球面围成的区域：$\varphi\in[0,\varphi_0]$
+                                         
