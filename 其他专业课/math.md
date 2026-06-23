@@ -750,6 +750,38 @@ $若z=f(x,y) 在点(x_0,y_0)有偏导数,且点(x_0,y_0)可以取到极值,则 f
   + 若$AC-B^2<0,则f(x,y)无极值$
   + 若$AC-B^2=0,则无法确定$
 
+### 条件极值与拉格朗日乘数法
+
+求函数 $z = f(x,y)$ 在约束条件 $\varphi(x,y)=0$ 下的极值。
+
+**构造拉格朗日函数：**
+$$
+L(x,y,\lambda) = f(x,y) + \lambda\,\varphi(x,y)
+$$
+
+**求偏导并令其为零：**
+$$
+\begin{cases}
+L_x = f_x(x,y) + \lambda\,\varphi_x(x,y) = 0 \\[2pt]
+L_y = f_y(x,y) + \lambda\,\varphi_y(x,y) = 0 \\[2pt]
+L_\lambda = \varphi(x,y) = 0
+\end{cases}
+$$
+
+解方程组得到可能的极值点 $(x_0,y_0)$ 及对应的 $\lambda$，其中 $\lambda$ 称为**拉格朗日乘数**。
+
+**几何意义：** 在极值点处，目标函数的梯度 $\nabla f$ 与约束条件的梯度 $\nabla\varphi$ 平行，即 $\nabla f = -\lambda\,\nabla\varphi$。
+
+**推广到多元多约束：**
+
+求 $u = f(x_1,x_2,\dots,x_n)$ 在 $m$ 个约束 $g_k(x_1,\dots,x_n)=0\;(k=1,\dots,m)$ 下的极值（$m < n$）：
+
+$$
+L(x_1,\dots,x_n,\lambda_1,\dots,\lambda_m) = f + \sum_{k=1}^m \lambda_k\,g_k
+$$
+
+分别对 $x_i$ 和 $\lambda_k$ 求偏导并令其为零，解 $n+m$ 个方程构成的方程组即可。
+
 # 二重积分
 
 ## 二重积分的定义与性质
