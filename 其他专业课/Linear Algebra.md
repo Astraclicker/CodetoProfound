@@ -1838,3 +1838,408 @@ $$
 \end{vmatrix} = 1 \cdot 2 \cdot 6 + 1 \cdot 3 \cdot 1 + 1 \cdot 1 \cdot 3 - 1 \cdot 2 \cdot 1 - 1 \cdot 3 \cdot 1 - 1 \cdot 1 \cdot 6 = 12 + 3 + 3 - 2 - 3 - 6 = 7 \neq 0
 $$
 故向量组线性无关。
+
+# 线性方程组
+
+## 线性方程组的表示形式及初等变换
+
+**一般形式**
+$$
+\begin{cases}
+a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\
+a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2 \\
+\qquad\vdots \\
+a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n = b_m
+\end{cases}
+$$
+
+**矩阵形式：**
+$$
+\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b}
+$$
+其中 $\boldsymbol{A} = (a_{ij})_{m \times n}$ 为系数矩阵，$\boldsymbol{x} = (x_1, x_2, \dots, x_n)^\mathrm{T}$ 为未知向量，$\boldsymbol{b} = (b_1, b_2, \dots, b_m)^\mathrm{T}$ 为常数向量。
+
+**向量形式：**
+$$
+x_1\boldsymbol{\alpha}_1 + x_2\boldsymbol{\alpha}_2 + \cdots + x_n\boldsymbol{\alpha}_n = \boldsymbol{b}
+$$
+
+其中 $\boldsymbol{\alpha}_j = (a_{1j}, a_{2j}, \dots, a_{mj})^\mathrm{T}$ 为系数矩阵 $\boldsymbol{A}$ 的第 $j$ 列向量。
+
+#### 系数矩阵
+
+系数矩阵仅包含方程组中未知量的系数：
+
+$$
+\boldsymbol{A} = \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{pmatrix}
+$$
+
+系数矩阵的秩 $r(\boldsymbol{A})$ 反映了方程组中独立方程的个数。
+
+#### 增广系数矩阵
+
+将常数项添加到系数矩阵的最后一列，构成增广矩阵：
+
+$$
+\overline{\boldsymbol{A}} = (\boldsymbol{A} \mid \boldsymbol{b}) = \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} & \mid & b_1 \\
+a_{21} & a_{22} & \cdots & a_{2n} & \mid & b_2 \\
+\vdots & \vdots & \ddots & \vdots & \mid & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} & \mid & b_m
+\end{pmatrix}
+$$
+
+**相容性定理（Kronecker-Capelli 定理）：** 线性方程组有解 $\iff r(\boldsymbol{A}) = r(\overline{\boldsymbol{A}})$。
+
+#### 非齐次线性方程组
+
+当 $\boldsymbol{b} \neq \boldsymbol{0}$ 时，称为非齐次线性方程组。
+
+**解的结构：** 非齐次方程组的通解 = 齐次方程组的通解 + 非齐次方程组的一个特解。
+
+$$
+\boldsymbol{x} = \boldsymbol{x}_p + \sum_{i=1}^{n-r} k_i \boldsymbol{\eta}_i
+$$
+
+其中 $\boldsymbol{x}_p$ 为特解，$\boldsymbol{\eta}_i$ 为导出组的基础解系，$k_i$ 为任意常数。
+
+**解的情况：**
+- $r(\boldsymbol{A}) < r(\overline{\boldsymbol{A}})$：无解
+- $r(\boldsymbol{A}) = r(\overline{\boldsymbol{A}}) = n$：唯一解
+- $r(\boldsymbol{A}) = r(\overline{\boldsymbol{A}}) < n$：无穷多解（自由度为 $n - r$）
+
+#### 导出组
+
+非齐次方程组对应的导出组（齐次方程组）：
+
+$$
+\boldsymbol{A}\boldsymbol{x} = \boldsymbol{0}
+$$
+
+即
+$$
+\begin{cases}
+a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = 0 \\
+a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = 0 \\
+\qquad\vdots \\
+a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n = 0
+\end{cases}
+$$
+
+**性质：**
+1. 齐次方程组至少有零解（平凡解）。
+2. 有非零解 $\iff r(\boldsymbol{A}) < n$。
+3. 若 $m < n$（方程数 < 未知数个数），则必有非零解。
+4. 解向量的线性组合仍是解，所有解构成解空间，维数为 $n - r(\boldsymbol{A})$。
+
+#### 初等行变换
+
+对线性方程组的增广矩阵施行以下三种初等行变换，不改变方程组的解：
+
+1. **交换两行**：$r_i \leftrightarrow r_j$
+2. **某行乘以非零常数**：$r_i \leftarrow k r_i \ (k \neq 0)$
+3. **某行加上另一行的倍数**：$r_i \leftarrow r_i + k r_j$
+
+通过初等行变换将增广矩阵化为**行阶梯形**或**行最简形**，即可求解方程组。
+
+## 线性方程组解的判定
+
+对于 $m$ 个方程 $n$ 个未知数的线性方程组 $\boldsymbol{Ax} = \boldsymbol{b}$，记系数矩阵秩 $r = r(\boldsymbol{A})$，增广矩阵秩 $\bar{r} = r(\overline{\boldsymbol{A}})$。
+
+### 非齐次线性方程组 $\boldsymbol{Ax} = \boldsymbol{b}$
+
+| 条件              | 解的情况                       |
+| ----------------- | ------------------------------ |
+| $r < \bar{r}$     | **无解**（矛盾方程组）         |
+| $r = \bar{r} = n$ | **唯一解**                     |
+| $r = \bar{r} < n$ | **无穷多解**，自由度为 $n - r$ |
+
+### 齐次线性方程组 $\boldsymbol{Ax} = \boldsymbol{0}$
+
+| 条件    | 解的情况                               |
+| ------- | -------------------------------------- |
+| $r = n$ | **唯一零解**（只有平凡解）             |
+| $r < n$ | **无穷多非零解**，解空间维数为 $n - r$ |
+
+**性质**
+$齐次线性方程组有非零解 \iff \alpha_1,\alpha_2, \dots, \alpha_n线性相关$
+$齐次线性方程组=只有零解 \iff \alpha_1,\alpha_2, \dots, \alpha_n线性无关$
+### 判定流程
+
+```
+                ┌─────────────────────────┐
+                │  增广矩阵初等行变换       │
+                │  化为行阶梯形             │
+                └────────┬────────────────┘
+                         │
+                         ▼
+                计算 r(A) 和 r(Ā)
+                         │
+                         ├── r(A) ≠ r(Ā) ────→ 无解
+                         │
+                         └── r(A) = r(Ā) = r
+                                     │
+                         ┌───────────┴───────────┐
+                         ▼                       ▼
+                      r = n                   r < n
+                     唯一解                 无穷多解
+```
+
+### 推论
+ + 对于齐次线性方程组,如果方程个数小于未知数个数,则齐次线性方程组必有非零解
+ + 对于线性方程组,若系数矩阵$A$为方阵
+   + 对于齐次线性方程组 $A不可逆\iff |A| = 0\iff r(A)<n\iff Ax=0有非零解$ <br> $A可逆\iff |A| \not= 0\iff r(A)=n\iff Ax=0只有零解$
+   + 对于非齐次线性方程组 $A可逆\iff 有唯一解$ <br> $A不可逆 \iff 无解或无穷多解$
+
+## 线性方程组解的性质与结构
+
+### 线性方程组解的性质
+
+#### 齐次方程组 $\boldsymbol{Ax} = \boldsymbol{0}$ 的解的性质
+
+设 $\boldsymbol{\eta}_1, \boldsymbol{\eta}_2$ 为齐次方程组的解，$k$ 为任意常数。
+
+1. **可加性**：$\boldsymbol{\eta}_1 + \boldsymbol{\eta}_2$ 仍是齐次方程组的解
+2. **齐次性**：$k\boldsymbol{\eta}_1$ 仍是齐次方程组的解
+3. **线性组合**：$k_1\boldsymbol{\eta}_1 + k_2\boldsymbol{\eta}_2$ 仍是齐次方程组的解
+
+> 齐次方程组的解集构成一个**向量空间**（解空间），维数为 $n - r(\boldsymbol{A})$
+
+#### 非齐次方程组 $\boldsymbol{Ax} = \boldsymbol{b}$ 的解的性质
+
+设 $\boldsymbol{x}_1, \boldsymbol{x}_2$ 为非齐次方程组的解，$\boldsymbol{\eta}$ 为导出组 $\boldsymbol{Ax} = \boldsymbol{0}$ 的解。
+
+1. **差为齐次解**：$\boldsymbol{x}_1 - \boldsymbol{x}_2$ 是导出组 $\boldsymbol{Ax} = \boldsymbol{0}$ 的解
+2. **叠加原理**：$\boldsymbol{x}_1 + \boldsymbol{\eta}$ 仍是 $\boldsymbol{Ax} = \boldsymbol{b}$ 的解
+3. **通解结构**：非齐次方程组的**通解** = 齐次方程组的**通解** + 非齐次方程组的**特解**
+
+$$
+\boldsymbol{x} = \boldsymbol{x}^* + \sum_{i=1}^{n-r} k_i \boldsymbol{\eta}_i
+$$
+
+其中 $\boldsymbol{x}^*$ 为一个特解，$\{\boldsymbol{\eta}_1, \boldsymbol{\eta}_2, \dots, \boldsymbol{\eta}_{n-r}\}$ 为导出组的基础解系。
+
+#### 基础解系
+
+对于齐次线性方程组 $\boldsymbol{Ax} = \boldsymbol{0}$（$r = r(\boldsymbol{A})$），其极大线性无关组称为**基础解系**。
+
+**定义：** 若 $\boldsymbol{\eta}_1, \boldsymbol{\eta}_2, \dots, \boldsymbol{\eta}_t$ 满足：
+1. 均为 $\boldsymbol{Ax} = \boldsymbol{0}$ 的解
+2. 线性无关
+3. 任一解均可由它们线性表示
+
+则称 $\{\boldsymbol{\eta}_1, \boldsymbol{\eta}_2, \dots, \boldsymbol{\eta}_t\}$ 为基础解系，且 $t = n - r$。
+
+**求基础解系的步骤：**
+
+1. 对系数矩阵 $\boldsymbol{A}$ 作初等行变换，化为**行最简形**
+2. 确定主元列和自由列，找出 $r$ 个主变量和 $n - r$ 个自由变量
+3. 写出同解方程组
+4. 自由变量依次取标准基 $(1,0,\dots,0), (0,1,\dots,0), \dots, (0,0,\dots,1)$
+5. 回代同解方程组解得对应的主变量值，得到 $n - r$ 个解向量，即为基础解系
+
+**示例：**
+
+$$
+\begin{cases}
+x_1 + x_2 - x_3 + 2x_4 = 0 \\
+2x_1 + 2x_2 - x_3 + 3x_4 = 0 \\
+-x_1 - x_2 + 2x_3 - 3x_4 = 0
+\end{cases}
+\overset{\text{行变换}}{\longrightarrow}
+\begin{pmatrix}
+1 & 1 & 0 & 1 \\
+0 & 0 & 1 & -1 \\
+0 & 0 & 0 & 0
+\end{pmatrix}
+$$
+
+主变量：$x_1, x_3$，自由变量：$x_2, x_4$（$n - r = 4 - 2 = 2$）。
+
+
+$$
+写出同解方程组:
+\begin{cases}
+   x_1 = -x_2-x_4 \\
+   x_3 = x_4
+\end{cases}
+$$
+
+将$(x_2,x_4)^T = (1,0) \qquad (x_2,x_4)^T = (0,1)$分别带入同解方程组
+
+基础解系：$\boldsymbol{\eta}_1 = (-1, 1, 0, 0)^\mathrm{T},\ \boldsymbol{\eta}_2 = (-1, 0, 1, 1)^\mathrm{T}$
+
+通解：$\boldsymbol{x} = k_1\boldsymbol{\eta}_1 + k_2\boldsymbol{\eta}_2$，$k_1, k_2 \in \mathbb{R}$
+
+**性质：**
+- 基础解系不唯一，但所含向量个数 $n - r$ 唯一
+- 解空间中任意 $n - r$ 个线性无关的解向量均可构成基础解系
+- 通解为 $\boldsymbol{x} = \sum_{i=1}^{n-r} k_i \boldsymbol{\eta}_i$
+
+### 线性方程组的结构
+
+#### 齐次方程组 $\boldsymbol{Ax} = \boldsymbol{0}$ 的解结构
+
+齐次方程组的解集构成一个**向量空间**（解空间/零空间），记为 $N(\boldsymbol{A})$。
+
+$$
+N(\boldsymbol{A}) = \{\boldsymbol{x} \mid \boldsymbol{Ax} = \boldsymbol{0}\}
+$$
+
+- $\dim N(\boldsymbol{A}) = n - r(\boldsymbol{A})$
+- 基础解系 $\{\boldsymbol{\eta}_1, \boldsymbol{\eta}_2, \dots, \boldsymbol{\eta}_{n-r}\}$ 是 $N(\boldsymbol{A})$ 的一组基
+- 通解：$\boldsymbol{x} = k_1\boldsymbol{\eta}_1 + k_2\boldsymbol{\eta}_2 + \cdots + k_{n-r}\boldsymbol{\eta}_{n-r}$
+
+#### 非齐次方程组 $\boldsymbol{Ax} = \boldsymbol{b}$ 的解结构
+
+非齐次方程组的解集是一个**仿射空间**（线性流形），即齐次解空间的平移。
+
+$$
+S = \{\boldsymbol{x} \mid \boldsymbol{Ax} = \boldsymbol{b}\} = \boldsymbol{x}^* + N(\boldsymbol{A})
+$$
+
+其中 $\boldsymbol{x}^*$ 为任一特解。
+
+- 通解 = **特解 + 齐次通解**
+- 解集不构成子空间（不含零向量）
+- 解集中任意两个解向量的差属于 $N(\boldsymbol{A})$
+
+#### 结构总结
+
+| 类型 | 解集 | 结构 | 维数 |
+|------|------|------|------|
+| 齐次 $\boldsymbol{Ax} = \boldsymbol{0}$ | 向量空间 $N(\boldsymbol{A})$ | $\displaystyle\sum_{i=1}^{n-r} k_i \boldsymbol{\eta}_i$ | $n - r$ |
+| 非齐次 $\boldsymbol{Ax} = \boldsymbol{b}$ | 仿射空间 $\boldsymbol{x}^* + N(\boldsymbol{A})$ | $\boldsymbol{x}^* + \displaystyle\sum_{i=1}^{n-r} k_i \boldsymbol{\eta}_i$ | $n - r$ |
+
+$$
+\boxed{\text{非齐次通解} = \text{齐次通解} + \text{非齐次特解}}
+$$
+
+#### 几何解释
+
+以 $\mathbb{R}^3$ 为例（$n = 3$）：
+
+| $r$ | 齐次解空间 $N(\boldsymbol{A})$ | 非齐次解集 |
+|-----|-------------------------------|-----------|
+| 3   | 原点 $\{\boldsymbol{0}\}$ | 一个点（唯一解） |
+| 2   | 过原点的直线（维数 1） | 一条直线（不过原点） |
+| 1   | 过原点的平面（维数 2） | 一个平面（不过原点） |
+| 0   | 整个 $\mathbb{R}^3$ | 整个 $\mathbb{R}^3$（$\boldsymbol{b} = \boldsymbol{0}$ 时）或空集 |
+
+非齐次解集是齐次解空间平移 $\boldsymbol{x}^*$ 得到的**仿射子空间**。
+
+## 线性方程组的求解
+
+### 高斯消元法
+
+求解线性方程组的基本方法，通过初等行变换将增广矩阵化为行阶梯形，再回代求解。
+
+**步骤：**
+
+1. 写出增广矩阵 $\overline{\boldsymbol{A}} = (\boldsymbol{A} \mid \boldsymbol{b})$
+2. 通过初等行变换化为**行阶梯形** → 判断解的情况
+3. 继续化为**行最简形** → 直接写出解
+4. 若有自由变量，写出通解的参数形式
+
+### 求解齐次方程组 $\boldsymbol{Ax} = \boldsymbol{0}$
+
+**步骤：**
+
+1. 对系数矩阵 $\boldsymbol{A}$ 行变换化为行最简形
+2. 确定主变量和自由变量
+3. 自由变量依次取标准基，回代得到基础解系
+4. 通解为基础解系的线性组合
+
+**例：** 求解
+
+$$
+\begin{cases}
+x_1 + 2x_2 - x_3 = 0 \\
+2x_1 + 4x_2 - x_3 = 0 \\
+-x_1 - 2x_2 + 2x_3 = 0
+\end{cases}
+$$
+
+解：
+
+$$
+\boldsymbol{A} = \begin{pmatrix}
+1 & 2 & -1 \\
+2 & 4 & -1 \\
+-1 & -2 & 2
+\end{pmatrix}
+\longrightarrow
+\begin{pmatrix}
+1 & 2 & 0 \\
+0 & 0 & 1 \\
+0 & 0 & 0
+\end{pmatrix}
+$$
+
+$r = 2$，主变量 $x_1, x_3$，自由变量 $x_2$
+
+取 $x_2 = 1$，得 $\boldsymbol{\eta} = (-2, 1, 0)^\mathrm{T}$
+
+通解：$\boldsymbol{x} = k(-2, 1, 0)^\mathrm{T},\ k \in \mathbb{R}$
+
+### 求解非齐次方程组 $\boldsymbol{Ax} = \boldsymbol{b}$
+
+**步骤：**
+
+1. 写出增广矩阵并化为行最简形
+2. 判断 $r(\boldsymbol{A})$ 与 $r(\overline{\boldsymbol{A}})$
+   - 不等 → 无解，停止
+   - 相等 → 继续
+3. 令所有自由变量为 0，解得一个**特解** $\boldsymbol{x}^*$
+4. 导出组的基础解系（方法同齐次组）
+5. 通解 = $\boldsymbol{x}^* + \sum k_i \boldsymbol{\eta}_i$
+
+**例：** 求解
+
+$$
+\begin{cases}
+x_1 + x_2 - x_3 = 1 \\
+2x_1 + 2x_2 - x_3 = 3 \\
+-x_1 - x_2 + 2x_3 = -2
+\end{cases}
+$$
+
+解：
+
+$$
+\overline{\boldsymbol{A}} = \begin{pmatrix}
+1 & 1 & -1 & \mid & 1 \\
+2 & 2 & -1 & \mid & 3 \\
+-1 & -1 & 2 & \mid & -2
+\end{pmatrix}
+\longrightarrow
+\begin{pmatrix}
+1 & 1 & 0 & \mid & 2 \\
+0 & 0 & 1 & \mid & 1 \\
+0 & 0 & 0 & \mid & 0
+\end{pmatrix}
+$$
+
+$r = \bar{r} = 2 < 3$，无穷多解。
+
+- 特解（令自由变量 $x_2 = 0$）：$\boldsymbol{x}^* = (2, 0, 1)^\mathrm{T}$
+- 导出组基础解系：$\boldsymbol{\eta} = (-1, 1, 0)^\mathrm{T}$
+- 通解：$\boldsymbol{x} = (2, 0, 1)^\mathrm{T} + k(-1, 1, 0)^\mathrm{T},\ k \in \mathbb{R}$
+
+### Cramer 法则
+
+适用于系数矩阵为**方阵且可逆**（$|\boldsymbol{A}| \neq 0$）的情形。
+
+$$
+x_j = \frac{|\boldsymbol{A}_j|}{|\boldsymbol{A}|},\quad j = 1, 2, \dots, n
+$$
+
+其中 $\boldsymbol{A}_j$ 是将 $\boldsymbol{A}$ 的第 $j$ 列替换为 $\boldsymbol{b}$ 得到的矩阵。
+
+> 理论意义大于实际计算意义。$n \geq 4$ 时计算量巨大，实际求解多用高斯消元法。
+
