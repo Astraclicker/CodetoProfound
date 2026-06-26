@@ -2111,9 +2111,9 @@ $$
 
 #### 结构总结
 
-| 类型 | 解集 | 结构 | 维数 |
-|------|------|------|------|
-| 齐次 $\boldsymbol{Ax} = \boldsymbol{0}$ | 向量空间 $N(\boldsymbol{A})$ | $\displaystyle\sum_{i=1}^{n-r} k_i \boldsymbol{\eta}_i$ | $n - r$ |
+| 类型                                      | 解集                                            | 结构                                                                       | 维数    |
+| ----------------------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------- | ------- |
+| 齐次 $\boldsymbol{Ax} = \boldsymbol{0}$   | 向量空间 $N(\boldsymbol{A})$                    | $\displaystyle\sum_{i=1}^{n-r} k_i \boldsymbol{\eta}_i$                    | $n - r$ |
 | 非齐次 $\boldsymbol{Ax} = \boldsymbol{b}$ | 仿射空间 $\boldsymbol{x}^* + N(\boldsymbol{A})$ | $\boldsymbol{x}^* + \displaystyle\sum_{i=1}^{n-r} k_i \boldsymbol{\eta}_i$ | $n - r$ |
 
 $$
@@ -2124,12 +2124,12 @@ $$
 
 以 $\mathbb{R}^3$ 为例（$n = 3$）：
 
-| $r$ | 齐次解空间 $N(\boldsymbol{A})$ | 非齐次解集 |
-|-----|-------------------------------|-----------|
-| 3   | 原点 $\{\boldsymbol{0}\}$ | 一个点（唯一解） |
-| 2   | 过原点的直线（维数 1） | 一条直线（不过原点） |
-| 1   | 过原点的平面（维数 2） | 一个平面（不过原点） |
-| 0   | 整个 $\mathbb{R}^3$ | 整个 $\mathbb{R}^3$（$\boldsymbol{b} = \boldsymbol{0}$ 时）或空集 |
+| $r$ | 齐次解空间 $N(\boldsymbol{A})$ | 非齐次解集                                                        |
+| --- | ------------------------------ | ----------------------------------------------------------------- |
+| 3   | 原点 $\{\boldsymbol{0}\}$      | 一个点（唯一解）                                                  |
+| 2   | 过原点的直线（维数 1）         | 一条直线（不过原点）                                              |
+| 1   | 过原点的平面（维数 2）         | 一个平面（不过原点）                                              |
+| 0   | 整个 $\mathbb{R}^3$            | 整个 $\mathbb{R}^3$（$\boldsymbol{b} = \boldsymbol{0}$ 时）或空集 |
 
 非齐次解集是齐次解空间平移 $\boldsymbol{x}^*$ 得到的**仿射子空间**。
 
@@ -2243,3 +2243,90 @@ $$
 
 > 理论意义大于实际计算意义。$n \geq 4$ 时计算量巨大，实际求解多用高斯消元法。
 
+# 特征值与特征向量
+
+## 特征值与特征向量的定义与求法
+
+### 定义
+
+设 $\boldsymbol{A}$ 是 $n$ 阶方阵，如果存在数 $\lambda$ 和非零列向量 $\boldsymbol{v}$，使得
+
+$$
+\boldsymbol{A}\boldsymbol{v} = \lambda \boldsymbol{v}
+$$
+
+则称 $\lambda$ 为 $\boldsymbol{A}$ 的一个**特征值**，$\boldsymbol{v}$ 为 $\boldsymbol{A}$ 的对应于特征值 $\lambda$ 的**特征向量**。
+
+### 求法
+
+1. **写出特征方程**：将 $\boldsymbol{A}\boldsymbol{v} = \lambda \boldsymbol{v}$ 移项得
+
+   $$
+   (\boldsymbol{A} - \lambda \boldsymbol{E}) \boldsymbol{v} = \boldsymbol{0}
+   $$
+
+   其中 $\boldsymbol{E}$ 是 $n$ 阶单位矩阵。
+
+2. **求特征值**：上式有非零解 $\Leftrightarrow$ 系数矩阵行列式为 $0$，即
+
+   $$
+   |\boldsymbol{A} - \lambda \boldsymbol{E}| = 0
+   $$
+
+   该方程称为 $\boldsymbol{A}$ 的**特征方程**，$|\boldsymbol{A} - \lambda \boldsymbol{E}|$ 称为**特征多项式**（关于 $\lambda$ 的 $n$ 次多项式）。解此方程得到的 $\lambda$ 即为特征值（含重根）。
+
+3. **求特征向量**：对每个特征值 $\lambda_i$，代入 $(\boldsymbol{A} - \lambda_i \boldsymbol{E}) \boldsymbol{v} = \boldsymbol{0}$，解该齐次线性方程组，其所有非零解向量就是对应于 $\lambda_i$ 的特征向量（通常求基础解系）。
+
+### 性质
+
+- 若 $\alpha$ 是 $\lambda$ 的特征向量，则 $k\alpha\ (k \neq 0)$ 也是同一特征值的特征向量。
+- $给定方阵A,特征向量\alpha只能属于一个特征值$
+- 不同特征值对应的特征向量线性无关。
+- $给定方阵A,若\alpha_1,\alpha_2都是对应于特征值\lambda的特征向量,则线性组合k_1\alpha_1+k_2\alpha_2 \not ={0}也是对应于特征值\lambda的特征向量$
+- 特征值的积等于矩阵的行列式：$\lambda_1 \lambda_2 \dots \lambda_n = |\boldsymbol{A}|$
+
+**例：** 求 $\boldsymbol{A} = \begin{pmatrix} 1 & 2 \\ 3 & 2 \end{pmatrix}$ 的特征值与特征向量。
+
+解：
+
+$$
+|\boldsymbol{A} - \lambda \boldsymbol{I}| = \begin{vmatrix} 1-\lambda & 2 \\ 3 & 2-\lambda \end{vmatrix}
+= (1-\lambda)(2-\lambda) - 6 = \lambda^2 - 3\lambda - 4 = (\lambda - 4)(\lambda + 1) = 0
+$$
+
+特征值：$\lambda_1 = 4,\ \lambda_2 = -1$。
+
+- 当 $\lambda_1 = 4$ 时：
+
+  $$
+  (\boldsymbol{A} - 4\boldsymbol{I}) \boldsymbol{v} = \begin{pmatrix} -3 & 2 \\ 3 & -2 \end{pmatrix} \boldsymbol{v} = \boldsymbol{0}
+  \implies \boldsymbol{v}_1 = k\begin{pmatrix} 2 \\ 3 \end{pmatrix},\ k \neq 0
+  $$
+
+- 当 $\lambda_2 = -1$ 时：
+
+  $$
+  (\boldsymbol{A} + \boldsymbol{I}) \boldsymbol{v} = \begin{pmatrix} 2 & 2 \\ 3 & 3 \end{pmatrix} \boldsymbol{v} = \boldsymbol{0}
+  \implies \boldsymbol{v}_2 = k\begin{pmatrix} 1 \\ -1 \end{pmatrix},\ k \neq 0
+  $$
+
+## 特征值与特征向量的性质
+
++ $n阶矩阵A在复数域内必有n个特征值$
++ $n阶矩阵A与其转置矩阵A^T有相同的特征多项式,进而有相同的特征值(特征向量不能保证相同)$
++ $设n阶矩阵A的n个特征值为\lambda_1,\lambda_2,\dots,\lambda_n,则$
+  + $\lambda_1+\lambda_2+\dots+\lambda_n = a_{11}+a_{22}+\dots+a_{nn}(矩阵的特征值之和等于矩阵的迹)$
+  + $\lambda_1\lambda_2\dots\lambda_n = |A|$
++ $若\lambda是矩阵A的特征值,则$
+  + $k\lambda是kA的特征值$
+  + $\lambda^k是A^k的特征值$
+  + $f(\lambda)是f(A)的特征值,其中f(\cdot)为多项式$
+  + $若A可逆,则\frac{1}{\lambda}是A^{-1}的特征值$
+  + $若A可逆,则\frac{|A|}{\lambda}是A^*的特征值$
++ $n阶方阵A可逆 \iff|A|\not ={0} \iff A的所有特征值都不等于0$
++ $n阶方阵A不可逆 \iff |A| = 0 \iff A的特征值至少有一个是0$
++ $矩阵A不同特征值对应的特征向量线性无关$
++ $若\lambda是矩阵A的k重特征值,则A的对应于\lambda的线性无关的特征向量的个数不超过k个$
++ $若\lambda是矩阵A的单特征值,则A对应于\lambda的线性无关的特征向量有且只有1个$
++ $属于同一个特征值的特征向量的非零线性组合仍是属于该特征值的特征向量$
++ $若n阶方阵A的秩r(A) = 1,则A的n-1个特征根全为0,最后一个特征根为A的迹(tr(A))$
