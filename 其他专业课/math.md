@@ -782,11 +782,12 @@ $$
 
 分别对 $x_i$ 和 $\lambda_k$ 求偏导并令其为零，解 $n+m$ 个方程构成的方程组即可。
 
-# 二重积分
+# 重积分
+## 二重积分
 
-## 二重积分的定义与性质
+### 二重积分的定义与性质
 
-### 定义
+#### 定义
 
 设 $f(x,y)$ 是有界闭区域 $D$ 上的有界函数。将 $D$ 任意分成 $n$ 个小闭区域 $\Delta\sigma_1,\Delta\sigma_2,\dots,\Delta\sigma_n$（也用 $\Delta\sigma_i$ 表示其面积），在每个 $\Delta\sigma_i$ 上任取一点 $(\xi_i,\eta_i)$，作乘积 $f(\xi_i,\eta_i)\Delta\sigma_i$ 并求和 $\sum_{i=1}^n f(\xi_i,\eta_i)\Delta\sigma_i$。当各小区域直径的最大值 $\lambda\to0$ 时，若该和的极限存在且与分割及取点无关，则称此极限值为 $f(x,y)$ 在 $D$ 上的二重积分，记作
 
@@ -800,7 +801,7 @@ $$
 
 **几何意义：** 当 $f(x,y)\geqslant0$ 时，二重积分 $\iint_D f(x,y)\,d\sigma$ 等于以 $D$ 为底、以 $f(x,y)$ 为曲顶的曲顶柱体的体积。
 
-### 性质
+#### 性质
 
 1. **线性性质：**
    $$
@@ -824,7 +825,7 @@ $$
    \iint_D f(x,y)\,d\sigma = f(\xi,\eta)\cdot\sigma
    $$
 
-## 二重积分 | 直角坐标
+### 二重积分 | 直角坐标
 
 直角坐标下面积元素 $d\sigma = dx\,dy$，即
 
@@ -832,7 +833,7 @@ $$
 \iint_D f(x,y)\,d\sigma = \iint_D f(x,y)\,dx\,dy
 $$
 
-### X 型区域
+#### X 型区域
 
 若区域 $D$ 可表示为 $a\leqslant x\leqslant b,\;\varphi_1(x)\leqslant y\leqslant\varphi_2(x)$，则
 
@@ -842,7 +843,7 @@ $$
 
 **计算步骤：** 先对 $y$ 积分（将 $x$ 视为常数），再对 $x$ 积分。
 
-### Y 型区域
+#### Y 型区域
 
 若区域 $D$ 可表示为 $c\leqslant y\leqslant d,\;\psi_1(y)\leqslant x\leqslant\psi_2(y)$，则
 
@@ -854,7 +855,7 @@ $$
 
 > 若 $D$ 既非 X 型也非 Y 型，可用平行于坐标轴的直线将 $D$ 划分为若干 X 型或 Y 型子区域，利用可加性分别积分后相加。
 
-## 二重积分 | 极坐标
+### 二重积分 | 极坐标
 
 当积分区域为圆域、环域或扇形区域时，通常用极坐标计算更简便。
 
@@ -873,7 +874,7 @@ $$
 \iint_D f(x,y)\,dx\,dy = \iint_D f(r\cos\theta,\,r\sin\theta)\;r\,dr\,d\theta
 $$
 
-### 极坐标下的积分次序
+#### 极坐标下的积分次序
 
 先对 $r$ 积分（将 $\theta$ 视为常数），再对 $\theta$ 积分。
 
@@ -894,9 +895,9 @@ $$
    \iint_D f(r\cos\theta,r\sin\theta)\,r\,dr\,d\theta = \int_0^{2\pi} d\theta \int_0^{r(\theta)} f(r\cos\theta,r\sin\theta)\,r\,dr
    $$
 
-## 无界区域上的广义二重积分与积分区域对称性
+### 无界区域上的广义二重积分与积分区域对称性
 
-### 无界区域上的广义二重积分
+#### 无界区域上的广义二重积分
 
 若积分区域 $D$ 是无界区域（如全平面、半平面、有界区域外部等），则定义广义二重积分为有界子区域上二重积分的极限。
 
@@ -925,11 +926,11 @@ $$
 
 **常用结论：** $\iint_{\mathbb{R}^2} e^{-(x^2+y^2)}\,dx\,dy = \pi$，由此可推出 $\int_{-\infty}^{+\infty} e^{-x^2}\,dx = \sqrt{\pi}$
 
-### 对称性（奇偶性）
+#### 对称性（奇偶性）
 
 利用积分区域的对称性和被积函数的奇偶性可以简化二重积分计算。
 
-### 积分区域关于x轴对称
+#### 积分区域关于x轴对称
 
 若 $D$ 关于 $x$ 轴对称（即 $(x,y)\in D \Rightarrow (x,-y)\in D$），记 $D_1 = D\cap\{y\geqslant0\}$ 为上半部分，则
 
@@ -943,7 +944,7 @@ $$
 
 **例：** $\iint\limits_{x^2+y^2\leqslant1} y\,dx\,dy$，区域关于 $x$ 轴对称，被积函数 $y$ 关于 $y$ 为奇 $\Rightarrow$ 积分为 $0$。
 
-### 积分区域关于y轴对称
+#### 积分区域关于y轴对称
 
 若 $D$ 关于 $y$ 轴对称（即 $(x,y)\in D \Rightarrow (-x,y)\in D$），记 $D_2 = D\cap\{x\geqslant0\}$ 为右半部分，则
 
@@ -957,7 +958,7 @@ $$
 
 **例：** $\iint\limits_{x^2+y^2\leqslant1} x\,dx\,dy$，区域关于 $y$ 轴对称，被积函数 $x$ 关于 $x$ 为奇 $\Rightarrow$ 积分为 $0$。
 
-### 积分区域关于原点对称
+#### 积分区域关于原点对称
 
 若 $D$ 关于原点对称（即 $(x,y)\in D \Rightarrow (-x,-y)\in D$），记 $D_3$ 为 $D$ 的任意一半（如 $x\geqslant0$ 部分），则
 
@@ -971,7 +972,7 @@ $$
 
 **注意：** 关于原点对称等价于先关于 $x$ 轴对称再关于 $y$ 轴对称的复合。
 
-### 积分区域关于$y=x$对称
+#### 积分区域关于$y=x$对称
 
 若 $D$ 关于直线 $y=x$ 对称（即 $(x,y)\in D \Rightarrow (y,x)\in D$），则
 
@@ -991,9 +992,9 @@ $$
 \iint_D \frac{x^2}{1+x^2+y^2}\,dx\,dy = \frac12\iint_D \frac{x^2+y^2}{1+x^2+y^2}\,dx\,dy
 $$
 
-# 三重积分
+## 三重积分
 
-## 三重积分的定义
+### 三重积分的定义
 
 设 $f(x,y,z)$ 是空间有界闭区域 $\Omega$ 上的有界函数。将 $\Omega$ 任意分成 $n$ 个小闭区域 $\Delta V_1,\Delta V_2,\dots,\Delta V_n$（也用 $\Delta V_i$ 表示其体积），在每个 $\Delta V_i$ 上任取一点 $(\xi_i,\eta_i,\zeta_i)$，作和 $\sum_{i=1}^n f(\xi_i,\eta_i,\zeta_i)\Delta V_i$。当各小区域直径的最大值 $\lambda\to0$ 时，若该和的极限存在且与分割及取点无关，则称此极限值为 $f(x,y,z)$ 在 $\Omega$ 上的三重积分，记作
 
@@ -1005,7 +1006,7 @@ $$
 
 **可积条件：** 若 $f(x,y,z)$ 在闭区域 $\Omega$ 上连续，则 $f(x,y,z)$ 在 $\Omega$ 上可积。
 
-## 投影法（先一后二）
+### 投影法（先一后二）
 
 将空间区域 $\Omega$ 投影到 $xOy$ 平面，得到投影区域 $D_{xy}$。对 $D_{xy}$ 内任一点 $(x,y)$，过该点作平行于 $z$ 轴的直线穿过 $\Omega$，穿入点为 $z=z_1(x,y)$，穿出点为 $z=z_2(x,y)$，则
 
@@ -1020,7 +1021,7 @@ $$
 - 投影到 $xOz$ 平面：$\displaystyle\iiint_\Omega f(x,y,z)\,dV = \iint_{D_{xz}} \left[\int_{y_1(x,z)}^{y_2(x,z)} f(x,y,z)\,dy\right] dx\,dz$
 - 投影到 $yOz$ 平面：$\displaystyle\iiint_\Omega f(x,y,z)\,dV = \iint_{D_{yz}} \left[\int_{x_1(y,z)}^{x_2(y,z)} f(x,y,z)\,dx\right] dy\,dz$
 
-## 截面法（先二后一）
+### 截面法（先二后一）
 
 用平行于 $xOy$ 平面的平面 $z=z$ 截区域 $\Omega$，得到截面区域 $D_z$，$z$ 的取值范围为 $[c,d]$，则
 
@@ -1034,7 +1035,7 @@ $$
 
 > **适用场景：** 当截面 $D_z$ 的面积或截面上的二重积分容易计算时（例如 $D_z$ 为圆、椭圆等规则图形），截面法尤为简便。
 
-## 柱坐标
+### 柱坐标
 
 当积分区域具有柱面对称性（如圆柱、圆锥、旋转抛物面等）时，使用柱坐标计算更简便。
 
@@ -1063,7 +1064,7 @@ $$
 
 > **记忆要点：** 柱坐标 = 极坐标（$x,y$ 方向）+ 直角坐标（$z$ 方向），多出的 $r$ 来自极坐标的面积元素。
 
-## 球坐标
+### 球坐标
 
 当积分区域具有球面对称性（如球体、锥体与球面围成的区域等）时，使用球坐标计算最简便。
 
@@ -1097,3 +1098,258 @@ $$
 > - 上半球体：$\varphi\in[0,\pi/2]$
 > - 圆锥面 $\varphi=\varphi_0$ 与球面围成的区域：$\varphi\in[0,\varphi_0]$
                                          
+# 级数
+
+## 常数项级数的概念与性质
+
+### 一、基本概念
+
+**定义：** 给定一个数列 $\{a_n\}$，将其各项依次相加得到的表达式
+
+$$
+\sum_{n=1}^{\infty} a_n = a_1 + a_2 + \cdots + a_n + \cdots
+$$
+
+称为**常数项无穷级数**，简称**级数**，$a_n$ 称为**通项**或**一般项**。
+
+**部分和：** 前 $n$ 项的和 $S_n = \sum_{k=1}^n a_k = a_1 + a_2 + \cdots + a_n$ 称为级数的 **$n$ 次部分和**。
+
+**收敛与发散：** 若 $\lim\limits_{n\to\infty} S_n = S$ 存在（有限），则称级数 **收敛**，$S$ 称为级数的**和**，记作 $S = \sum_{n=1}^{\infty} a_n$；若极限不存在，则称级数 **发散**。
+
+**余项：** $r_n = S - S_n = \sum_{k=n+1}^{\infty} a_k$，称为级数的**余项**（$n$ 项后的余项）。
+
+### 二、常见级数的敛散性
+
+1. **等比级数（几何级数）**
+   $$
+   \sum_{n=0}^{\infty} a q^{n} = a + aq + aq^2 + \cdots
+   $$
+   - $|q| < 1$ 时收敛，和为 $\dfrac{a}{1-q}$
+   - $|q| \geqslant 1$ 时发散（$a \neq 0$）
+
+2. **调和级数**
+   $$
+   \sum_{n=1}^{\infty} \frac{1}{n} = 1 + \frac{1}{2} + \frac{1}{3} + \cdots \quad \text{发散}
+   $$
+
+3. **$p$ 级数**
+   $$
+   \sum_{n=1}^{\infty} \frac{1}{n^p}
+   $$
+   - $p > 1$ 时收敛
+   - $p \leqslant 1$ 时发散
+
+### 三、收敛级数的基本性质
+
+设 $\sum_{n=1}^{\infty} a_n = S$，$\sum_{n=1}^{\infty} b_n = T$ 均收敛，$k$ 为常数。
+
+1. **线性性质**
+   - $\sum (a_n \pm b_n) = S \pm T$（收敛）
+   - $\sum k a_n = kS$（收敛）
+
+2. **去掉、添加或改变有限项** 不改变级数的敛散性（收敛时和会改变）
+
+3. **加括号性质：** 
+ - $若\sum_{n=1}^{\infty} a_n收敛,而\sum_{n=1}^{\infty} b_n 发散,则\sum_{n=1}^{\infty}(a_n\pm b_n)发散$
+ - $若\sum_{n=1}^{\infty} a_n和\sum_{n=1}^{\infty} b_n 都发散,则\sum_{n=1}^{\infty}(a_n\pm b_n)可能收敛,也可能发散$
+
+4. 改变级数的有限项不会改变级数的敛散性,但是在级数收敛时,级数的和可能会改变
+
+5. $若\sum_{n=1}^{\infty} a_n \text{ 收敛} \;\Longrightarrow\; \lim_{n\to\infty} a_n = 0$
+   > **注意：** $\lim a_n = 0$ 是收敛的必要条件而非充分条件（如调和级数 $\sum\frac1n$ 通项趋于 $0$ 但发散）
+  
+6. $若\lim_{n\to\infty} a_n \not= 0\Longrightarrow\sum_{n=1}^{\infty} a_n发散$
+
+6. **柯西收敛准则（充要条件）**
+   $$
+   \sum_{n=1}^{\infty} a_n \text{ 收敛} \;\Longleftrightarrow\; \forall \varepsilon > 0,\; \exists N \in \mathbb{N},\; \forall m > n > N:\; |a_{n+1} + a_{n+2} + \cdots + a_m| < \varepsilon
+   $$
+
+### 四、重要注意事项
+
+- 级数收敛 $\Rightarrow \lim a_n = 0$，但逆命题不成立
+- 若 $\lim a_n \neq 0$，则级数 $\sum a_n$ **必发散**（用于判定发散）
+- 两个发散级数的和可能收敛，也可能发散
+- 收敛级数与发散级数的和必发散
+## 正项级数
+
+### 正项级数的定义
+
+若 $a_n \geqslant 0 \; (n=1,2,\dots)$，则称 $\sum a_n$ 为**正项级数**。
+
+> 正项级数的部分和数列 $\{S_n\}$ 单调递增，因此**正项级数收敛 $\Longleftrightarrow$ 部分和数列有上界**。
+
+### 比较判别法
+
+设 $\sum a_n$ 和 $\sum b_n$ 均为正项级数，且存在 $N$，当 $n > N$ 时有 $a_n \leqslant b_n$。
+
+- 若 $\sum b_n$ 收敛，则 $\sum a_n$ 收敛
+- 若 $\sum a_n$ 发散，则 $\sum b_n$ 发散
+
+> **口诀：** 大收则小收，小发则大发。
+
+### 比较判别法极限形式
+
+设 $\sum a_n$、$\sum b_n$ 为正项级数，且 $\lim\limits_{n\to\infty} \dfrac{a_n}{b_n} = l$。
+
+- 若 $0 < l < +\infty$，则 $\sum a_n$ 与 $\sum b_n$ 同敛散
+- 若 $l = 0$，则 $\sum b_n$ 收敛 $\Rightarrow$ $\sum a_n$ 收敛；$\sum a_n$ 发散 $\Rightarrow$ $\sum b_n$ 发散
+- 若 $l = +\infty$，则 $\sum a_n$ 收敛 $\Rightarrow$ $\sum b_n$ 收敛；$\sum b_n$ 发散 $\Rightarrow$ $\sum a_n$ 发散
+
+> **常用比较对象：** $p$ 级数 $\sum \dfrac{1}{n^p}$ 和等比级数 $\sum r^n$。
+
+### 比值判别法（达朗贝尔判别法）
+
+设 $\sum a_n$ 为正项级数，且 $\lim\limits_{n\to\infty} \dfrac{a_{n+1}}{a_n} = \rho$。
+
+- $\rho < 1$ 时，级数收敛
+- $\rho > 1$ 时，级数发散（$\rho = +\infty$ 时也发散）
+- $\rho = 1$ 时，**失效**（需用其他方法）
+
+### 根值判别法（柯西判别法）
+
+设 $\sum a_n$ 为正项级数，且 $\lim\limits_{n\to\infty} \sqrt[n]{a_n} = \rho$。
+
+- $\rho < 1$ 时，级数收敛
+- $\rho > 1$ 时，级数发散（$\rho = +\infty$ 时也发散）
+- $\rho = 1$ 时，**失效**
+
+> **比值 vs 根值：** 根值判别法比比值判别法适用范围更广（当比值判别法失效时，根值判别法可能有效），但具体使用时比值法通常更方便计算。
+
+### 积分判别法（柯西积分判别法）
+
+设 $f(x)$ 在 $[1,+\infty)$ 上连续、非负、单调递减，且 $a_n = f(n)$，则
+
+$$
+\sum_{n=1}^{\infty} a_n \text{ 与 } \int_1^{+\infty} f(x)\,dx \text{ 同敛散}
+$$
+
+> **应用：** 用于证明 $p$ 级数 $\sum \frac{1}{n^p}$ 的敛散性结论。
+
+### 常用技巧与注意事项
+
+- 使用比较判别法时，常用等价无穷小替换 $a_n \sim b_n$ 判断同敛散
+- 比值/根值判别法当极限为 $1$ 时无法判断，需换用比较法或积分法
+- 对于含 $n!$ 的级数，优先考虑比值判别法
+- 对于含 $n^n$ 或 $a^n$ 的级数，优先考虑根值判别法
+
+## 交错级数
+
+形如 $\sum_{n=1}^{\infty} (-1)^{n-1} u_n$ 或 $\sum_{n=1}^{\infty} (-1)^n u_n$（其中 $u_n > 0$）的级数称为交错级数。
+
+### 莱布尼茨判别法 (Leibniz Criterion)
+
+若交错级数 $\sum_{n=1}^{\infty} (-1)^{n-1} u_n$ 满足：
+
+1. **单调递减**：$u_{n+1} \le u_n$（对充分大的 $n$）
+2. **通项趋于零**：$\lim_{n\to\infty} u_n = 0$
+
+则级数收敛，且余项 $|R_n| \le u_{n+1}$。
+
+> **注意：** 莱布尼茨判别法只是**充分条件**，不是必要条件。
+
+### 典型例子
+
+- $\sum_{n=1}^{\infty} (-1)^{n-1} \dfrac{1}{n}$（交错调和级数）条件收敛
+- $\sum_{n=1}^{\infty} (-1)^{n-1} \dfrac{1}{n^p}$：$p>0$ 时收敛，$p>1$ 时绝对收敛，$0<p\le 1$ 时条件收敛
+
+## 任意项级数
+
+设 $\sum a_n$ 为一般项级数（$a_n$ 可正可负），定义其**绝对值级数** $\sum |a_n|$。
+
+### 绝对收敛与条件收敛
+
+- **绝对收敛 (Absolute Convergence)：** 若 $\sum |a_n|$ 收敛，则 $\sum a_n$ 必收敛,且称 $\sum a_n$ 绝对收敛
+- **条件收敛 (Conditional Convergence)：** 若 $\sum a_n$ 收敛但 $\sum |a_n|$ 发散，则称 $\sum a_n$ 条件收敛
+
+> **绝对收敛判别：** $比值判别法、根值判别法若证明\sum |a_n|发散,则 \sum a_n也发散。$
+
+### 性质
+
+| 性质 | 绝对收敛 | 条件收敛 |
+|------|---------|---------|
+| 重排（交换项次序） | 和不变 | 可收敛到任意值（黎曼重排定理），或发散 |
+| 乘积（柯西乘积） | 收敛且和等于乘积 | 不一定收敛 |
+
+### 黎曼重排定理 (Riemann Rearrangement Theorem)
+
+若级数条件收敛，则适当调整项的次序后，可使其收敛到**任意实数**，或发散到 $\pm\infty$。
+
+## 幂级数
+
+形如 $\sum_{n=0}^{\infty} a_n (x - x_0)^n$ 或 $\sum_{n=0}^{\infty} a_n x^n$ 的级数称为幂级数。
+
+### 收敛半径与收敛域
+
+**阿贝尔定理 (Abel Theorem)：** 若幂级数在 $x = x_1$ 处收敛，则对一切 $|x| < |x_1|$ 绝对收敛；若在 $x = x_2$ 处发散，则对一切 $|x| > |x_2|$ 发散。
+
+**收敛半径 $R$ 的求法：**
+
+- **比值法：** $R = \displaystyle \lim_{n\to\infty} \left| \frac{a_n}{a_{n+1}} \right|$（若极限存在）
+- **根值法：** $R = \displaystyle \frac{1}{\limsup_{n\to\infty} \sqrt[n]{|a_n|}}$（柯西-阿达玛公式）
+
+> **收敛域：** $(-R, R)$ 内绝对收敛；在 $x = \pm R$ 处需单独判定敛散性。
+
+### 幂级数的运算
+
+设 $\sum a_n x^n$ 收敛半径为 $R_1$，$\sum b_n x^n$ 收敛半径为 $R_2$：
+
+- **加减：** $\sum (a_n \pm b_n)x^n$，收敛半径 $\ge \min(R_1, R_2)$
+- **乘法（柯西乘积）：** $\sum_{n=0}^\infty \left(\sum_{k=0}^n a_k b_{n-k}\right) x^n$，收敛半径 $\ge \min(R_1, R_2)$
+- **逐项求导：** $S'(x) = \sum_{n=1}^\infty n a_n x^{n-1}$，收敛半径不变
+- **逐项积分：** $\int_0^x S(t)\,dt = \sum_{n=0}^\infty \frac{a_n}{n+1} x^{n+1}$，收敛半径不变
+
+> 逐项求导和逐项积分在收敛区间 $(-R, R)$ 内可任意进行，端点处需单独验证。
+
+### 函数展开成幂级数（泰勒级数）
+
+若 $f(x)$ 在 $x_0$ 处任意阶可导，则其泰勒级数为：
+
+$$
+f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(x_0)}{n!} (x - x_0)^n
+$$
+
+当 $x_0 = 0$ 时称为**麦克劳林级数**。
+
+### 间接展开法
+
+直接计算各阶导数再求和往往繁琐，通常利用已知展开式，通过**变量代换、逐项求导、逐项积分、四则运算**等得到目标函数的展开式，这种方法称为间接展开法。
+
+**五个基本函数的展开（间接展开法的起点）：**
+
+1. **几何级数：** $\displaystyle \frac{1}{1-x} = \sum_{n=0}^\infty x^n = 1 + x + x^2 + \cdots,\quad |x| < 1$
+2. **变号几何级数：** $\displaystyle \frac{1}{1+x} = \sum_{n=0}^\infty (-1)^n x^n = 1 - x + x^2 - x^3 + \cdots,\quad |x| < 1$
+3. **指数函数：** $\displaystyle e^x = \sum_{n=0}^\infty \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \cdots,\quad x \in \mathbb{R}$
+4. **正弦函数：** $\displaystyle \sin x = \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots,\quad x \in \mathbb{R}$
+5. **余弦函数：** $\displaystyle \cos x = \sum_{n=0}^\infty (-1)^n \frac{x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \cdots,\quad x \in \mathbb{R}$
+
+> **间接展开法示例：**
+> - 将 $x$ 替换为 $-x$ 可得 $\dfrac{1}{1+x} = \sum_{n=0}^\infty (-1)^n x^n$
+> - 逐项积分 $\dfrac{1}{1+x}$ 可得 $\ln(1+x) = \sum_{n=1}^\infty (-1)^{n-1} \dfrac{x^n}{n}$
+> - 逐项积分 $\dfrac{1}{1+x^2}$ 可得 $\arctan x = \sum_{n=0}^\infty (-1)^n \dfrac{x^{2n+1}}{2n+1}$
+
+### 常用麦克劳林展开式
+
+| 函数 | 展开式 | 成立范围 |
+|------|-------|---------|
+| $\dfrac{1}{1-x}$ | $\displaystyle\sum_{n=0}^\infty x^n$ | $(-1,1)$|
+| $e^x$ | $\displaystyle\sum_{n=0}^\infty \frac{x^n}{n!}$ | $(-\infty, +\infty)$ |
+| $\sin x$ | $\displaystyle\sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{(2n+1)!}$ | $(-\infty, +\infty)$ |
+| $\cos x$ | $\displaystyle\sum_{n=0}^\infty (-1)^n \frac{x^{2n}}{(2n)!}$ | $(-\infty, +\infty)$ |
+| $\ln(1+x)$ | $\displaystyle\sum_{n=1}^\infty (-1)^{n-1} \frac{x^n}{n}$ | $(-1, 1]$ |
+| $\arctan x$ | $\displaystyle\sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n+1}$ | $[-1, 1]$ |
+| $(1+x)^\alpha$ | $\displaystyle\sum_{n=0}^\infty \binom{\alpha}{n} x^n$ | $(-1,1)$ |
+
+其中 $\displaystyle\binom{\alpha}{n} = \frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}$。
+
+> **注意：** $\ln x$ 在 $x=0$ 处无定义，无法展开为麦克劳林级数。改用**泰勒级数**在 $x=1$ 处展开：
+> $$
+> \ln x = \sum_{n=1}^\infty (-1)^{n-1} \frac{(x-1)^n}{n},\quad 0 < x < 2
+> $$
+> 令 $t = x-1$ 即化为 $\ln(1+t)$ 的麦克劳林展开。
+
+### 求幂级数和函数的一般步骤
+
+1. 求出收敛域
+2. 通过逐项求导或逐项积分，化为已知展开式（常用 $\frac{1}{1-x}$ 或 $e^x$ 等）
+3. 对结果逆运算（积分或求导）得到原级数的和函数
