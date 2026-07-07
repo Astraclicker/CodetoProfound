@@ -2364,3 +2364,246 @@ $$
 + $n阶方阵A可对角化\iff 对于A的每个特征值,其代数重数等于几何重数(即特征值的重数等于其对应的线性无关特征向量的个数)$
 + $若A有n个互异的特征值,则A必可对角化(反之不一定成立)$
 + $若n阶方阵A的秩r(A) = 1,则A的n-1个特征根全为0,最后一个特征根为A的迹(tr(A))$
+
+## 矩阵的对角化
+
+### 性质
+
++ $若A \sim \Lambda(\Lambda为对角矩阵),则\Lambda的主对角线上元素为A的特征值$
++ $若n阶矩阵A有n个互逆的特征值,则A可对角化$
++ $若A可对角化,则A的秩等于其非零特征值的个数$
++ $若A可对角化,则A的迹等于其特征值之和$
++ $若A可对角化,则A的行列式等于其特征值之积$
++ $若A可对角化,则A^T也可对角化,且与A相似于同一对角矩阵$
++ $若A可对角化且可逆,则A^{-1}也可对角化,且A^{-1}的特征值为A的特征值的倒数$
++ $若A可对角化,则f(A)也可对角化,且f(A)的特征值为f(\lambda_i),其中f(\cdot)为多项式$
++ $n阶方阵A可对角化\iff A有n个线性无关的特征向量$
++ $n阶方阵A可对角化\iff 对于A的每个特征值,其代数重数等于几何重数$
++ $n阶方阵A的每个特征值都是单根\implies A可对角化(反之不一定)$
++ $实对称矩阵必可正交对角化(即存在正交矩阵Q使得Q^TAQ = \Lambda)$
++ $若A为n阶幂等矩阵(A^2 = A),则A必可对角化,且特征值只能为0或1$
+
+### 对角化的步骤
+
+设 $A$ 为 $n$ 阶方阵且可对角化，求可逆矩阵 $P$ 及对角矩阵 $\Lambda$ 使得 $P^{-1}AP = \Lambda$ 的步骤如下：
+
++ **步骤1**：求出 $A$ 的全部特征值 $\lambda_1,\lambda_2,\dots,\lambda_n$（含重根）
++ **步骤2**：对每个特征值 $\lambda_i$，解齐次线性方程组 $(\lambda_i I - A)\boldsymbol{x} = \boldsymbol{0}$，求出基础解系，得到 $A$ 的线性无关的特征向量
++ **步骤3**：将所得的全部特征向量按列排成矩阵 $P$，即 $P = (\boldsymbol{\xi}_1, \boldsymbol{\xi}_2, \dots, \boldsymbol{\xi}_n)$
++ **步骤4**：对应的对角矩阵 $\Lambda = \operatorname{diag}(\lambda_1, \lambda_2, \dots, \lambda_n)$，其中 $\lambda_i$ 与 $P$ 中第 $i$ 列特征向量 $\boldsymbol{\xi}_i$ 对应
++ **步骤5**：验证 $P^{-1}AP = \Lambda$（可用 $AP = P\Lambda$ 来检验）
+
+### 示例
+
+**例**：设 $A = \begin{pmatrix} 0 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 0 \end{pmatrix}$，判断 $A$ 是否可对角化；若可，求 $P$ 和 $\Lambda$。
+
+**解**：
+
+1. 求特征值：
+
+   $$
+   |\lambda I - A| = \begin{vmatrix} \lambda & 0 & -1 \\ 0 & \lambda-1 & 0 \\ -1 & 0 & \lambda \end{vmatrix}
+   = (\lambda-1)^2(\lambda+1)
+   $$
+
+   特征值为 $\lambda_1 = 1$（二重），$\lambda_2 = -1$（单根）。
+
+2. 求特征向量：
+
+   - 当 $\lambda = 1$ 时：
+
+     $$
+     (I - A) = \begin{pmatrix} 1 & 0 & -1 \\ 0 & 0 & 0 \\ -1 & 0 & 1 \end{pmatrix}
+     \implies \boldsymbol{\xi}_1 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix},\;
+     \boldsymbol{\xi}_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}
+     $$
+
+   - 当 $\lambda = -1$ 时：
+
+     $$
+     (-I - A) = \begin{pmatrix} -1 & 0 & -1 \\ 0 & -2 & 0 \\ -1 & 0 & -1 \end{pmatrix}
+     \implies \boldsymbol{\xi}_3 = \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}
+     $$
+
+   三个特征向量线性无关，故 $A$ 可对角化。
+
+3. 构造 $P$ 和 $\Lambda$：
+
+   $$
+   P = (\boldsymbol{\xi}_1, \boldsymbol{\xi}_2, \boldsymbol{\xi}_3)
+   = \begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & -1 \end{pmatrix},\quad
+   \Lambda = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -1 \end{pmatrix}
+   $$
+
+4. 验证 $AP = P\Lambda$：
+
+   $$
+   AP = \begin{pmatrix} 0 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 0 \end{pmatrix}
+   \begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & -1 \end{pmatrix}
+   = \begin{pmatrix} 1 & 0 & -1 \\ 0 & 1 & 0 \\ 1 & 0 & 1 \end{pmatrix}
+   $$
+
+   $$
+   P\Lambda = \begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & -1 \end{pmatrix}
+   \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -1 \end{pmatrix}
+   = \begin{pmatrix} 1 & 0 & -1 \\ 0 & 1 & 0 \\ 1 & 0 & 1 \end{pmatrix}
+   $$
+
+   故 $P^{-1}AP = \Lambda$ 成立。
+
+### 对角化的应用
+
+#### 1. 计算矩阵的高次幂
+
+若 $A$ 可对角化，即 $P^{-1}AP = \Lambda$，则 $A = P\Lambda P^{-1}$，从而
+
+$$
+A^k = (P\Lambda P^{-1})^k = P\Lambda^k P^{-1}
+$$
+
+其中 $\Lambda^k = \operatorname{diag}(\lambda_1^k, \lambda_2^k, \dots, \lambda_n^k)$。
+
+**例**：设 $A = \begin{pmatrix} 0 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 0 \end{pmatrix}$，求 $A^{100}$。
+
+由上述对角化结果：
+
+$$
+A^{100} = P\Lambda^{100}P^{-1}
+= P \begin{pmatrix} 1^{100} & 0 & 0 \\ 0 & 1^{100} & 0 \\ 0 & 0 & (-1)^{100} \end{pmatrix} P^{-1}
+= P \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix} P^{-1}
+= PP^{-1} = I
+$$
+
+#### 2. 求解线性微分方程组
+
+对于一阶线性常系数微分方程组 $\dfrac{d\boldsymbol{x}}{dt} = A\boldsymbol{x}$，若 $A$ 可对角化，令 $\boldsymbol{x} = P\boldsymbol{y}$，则
+
+$$
+\frac{d\boldsymbol{y}}{dt} = \Lambda\boldsymbol{y}
+$$
+
+解耦为 $n$ 个独立方程 $\dfrac{dy_i}{dt} = \lambda_i y_i$，其解为 $y_i(t) = y_i(0)e^{\lambda_i t}$。
+
+### 实对称矩阵的对角化
+
+#### 实对称矩阵的性质
+
++ **定理1**：实对称矩阵的特征值都是实数
++ **定理2**：实对称矩阵的不同特征值对应的特征向量相互正交（属于 $\mathbb{R}^n$ 的标准内积）
++ **定理3**：设 $A$ 为 $n$ 阶实对称矩阵，则存在 $n$ 阶正交矩阵 $Q$，使得
+
+  $$
+  Q^{-1}AQ = Q^TAQ = \Lambda = \operatorname{diag}(\lambda_1, \lambda_2, \dots, \lambda_n)
+  $$
+
+  即实对称矩阵必可正交对角化（orthogonally diagonalizable）。
+
+#### 正交对角化的步骤
+
++ **步骤1**：求出 $A$ 的全部特征值
++ **步骤2**：对每个特征值 $\lambda$，求出其对应的特征向量。对同一特征值的多个线性无关的特征向量，使用 **Schmidt 正交化** 方法将其正交化，再单位化
++ **步骤3**：将所有单位化的特征向量按列排成矩阵 $Q$，则 $Q$ 为正交矩阵（$Q^TQ = I$），且 $Q^TAQ = \Lambda$
+
+#### Schmidt 正交化
+
+设 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m$ 线性无关，则：
+
+$$
+\begin{aligned}
+\boldsymbol{\beta}_1 &= \boldsymbol{\alpha}_1 \\
+\boldsymbol{\beta}_2 &= \boldsymbol{\alpha}_2 - \frac{\langle\boldsymbol{\alpha}_2,\boldsymbol{\beta}_1\rangle}{\langle\boldsymbol{\beta}_1,\boldsymbol{\beta}_1\rangle}\boldsymbol{\beta}_1 \\
+&\ \vdots \\
+\boldsymbol{\beta}_m &= \boldsymbol{\alpha}_m - \sum_{j=1}^{m-1} \frac{\langle\boldsymbol{\alpha}_m,\boldsymbol{\beta}_j\rangle}{\langle\boldsymbol{\beta}_j,\boldsymbol{\beta}_j\rangle}\boldsymbol{\beta}_j
+\end{aligned}
+$$
+
+再将 $\boldsymbol{\beta}_1, \dots, \boldsymbol{\beta}_m$ 单位化：$\boldsymbol{\eta}_i = \dfrac{\boldsymbol{\beta}_i}{\|\boldsymbol{\beta}_i\|}$。
+
+#### 正交对角化示例
+
+**例**：设 $A = \begin{pmatrix} 4 & 2 & 2 \\ 2 & 4 & 2 \\ 2 & 2 & 4 \end{pmatrix}$，求正交矩阵 $Q$ 和对角矩阵 $\Lambda$。
+
+**解**：
+
+1. 求特征值：
+
+   $$
+   |\lambda I - A| = \begin{vmatrix}
+   \lambda-4 & -2 & -2 \\
+   -2 & \lambda-4 & -2 \\
+   -2 & -2 & \lambda-4
+   \end{vmatrix}
+   = (\lambda-2)^2(\lambda-8)
+   $$
+
+   特征值为 $\lambda_1 = 2$（二重），$\lambda_2 = 8$（单根）。
+
+2. 求特征向量并正交化：
+
+   - $\lambda = 2$ 时，$(\lambda I - A)\boldsymbol{x} = \boldsymbol{0}$：
+
+     $$
+     \begin{pmatrix} -2 & -2 & -2 \\ -2 & -2 & -2 \\ -2 & -2 & -2 \end{pmatrix}
+     \implies x_1 + x_2 + x_3 = 0
+     $$
+
+     得基础解系 $\boldsymbol{\alpha}_1 = \begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix},\; \boldsymbol{\alpha}_2 = \begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix}$
+
+     Schmidt正交化：
+
+     $$
+     \boldsymbol{\beta}_1 = \boldsymbol{\alpha}_1 = \begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix}
+     $$
+
+     $$
+     \boldsymbol{\beta}_2 = \boldsymbol{\alpha}_2 - \frac{\langle\boldsymbol{\alpha}_2,\boldsymbol{\beta}_1\rangle}{\langle\boldsymbol{\beta}_1,\boldsymbol{\beta}_1\rangle}\boldsymbol{\beta}_1
+     = \begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix} - \frac{1}{2}\begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix}
+     = \begin{pmatrix} -1/2 \\ -1/2 \\ 1 \end{pmatrix}
+     $$
+
+     单位化：
+
+     $$
+     \boldsymbol{\eta}_1 = \frac{1}{\sqrt{2}}\begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix},\quad
+     \boldsymbol{\eta}_2 = \sqrt{\frac{2}{3}}\begin{pmatrix} -1/2 \\ -1/2 \\ 1 \end{pmatrix}
+     = \frac{1}{\sqrt{6}}\begin{pmatrix} -1 \\ -1 \\ 2 \end{pmatrix}
+     $$
+
+   - $\lambda = 8$ 时：
+
+     $$
+     \begin{pmatrix} 4 & -2 & -2 \\ -2 & 4 & -2 \\ -2 & -2 & 4 \end{pmatrix}
+     \implies \boldsymbol{\alpha}_3 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
+     $$
+
+     单位化：
+
+     $$
+     \boldsymbol{\eta}_3 = \frac{1}{\sqrt{3}}\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
+     $$
+
+3. 构造 $Q$ 和 $\Lambda$：
+
+   $$
+   Q = (\boldsymbol{\eta}_1, \boldsymbol{\eta}_2, \boldsymbol{\eta}_3)
+   = \begin{pmatrix}
+   -\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} \\
+   \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{6}} & \frac{1}{\sqrt{3}} \\
+   0 & \frac{2}{\sqrt{6}} & \frac{1}{\sqrt{3}}
+   \end{pmatrix},\quad
+   \Lambda = \begin{pmatrix} 2 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 8 \end{pmatrix}
+   $$
+
+   满足 $Q^TAQ = \Lambda$，即 $A$ 正交对角化。
+
+### 同时对角化
+
+设 $A, B$ 均为 $n$ 阶实对称矩阵，若存在可逆矩阵 $P$ 使得 $P^TAP$ 和 $P^TBP$ 同时为对角矩阵，则称 $A$ 与 $B$ **可同时对角化**。
+
++ **定理**：若 $A$ 为正定矩阵，$B$ 为实对称矩阵，则存在可逆矩阵 $P$ 使得
+
+  $$
+  P^TAP = I,\quad P^TBP = \Lambda
+  $$
+
++ 更一般地，若 $A, B$ 均为实对称矩阵且 $AB = BA$（即可交换），则 $A$ 与 $B$ 可同时正交对角化
