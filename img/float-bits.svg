@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" font-family="'Microsoft YaHei','PingFang SC','Noto Sans SC',sans-serif">
+  <rect width="900" height="320" fill="#ffffff"/>
+  <text x="450" y="34" text-anchor="middle" font-size="17" font-weight="bold" fill="#1f1f1f">单精度 float 位布局（32 位）</text>
+
+  <text x="62" y="56" text-anchor="middle" font-size="12" fill="#8a8a8a">bit 31</text>
+  <text x="175" y="56" text-anchor="middle" font-size="12" fill="#8a8a8a">bit 30 ~ 23</text>
+  <text x="562" y="56" text-anchor="middle" font-size="12" fill="#8a8a8a">bit 22 ~ 0</text>
+
+  <rect x="50" y="70" width="25" height="80" fill="#fce8e6" stroke="#d93025" stroke-width="2"/>
+  <rect x="75" y="70" width="200" height="80" fill="#e6f4ea" stroke="#188038" stroke-width="2"/>
+  <rect x="275" y="70" width="575" height="80" fill="#e8f0fe" stroke="#1a73e8" stroke-width="2"/>
+
+  <text x="62" y="115" text-anchor="middle" font-size="16" font-weight="bold" fill="#d93025">S</text>
+  <text x="175" y="115" text-anchor="middle" font-size="15" font-weight="bold" fill="#188038">exp</text>
+  <text x="562" y="115" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a73e8">frac</text>
+
+  <text x="62" y="172" text-anchor="middle" font-size="12" fill="#666">1位</text>
+  <text x="175" y="172" text-anchor="middle" font-size="12" fill="#666">8位</text>
+  <text x="562" y="172" text-anchor="middle" font-size="12" fill="#666">23位</text>
+
+  <line x1="50" y1="196" x2="850" y2="196" stroke="#e0e0e0" stroke-width="1"/>
+
+  <text x="70" y="222" font-size="14" fill="#1f1f1f">E = <tspan fill="#188038" font-weight="bold">exp</tspan> − Bias　（Bias = 127）</text>
+  <text x="70" y="248" font-size="14" fill="#1f1f1f">规格化：值 = (−1)<tspan baseline-shift="super" font-size="10">s</tspan> × 1.<tspan fill="#1a73e8">frac</tspan> × 2<tspan baseline-shift="super" font-size="10">E</tspan>　　（exp ≠ 0 且 exp ≠ 255）</text>
+  <text x="70" y="274" font-size="14" fill="#1f1f1f">非规格化：值 = (−1)<tspan baseline-shift="super" font-size="10">s</tspan> × 0.<tspan fill="#1a73e8">frac</tspan> × 2<tspan baseline-shift="super" font-size="10">1−Bias</tspan>　（exp = 0）</text>
+  <text x="70" y="300" font-size="14" fill="#1f1f1f">特殊值：<tspan fill="#188038" font-weight="bold">exp</tspan> = 255 且 <tspan fill="#1a73e8">frac</tspan> = 0 → ±∞；<tspan fill="#188038" font-weight="bold">exp</tspan> = 255 且 <tspan fill="#1a73e8">frac</tspan> ≠ 0 → NaN</text>
+</svg>
