@@ -140,12 +140,12 @@ $$
 
 ## 极限运算法则
 
-+ $\infty + \infty \rightarrow 无结果$
-+ $\infty - \infty \rightarrow 无结果$
-+ $\frac{\infty}{\infty} \rightarrow 无结果$
-+ $\infty \cdot \infty \rightarrow 无结果$
-+ 有限个无穷小量和为无穷小
-+ 有限个无穷小量相乘为无穷小, 无限个相乘不确定
+- $\infty + \infty \rightarrow 无结果$
+- $\infty - \infty \rightarrow 无结果$
+- $\frac{\infty}{\infty} \rightarrow 无结果$
+- $\infty \cdot \infty \rightarrow 无结果$
+- 有限个无穷小量和为无穷小
+- 有限个无穷小量相乘为无穷小, 无限个相乘不确定
 
 ### 第一重要极限
 
@@ -180,18 +180,18 @@ $$
 
 ## 函数连续
 
-+ $f(x)在x_{0}点连续 : \lim\limits_{x\rightarrow x_0}f(x) = f(x_0)$
-  + 左连续: $\lim\limits_{x\rightarrow x_0^-}f(x) = f(x_0)$
-  + 右连续: $\lim\limits_{x\rightarrow x_0^+}f(x) = f(x_0)$
-+ $f(x)在\left[a,b\right]上连续$
-  + $f(x)在\left(a,b\right)上连续$
-  + $f(x)在a处右连续,在b处左连续$
+- $f(x)在x_{0}点连续 : \lim\limits_{x\rightarrow x_0}f(x) = f(x_0)$
+  - 左连续: $\lim\limits_{x\rightarrow x_0^-}f(x) = f(x_0)$
+  - 右连续: $\lim\limits_{x\rightarrow x_0^+}f(x) = f(x_0)$
+- $f(x)在\left[a,b\right]上连续$
+  - $f(x)在\left(a,b\right)上连续$
+  - $f(x)在a处右连续,在b处左连续$
 
 ## 间断点
 
 ### 无穷间断点
 
-+ $\lim\limits_{x\rightarrow x_0^-}f(x)和\lim\limits_{x\rightarrow x_0^+}f(x)均不存在$
+- $\lim\limits_{x\rightarrow x_0^-}f(x)和\lim\limits_{x\rightarrow x_0^+}f(x)均不存在$
   例: $f(x) = \tan x$
 
 <iframe src="https://www.desmos.com/calculator/fjqe8htsgo?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0> </iframe>
@@ -199,14 +199,16 @@ $$
 ### 震荡间断点
 
 例: $f(x) = \sin\frac{1}{x}$
+
 <iframe src="https://www.desmos.com/calculator/upumtg93gg?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0> </iframe>
 
 ### 可去间断点
 
-+ $\lim\limits_{x\rightarrow x_0^-}f(x) = \lim\limits_{x\rightarrow x_0^+}f(x)$
-+ $f(x_0)不存在$
+- $\lim\limits_{x\rightarrow x_0^-}f(x) = \lim\limits_{x\rightarrow x_0^+}f(x)$
+- $f(x_0)不存在$
 
 例: $f(x) = \frac{x^2-1}{x-1}$
+
 <iframe src="https://www.desmos.com/calculator/j6gvdv7iws?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0> </iframe>
 
 ### 跳跃间断点
@@ -218,12 +220,13 @@ f(x) =\begin{cases}
     x+1(x > 0)
 \end{cases}
 $$
+
 ![alt text](../img/jump.jpg)
 
-  **间断点**
+**间断点**
 
-+ 第一类间断点: 左右极限均存在
-+ 第二类间断点: 左右极限至少有一个不存在
+- 第一类间断点: 左右极限均存在
+- 第二类间断点: 左右极限至少有一个不存在
 
 ## 微分
 
@@ -247,9 +250,9 @@ $(1+x)^\alpha = 1 + \alpha x + \frac{\alpha(\alpha-1)}{2!}x^2 + \cdots + \frac{\
 
 设函数 $f(x)$ 满足：
 
-+ 在闭区间 $[a,b]$ 上连续；
-+ 在开区间 $(a,b)$ 内可导；
-+ $f(a) = f(b)$。
+- 在闭区间 $[a,b]$ 上连续；
+- 在开区间 $(a,b)$ 内可导；
+- $f(a) = f(b)$。
 
 则至少存在一点 $\xi \in (a,b)$，使得 $f'(\xi) = 0$
 
@@ -257,8 +260,8 @@ $(1+x)^\alpha = 1 + \alpha x + \frac{\alpha(\alpha-1)}{2!}x^2 + \cdots + \frac{\
 
 设函数 $f(x)$ 满足：
 
-+ 在闭区间 $[a,b]$ 上连续；
-+ 在开区间 $(a,b)$ 内可导。
+- 在闭区间 $[a,b]$ 上连续；
+- 在开区间 $(a,b)$ 内可导。
 
 则至少存在一点 $\xi \in (a,b)$，使得
 $f'(\xi) = \frac{f(b) - f(a)}{b - a}$
@@ -269,9 +272,9 @@ $f(b) - f(a) = f'(\xi)(b - a)$
 
 设函数 $f(x)$ 和 $g(x)$ 满足：
 
-+ 在闭区间 $[a,b]$ 上连续；
-+ 在开区间 $(a,b)$ 内可导；
-+ $g'(x) \neq 0$（或至少 $g'(x)$ 与 $f'(x)$ 不同时为零）。
+- 在闭区间 $[a,b]$ 上连续；
+- 在开区间 $(a,b)$ 内可导；
+- $g'(x) \neq 0$（或至少 $g'(x)$ 与 $f'(x)$ 不同时为零）。
 
 则至少存在一点 $\xi \in (a,b)$，使得
 $\frac{f(b) - f(a)}{g(b) - g(a)} = \frac{f'(\xi)}{g'(\xi)}$
@@ -299,13 +302,13 @@ $\int u\,dv = u\cdot v - \int v\,du$
 
 ## 定积分的性质
 
-+ $\int_a^af(x)\,dx = 0$
-+ $\int_a^bf(x)\,dx = -\int_b^af(x)\,dx$
-+ $\int_a^b \left(\alpha f(x)+\beta g(x)\right)\,dx = \alpha\int_a^bf(x)\,dx + \beta\int_a^bg(x)\,dx\qquad(\alpha 和\beta 均为常数)$
-+ $\int_a^bf(x)\,dx = \int_a^cf(x)\,dx + \int_c^bf(x)\,dx$
-+ $\left|\int_a^bf(x)\,dx\right|\leqslant \int_a^b\left|f(x)\right|\,dx$
-+ $若f(x)在[a,b]上连续,则至少 \exist  \xi \in[a,b] 使\int_a^b f(x)\,dx = f(\xi)\cdot(b-a)$
-+ $\int_0^\pi x\cdot f(\sin x)\,dx = \frac{\pi}{2}\int_0^\pi f(\sin x)\,dx$
+- $\int_a^af(x)\,dx = 0$
+- $\int_a^bf(x)\,dx = -\int_b^af(x)\,dx$
+- $\int_a^b \left(\alpha f(x)+\beta g(x)\right)\,dx = \alpha\int_a^bf(x)\,dx + \beta\int_a^bg(x)\,dx\qquad(\alpha 和\beta 均为常数)$
+- $\int_a^bf(x)\,dx = \int_a^cf(x)\,dx + \int_c^bf(x)\,dx$
+- $\left|\int_a^bf(x)\,dx\right|\leqslant \int_a^b\left|f(x)\right|\,dx$
+- $若f(x)在[a,b]上连续,则至少 \exist  \xi \in[a,b] 使\int_a^b f(x)\,dx = f(\xi)\cdot(b-a)$
+- $\int_0^\pi x\cdot f(\sin x)\,dx = \frac{\pi}{2}\int_0^\pi f(\sin x)\,dx$
 
 ## 微积分基本公式
 
@@ -367,7 +370,9 @@ $S = \int_\alpha^\beta\frac{1}{2}\rho^2(\theta)\,d\theta$
 $y = f(x)\qquad x\in[\alpha,\beta]$
 ![alt text](../img/PixPin_2026-05-10_15-15-06.png)
 $V = \int_\alpha^\beta\pi f^2(x)\,dx$
-****
+
+---
+
 $y_1 = f_1(x) \qquad y_2 = f_2(x)\qquad x\in[\alpha,\beta]$
 ![alt text](../img/PixPin_2026-05-10_15-19-55.png)
 $V =\pi \int_\alpha^\beta \left(f_1^2(x)-f_2^2(x)\right)\,dx$
@@ -395,6 +400,7 @@ $
 $$
 y  = f(x) , x\in [a.b]
 $$
+
 $$
 弧长 L =\int_a^b\sqrt{(f'(x))^2+1}
 $$
@@ -410,6 +416,7 @@ y = \mu(\theta)\cdot\sin \theta
 \\
 \theta\in [\alpha ,\beta]
 $$
+
 $$
 弧长 L = \int_\alpha^\beta\sqrt{\varphi^2(\theta) +[\mu'(\theta)]^2}
 $$
@@ -421,44 +428,45 @@ $$
 
 ## 可分离变量的微分方程
 
-+ 将 x 和 y 分别放在等号两边
-+ 对两边同时求不定积分
+- 将 x 和 y 分别放在等号两边
+- 对两边同时求不定积分
 
 ## 齐次方程
 
 $\frac{dy}{dx} = g\left(\frac{y}{x}\right)\Rightarrow\frac{y}{x}整体出现$
 
-+ ① 设 $\frac{y}{x} = u$
-+ ② $y = x\cdot u$
-+ ③ $\frac{dy}{dx} = u+x\cdot \frac{du}{dx}$
-$\frac{dy}{dx} = g\left(\frac{y}{x}\right)\Rightarrow u+x\cdot \frac{du}{dx} = g(u)\Rightarrow 可分离变量的微分方程$
+- ① 设 $\frac{y}{x} = u$
+- ② $y = x\cdot u$
+- ③ $\frac{dy}{dx} = u+x\cdot \frac{du}{dx}$
+  $\frac{dy}{dx} = g\left(\frac{y}{x}\right)\Rightarrow u+x\cdot \frac{du}{dx} = g(u)\Rightarrow 可分离变量的微分方程$
 
 ## 一阶线性微分方程
 
 **未知函数满足线性关系即为线性微分方程**
+
 $$
 \frac{dy}{dx} + P(x)y = Q(x)
 $$
 
-+ **$Q(x) = 0$**
+- **$Q(x) = 0$**
   一阶齐次线性方程
-  + 1: 分离 x 与 y, 写在等号两边
-  + 2: 两边求积分
-+ **$Q(x)\not = 0$**
-   一阶非齐次线性微分方程
-  + ① 化成标准形式 $y'+P(x)y = Q(x)0$
-  + ② $y=e^{-\int P(x)\,dx}\cdot \left(\int Q(x)\cdot e^{\int P(x)\, dx}\,dx +c\right)$
+  - 1: 分离 x 与 y, 写在等号两边
+  - 2: 两边求积分
+- **$Q(x)\not = 0$**
+  一阶非齐次线性微分方程
+  - ① 化成标准形式 $y'+P(x)y = Q(x)0$
+  - ② $y=e^{-\int P(x)\,dx}\cdot \left(\int Q(x)\cdot e^{\int P(x)\, dx}\,dx +c\right)$
 
 ## 伯努利方程
 
 $y'+P(x)y = Q(x)\cdot y^n$
 
-+ ① 两边除以 $y^n$
+- ① 两边除以 $y^n$
   $y^{-n}\cdot y'+P(x)y^{1-n} = Q(x)$
-+ ② 转化
-    $y^{-n}\cdot \frac{dy}{dx}+P(x)y^{1-n} = Q(x)$
-    $\frac{1}{1-n}\cdot\frac{dy^{1-n}}{dx}+P(x)y^{1-n} = Q(x)$
-+ ③ 令 $z = y^{1-n}$
+- ② 转化
+  $y^{-n}\cdot \frac{dy}{dx}+P(x)y^{1-n} = Q(x)$
+  $\frac{1}{1-n}\cdot\frac{dy^{1-n}}{dx}+P(x)y^{1-n} = Q(x)$
+- ③ 令 $z = y^{1-n}$
   $z'+(1-n)P(x)\cdot z = (1-n)Q(x)$
 
 ## 可降阶的高阶微分方程
@@ -498,7 +506,7 @@ $$
 ### 二阶常系数齐次线性微分方程($f(x)\not = 0$)
 
 ① 设 $\overline{y}$ 为 $y''+py'+qy = 0的通解$
-  $y^*$ 为 $y''+py'+qy = f(x)$ 的一个特解
+$y^*$ 为 $y''+py'+qy = f(x)$ 的一个特解
 ② $y''+py'+qy = f(x)$ 的通解为 $y = \overline{y}+y^*$
 
 # 曲面方程
@@ -507,7 +515,9 @@ $$
 
 一个平面的法向量为 $\vec{n} = (A,B,C,)$ 平面上有一点为 $P(x_0,y_0,z_0)$
 则, 该平面的点法式为 $A(x-x_0)+B(y-y_0)+C(z-z_0) = 0$
-****
+
+---
+
 若某个平面的方程为 $Ax+By+Cz+d = 0 \qquad 则其法向量\vec{n} = (A,B,C)$
 
 # 偏导数
@@ -527,9 +537,9 @@ $$
 
 ## 高阶偏导数
 
-+ 对 x 的二阶偏导: $f_{xx}(x,y) = \frac{\partial}{\partial x}\left(\frac{\partial f}{\partial x}\right)$
-+ 混合偏导: $f_{xy} (x,y) = \frac{\partial}{\partial y}\left(\frac{\partial f}{\partial x}\right)$$
-**二阶混合偏导数若连续, 则必相等**
+- 对 x 的二阶偏导: $f_{xx}(x,y) = \frac{\partial}{\partial x}\left(\frac{\partial f}{\partial x}\right)$
+- 混合偏导: $f_{xy} (x,y) = \frac{\partial}{\partial y}\left(\frac{\partial f}{\partial x}\right)$$
+  **二阶混合偏导数若连续, 则必相等**
 
 # 全微分
 
@@ -543,10 +553,10 @@ $\Delta z =f_x(x,y)\Delta x +f_y(x,y)\Delta y + o(\rho) \qquad 若满足\rho = \
 
 其中 **全微分**: $dz = f_x(x,y)\Delta x +f_y(x,y)\Delta y$
 
-+ 若二元函数可偏导, 这个二元函数不一定连续
-+ 若二元函数可微分, 这个二元函数连续
-+ 若二元函数的偏导存在且连续, 则其可微分
-+ 若二元函数可微分, 则其偏导必存在, 且 $d z =f_x(x,y)d x +f_y(x,y)d y$
+- 若二元函数可偏导, 这个二元函数不一定连续
+- 若二元函数可微分, 这个二元函数连续
+- 若二元函数的偏导存在且连续, 则其可微分
+- 若二元函数可微分, 则其偏导必存在, 且 $d z =f_x(x,y)d x +f_y(x,y)d y$
 
 # 多元函数的求导法则
 
@@ -568,7 +578,9 @@ $$
 $$
 \frac{dz}{dt} = \frac{\partial z}{\partial u}\cdot \frac{du}{dt}+\frac{\partial z}{\partial v}\cdot \frac{dv}{dt}
 $$
+
 ## 关于多变量
+
 $$
 z = f(u, v) \qquad
 \begin{cases}
@@ -591,6 +603,7 @@ $$
 $$
 
 ## 部分关于多变量
+
 $$
 z = f(u, v) \qquad
 \begin{cases}
@@ -615,6 +628,7 @@ $$
 **一元函数: 求导, 多元函数: 求偏导**
 
 # 全微分形式不变性
+
 $$
 z = f(u, v) \qquad dz =\frac{\partial z}{\partial u}du+ \frac{\partial z}{\partial v}dv
 $$
@@ -622,18 +636,23 @@ $$
 # 隐函数求导法则
 
 ## 一元函数隐函数求导
+
 1: 直接进行隐函数求导即可
 
 2:$若 F(x, y)是关于 x, y 的二元函数 \qquad 且 F(x, y) = 0$
 
 $\frac{dy}{dx} = -\frac{F_x(x,y)}{F_y(x,y)}$
+
 ## 多元函数隐函数求导
+
 ### 常规多元函数
+
 $F(x,y,z) = 0$
 $\frac{\partial z}{\partial x} = \frac{F_x(x,y,z)}{F_z(x,y,z)}$
 $\frac{\partial z}{\partial y} = \frac{F_y(x,y,z)}{F_z(x,y,z)}$
 
 ### 多元函数方程组
+
 $$
 \begin{cases}
   xu-yv = 0
@@ -642,12 +661,14 @@ $$
 \end{cases}
 \qquad
 \begin{cases}
-u = \varphi(x, y) 
+u = \varphi(x, y)
 \\
 v = \mu(x, y)
 \end{cases}
 $$
+
 两边同时对 x 求偏导
+
 $$
 \begin{cases}
 u+xu_x-yv_x = 0
@@ -655,6 +676,7 @@ u+xu_x-yv_x = 0
 yu_x+v+xv_x = 0
 \end{cases}
 $$
+
 $$
 \qquad\Downarrow
 $$
@@ -676,16 +698,23 @@ $$
 # 一元向量值函数及其导数
 
 ## 一元向量值函数
+
 ### 由曲线确定的向量
-$$曲线:\begin{cases}
+
+$$
+曲线:\begin{cases}
   x = \varphi (t)
   \\
   y = \mu(t)
   \\
   z = \omega(t)
-\end{cases}$$
+\end{cases}
+$$
+
 $则向量 :\vec{f(t)} = \left(\varphi(t),\mu(t),\omega(t)\right)$
+
 ### 向量极限
+
 $\lim\limits_{t \rightarrow t_0}\vec{f(t)} = \left(\lim\limits_{t \rightarrow t_0}f_1(t),\lim\limits_{t \rightarrow t_0}f_2(t),\lim\limits_{t \rightarrow t_0}f_3(t)\right)$
 
 # 空间曲线的切线与法平面
@@ -694,18 +723,30 @@ $设空间曲线:\vec{f(x)} = \left(\varphi (t), \mu (t),\omega(t) \right)$
 $切向量 : \vec{T} = \vec{f'(x)} = \left(\varphi' (t), \mu '(t),\omega'(t) \right)$
 
 ## 空间曲线的切线
+
 点向式 : $\frac{x-x_0}{\varphi' (t)} = \frac{y-y_0}{\mu '(t)} = \frac{z-z_0}{\omega'(t)}$
+
 ## 空间曲线的法平面
+
 点法式: $\varphi' (t)\cdot(x-x_0) + \mu '(t)\cdot(y-y_0)+\omega'(t)\cdot(z-z_0)$
+
 # 空间曲面的切平面与法线
+
 设空间曲面F(x,y,z) = 0
 $\vec{n} = \left(F_x(x_0,y_0,z_0),F_y(x_0,y_0,z_0),F_z(x_0,y_0,z_0)\right)$
+
 ### 空间曲面的切平面
+
 点法式:$F_x(x_0,y_0,z_0)(x-x_0) + F_y(x_0,y_0,z_0)(y-y_0) + F_z(x_0,y_0,z_0)(z-z_0) = 0$
+
 ### 空间曲面的法线
+
 点向式: $\frac{x-x_0}{F_x(x_0,y_0,z_0)} = \frac{y-y_0}{F_y(x_0,y_0,z_0)} = \frac{z-z_0}{F_z(x_0,y_0,z_0)}$
+
 # 方向导数与梯度
+
 ## 方向导数
+
 $\begin{cases}
   x =x_0+t\cos \alpha
   \\
@@ -715,7 +756,9 @@ t为变化前的点和变化后的点之间的距离
 $\frac{\partial f}{\partial l} = \lim\limits_{t\rightarrow0^+}\frac{f(x_0+t\cos \alpha,y_0+t \cos \beta) - f(x_0,y_0)}{t}$
 
 **$定理:f(x,y)在p_0可微分,则沿任意方向l的方向导数存在,且\frac{\partial f}{\partial l}|_{(x_0,y_0)} = f_x(x_0,y_0)\cos \alpha +f_y(x_0,y_0)\cos \beta$**
+
 ## 梯度
+
 **梯度是一个向量**
 
 $设函数:z=f(x,y) 点p_0(x_0,y_0)在函数上$
@@ -723,11 +766,14 @@ $则函数在p_0处的梯度为 \nabla f(x_0,y_0) = f_x(x_0,y_0)\vec{i}+f_y(x_0,
 
 结合方向导数:
 $\frac{\partial f}{\partial l}|_{(x_0,y_0)} = \left(f_x(x_0,y_o),f_y(x_0.y_0)\right)\cdot(\cos \alpha ,\cos \beta)$(注:此为两个向量的数量积)
-$= \left| \nabla f(x_0,y_0)\right| \cdot \cos \theta \qquad \theta 为 梯度与p_0处方向的夹角$ 
-+ 梯度方向:在$p_0 点,z=f(x,y) 增加最快的方向$
-+ 梯度反方向:在$p_0 点,z=f(x,y) 减少最快的方向$
-+ 与梯度成$90^。方向: 函数值变化率为0$
+$= \left| \nabla f(x_0,y_0)\right| \cdot \cos \theta \qquad \theta 为 梯度与p_0处方向的夹角$
+
+- 梯度方向:在$p_0 点,z=f(x,y) 增加最快的方向$
+- 梯度反方向:在$p_0 点,z=f(x,y) 减少最快的方向$
+- 与梯度成$90^。方向: 函数值变化率为0$
+
 ### 等值线
+
 $\begin{cases}
   z=f(x,y)
   \\
@@ -737,29 +783,35 @@ $等值线 f(x,y) = c 在(x_0,y_0) 处的切线斜率为 k_1 = -\frac{f_x(x_0,y_
 $法线斜率:k_2 =\frac{f_y(x_0,y_0)}{f_x(x_0,y_0)}$
 $则法向量:\vec{n} = \left(f_x(x_0,y_o),f_y(x_0.y_0)\right)\qquad即:法向量\vec{n} =\frac{\nabla f(x_0,y_0)}{\left|\nabla f(x_0,y_0)\right|}$
 $可得出:\frac{\partial f}{\partial n} = |\nabla f(x_0,y_0)|\qquad方向导数=梯度的模$
+
 # 多元函数的极值
 
 ## 必要条件
+
 $若z=f(x,y) 在点(x_0,y_0)有偏导数,且点(x_0,y_0)可以取到极值,则 f_x(x_0,y_0) = 0,f_y(x_0,y_0) = 0,(x_0,y_0)为驻点$
+
 ## 充分条件
-+ ①$令 f_x(x,y) =0\qquad f_y(x,y) =0 求驻点(x_0,y_0)$
-+ ②$A=f_{xx}(x_0,y_0), B = f_{xy}(x_0,y_0),C = f_{yy}(x_0,y_0)$
-  + 若$AC-B^2>0,则f(x,y)有极值$
-    + $若A>0,有极小值,极小值为f(x_0,y_0)$
-    + $若A<0,有极大值,极大值为f(x_0,y_0)$
-  + 若$AC-B^2<0,则f(x,y)无极值$
-  + 若$AC-B^2=0,则无法确定$
+
+- ①$令 f_x(x,y) =0\qquad f_y(x,y) =0 求驻点(x_0,y_0)$
+- ②$A=f_{xx}(x_0,y_0), B = f_{xy}(x_0,y_0),C = f_{yy}(x_0,y_0)$
+  - 若$AC-B^2>0,则f(x,y)有极值$
+    - $若A>0,有极小值,极小值为f(x_0,y_0)$
+    - $若A<0,有极大值,极大值为f(x_0,y_0)$
+  - 若$AC-B^2<0,则f(x,y)无极值$
+  - 若$AC-B^2=0,则无法确定$
 
 ### 条件极值与拉格朗日乘数法
 
 求函数 $z = f(x,y)$ 在约束条件 $\varphi(x,y)=0$ 下的极值。
 
 **构造拉格朗日函数：**
+
 $$
 L(x,y,\lambda) = f(x,y) + \lambda\,\varphi(x,y)
 $$
 
 **求偏导并令其为零：**
+
 $$
 \begin{cases}
 L_x = f_x(x,y) + \lambda\,\varphi_x(x,y) = 0 \\[2pt]
@@ -783,6 +835,7 @@ $$
 分别对 $x_i$ 和 $\lambda_k$ 求偏导并令其为零，解 $n+m$ 个方程构成的方程组即可。
 
 # 重积分
+
 ## 二重积分
 
 ### 二重积分的定义与性质
@@ -804,11 +857,13 @@ $$
 #### 性质
 
 1. **线性性质：**
+
    $$
    \iint_D \bigl(\alpha f(x,y)+\beta g(x,y)\bigr)\,d\sigma = \alpha\iint_D f(x,y)\,d\sigma + \beta\iint_D g(x,y)\,d\sigma
    $$
 
 2. **可加性：** 若 $D = D_1\cup D_2$ 且 $D_1\cap D_2$ 无内点，则
+
    $$
    \iint_D f(x,y)\,d\sigma = \iint_{D_1} f(x,y)\,d\sigma + \iint_{D_2} f(x,y)\,d\sigma
    $$
@@ -816,6 +871,7 @@ $$
 3. **保号性：** 若在 $D$ 上 $f(x,y)\geqslant g(x,y)$，则 $\iint_D f(x,y)\,d\sigma \geqslant \iint_D g(x,y)\,d\sigma$
 
 4. **估值不等式：** 设 $M,m$ 分别为 $f(x,y)$ 在 $D$ 上的最大值与最小值，$\sigma$ 为 $D$ 的面积，则
+
    $$
    m\sigma \leqslant \iint_D f(x,y)\,d\sigma \leqslant M\sigma
    $$
@@ -860,6 +916,7 @@ $$
 当积分区域为圆域、环域或扇形区域时，通常用极坐标计算更简便。
 
 **坐标变换：**
+
 $$
 \begin{cases}
 x = r\cos\theta \\[2pt]
@@ -881,11 +938,13 @@ $$
 **常见情形：**
 
 1. 极点位于区域 $D$ 外部（$D$ 由射线 $\theta=\alpha,\theta=\beta$ 与曲线 $r=r_1(\theta),r=r_2(\theta)$ 围成）：
+
    $$
    \iint_D f(r\cos\theta,r\sin\theta)\,r\,dr\,d\theta = \int_\alpha^\beta d\theta \int_{r_1(\theta)}^{r_2(\theta)} f(r\cos\theta,r\sin\theta)\,r\,dr
    $$
 
 2. 极点位于区域 $D$ 内部边界上（$D$ 由 $\theta=\alpha,\theta=\beta$ 与 $r=r(\theta)$ 围成）：
+
    $$
    \iint_D f(r\cos\theta,r\sin\theta)\,r\,dr\,d\theta = \int_\alpha^\beta d\theta \int_0^{r(\theta)} f(r\cos\theta,r\sin\theta)\,r\,dr
    $$
@@ -902,12 +961,15 @@ $$
 若积分区域 $D$ 是无界区域（如全平面、半平面、有界区域外部等），则定义广义二重积分为有界子区域上二重积分的极限。
 
 **定义：** 设 $D$ 为无界区域，$f(x,y)$ 在 $D$ 上连续。取一列有界闭区域 $\{D_n\}$ 满足 $D_1\subset D_2\subset\cdots\subset D_n\subset\cdots$ 且 $\bigcup_{n=1}^\infty D_n = D$。若极限
+
 $$
 \iint_D f(x,y)\,d\sigma = \lim_{n\to\infty}\iint_{D_n} f(x,y)\,d\sigma
 $$
+
 存在且与 $\{D_n\}$ 的取法无关，则称广义二重积分**收敛**，否则**发散**。
 
 **常用取法：**
+
 - 全平面：$D_n: x^2+y^2\leqslant R^2$，再令 $R\to+\infty$
 - 无界扇形：$D_n: a\leqslant r\leqslant R,\;\alpha\leqslant\theta\leqslant\beta$，再令 $R\to+\infty$
 - 带形区域：$D_n: a\leqslant x\leqslant b,\;c\leqslant y\leqslant n$，再令 $n\to+\infty$
@@ -935,7 +997,7 @@ $$
 若 $D$ 关于 $x$ 轴对称（即 $(x,y)\in D \Rightarrow (x,-y)\in D$），记 $D_1 = D\cap\{y\geqslant0\}$ 为上半部分，则
 
 $$
-\iint_D f(x,y)\,d\sigma = 
+\iint_D f(x,y)\,d\sigma =
 \begin{cases}
 2\displaystyle\iint_{D_1} f(x,y)\,d\sigma, & f(x,-y)=f(x,y)\quad(\text{关于 }y\text{ 为偶}) \\[8pt]
 0, & f(x,-y)=-f(x,y)\quad(\text{关于 }y\text{ 为奇})
@@ -949,7 +1011,7 @@ $$
 若 $D$ 关于 $y$ 轴对称（即 $(x,y)\in D \Rightarrow (-x,y)\in D$），记 $D_2 = D\cap\{x\geqslant0\}$ 为右半部分，则
 
 $$
-\iint_D f(x,y)\,d\sigma = 
+\iint_D f(x,y)\,d\sigma =
 \begin{cases}
 2\displaystyle\iint_{D_2} f(x,y)\,d\sigma, & f(-x,y)=f(x,y)\quad(\text{关于 }x\text{ 为偶}) \\[8pt]
 0, & f(-x,y)=-f(x,y)\quad(\text{关于 }x\text{ 为奇})
@@ -963,7 +1025,7 @@ $$
 若 $D$ 关于原点对称（即 $(x,y)\in D \Rightarrow (-x,-y)\in D$），记 $D_3$ 为 $D$ 的任意一半（如 $x\geqslant0$ 部分），则
 
 $$
-\iint_D f(x,y)\,d\sigma = 
+\iint_D f(x,y)\,d\sigma =
 \begin{cases}
 2\displaystyle\iint_{D_3} f(x,y)\,d\sigma, & f(-x,-y)=f(x,y) \\[8pt]
 0, & f(-x,-y)=-f(x,y)
@@ -981,6 +1043,7 @@ $$
 $$
 
 特别地：
+
 - 若 $f(x,y)=f(y,x)$（对称函数），则此即为原积分本身，无简化，但可与对称轮换技巧结合使用。
 - **常用技巧：** $\iint_D f(x,y)\,d\sigma = \frac12\iint_D \bigl[f(x,y)+f(y,x)\bigr]\,d\sigma$，可使某些复杂积分简化。
 
@@ -1094,10 +1157,11 @@ $$
 $$
 
 > **常见情形：**
+>
 > - 球体 $x^2+y^2+z^2\leqslant R^2$：$\rho\in[0,R],\;\varphi\in[0,\pi],\;\theta\in[0,2\pi]$
 > - 上半球体：$\varphi\in[0,\pi/2]$
 > - 圆锥面 $\varphi=\varphi_0$ 与球面围成的区域：$\varphi\in[0,\varphi_0]$
-                                         
+
 # 级数
 
 ## 常数项级数的概念与性质
@@ -1121,6 +1185,7 @@ $$
 ### 二、常见级数的敛散性
 
 1. **等比级数（几何级数）**
+
    $$
    \sum_{n=0}^{\infty} a q^{n} = a + aq + aq^2 + \cdots
    $$
@@ -1128,6 +1193,7 @@ $$
    - $|q| \geqslant 1$ 时发散（$a \neq 0$）
 
 2. **调和级数**
+
    $$
    \sum_{n=1}^{\infty} \frac{1}{n} = 1 + \frac{1}{2} + \frac{1}{3} + \cdots \quad \text{发散}
    $$
@@ -1149,18 +1215,20 @@ $$
 
 2. **去掉、添加或改变有限项** 不改变级数的敛散性（收敛时和会改变）
 
-3. **加括号性质：** 
- - $若\sum_{n=1}^{\infty} a_n收敛,而\sum_{n=1}^{\infty} b_n 发散,则\sum_{n=1}^{\infty}(a_n\pm b_n)发散$
- - $若\sum_{n=1}^{\infty} a_n和\sum_{n=1}^{\infty} b_n 都发散,则\sum_{n=1}^{\infty}(a_n\pm b_n)可能收敛,也可能发散$
+3. **加括号性质：**
+
+- $若\sum_{n=1}^{\infty} a_n收敛,而\sum_{n=1}^{\infty} b_n 发散,则\sum_{n=1}^{\infty}(a_n\pm b_n)发散$
+- $若\sum_{n=1}^{\infty} a_n和\sum_{n=1}^{\infty} b_n 都发散,则\sum_{n=1}^{\infty}(a_n\pm b_n)可能收敛,也可能发散$
 
 4. 改变级数的有限项不会改变级数的敛散性,但是在级数收敛时,级数的和可能会改变
 
 5. $若\sum_{n=1}^{\infty} a_n \text{ 收敛} \;\Longrightarrow\; \lim_{n\to\infty} a_n = 0$
+
    > **注意：** $\lim a_n = 0$ 是收敛的必要条件而非充分条件（如调和级数 $\sum\frac1n$ 通项趋于 $0$ 但发散）
-  
+
 6. $若\lim_{n\to\infty} a_n \not= 0\Longrightarrow\sum_{n=1}^{\infty} a_n发散$
 
-6. **柯西收敛准则（充要条件）**
+7. **柯西收敛准则（充要条件）**
    $$
    \sum_{n=1}^{\infty} a_n \text{ 收敛} \;\Longleftrightarrow\; \forall \varepsilon > 0,\; \exists N \in \mathbb{N},\; \forall m > n > N:\; |a_{n+1} + a_{n+2} + \cdots + a_m| < \varepsilon
    $$
@@ -1171,6 +1239,7 @@ $$
 - 若 $\lim a_n \neq 0$，则级数 $\sum a_n$ **必发散**（用于判定发散）
 - 两个发散级数的和可能收敛，也可能发散
 - 收敛级数与发散级数的和必发散
+
 ## 正项级数
 
 ### 正项级数的定义
@@ -1266,10 +1335,10 @@ $$
 
 ### 性质
 
-| 性质 | 绝对收敛 | 条件收敛 |
-|------|---------|---------|
-| 重排（交换项次序） | 和不变 | 可收敛到任意值（黎曼重排定理），或发散 |
-| 乘积（柯西乘积） | 收敛且和等于乘积 | 不一定收敛 |
+| 性质               | 绝对收敛         | 条件收敛                               |
+| ------------------ | ---------------- | -------------------------------------- |
+| 重排（交换项次序） | 和不变           | 可收敛到任意值（黎曼重排定理），或发散 |
+| 乘积（柯西乘积）   | 收敛且和等于乘积 | 不一定收敛                             |
 
 ### 黎曼重排定理 (Riemann Rearrangement Theorem)
 
@@ -1324,28 +1393,31 @@ $$
 5. **余弦函数：** $\displaystyle \cos x = \sum_{n=0}^\infty (-1)^n \frac{x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \cdots,\quad x \in \mathbb{R}$
 
 > **间接展开法示例：**
+>
 > - 将 $x$ 替换为 $-x$ 可得 $\dfrac{1}{1+x} = \sum_{n=0}^\infty (-1)^n x^n$
 > - 逐项积分 $\dfrac{1}{1+x}$ 可得 $\ln(1+x) = \sum_{n=1}^\infty (-1)^{n-1} \dfrac{x^n}{n}$
 > - 逐项积分 $\dfrac{1}{1+x^2}$ 可得 $\arctan x = \sum_{n=0}^\infty (-1)^n \dfrac{x^{2n+1}}{2n+1}$
 
 ### 常用麦克劳林展开式
 
-| 函数 | 展开式 | 成立范围 |
-|------|-------|---------|
-| $\dfrac{1}{1-x}$ | $\displaystyle\sum_{n=0}^\infty x^n$ | $(-1,1)$|
-| $e^x$ | $\displaystyle\sum_{n=0}^\infty \frac{x^n}{n!}$ | $(-\infty, +\infty)$ |
-| $\sin x$ | $\displaystyle\sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{(2n+1)!}$ | $(-\infty, +\infty)$ |
-| $\cos x$ | $\displaystyle\sum_{n=0}^\infty (-1)^n \frac{x^{2n}}{(2n)!}$ | $(-\infty, +\infty)$ |
-| $\ln(1+x)$ | $\displaystyle\sum_{n=1}^\infty (-1)^{n-1} \frac{x^n}{n}$ | $(-1, 1]$ |
-| $\arctan x$ | $\displaystyle\sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n+1}$ | $[-1, 1]$ |
-| $(1+x)^\alpha$ | $\displaystyle\sum_{n=0}^\infty \binom{\alpha}{n} x^n$ | $(-1,1)$ |
+| 函数             | 展开式                                                           | 成立范围             |
+| ---------------- | ---------------------------------------------------------------- | -------------------- |
+| $\dfrac{1}{1-x}$ | $\displaystyle\sum_{n=0}^\infty x^n$                             | $(-1,1)$             |
+| $e^x$            | $\displaystyle\sum_{n=0}^\infty \frac{x^n}{n!}$                  | $(-\infty, +\infty)$ |
+| $\sin x$         | $\displaystyle\sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{(2n+1)!}$ | $(-\infty, +\infty)$ |
+| $\cos x$         | $\displaystyle\sum_{n=0}^\infty (-1)^n \frac{x^{2n}}{(2n)!}$     | $(-\infty, +\infty)$ |
+| $\ln(1+x)$       | $\displaystyle\sum_{n=1}^\infty (-1)^{n-1} \frac{x^n}{n}$        | $(-1, 1]$            |
+| $\arctan x$      | $\displaystyle\sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n+1}$    | $[-1, 1]$            |
+| $(1+x)^\alpha$   | $\displaystyle\sum_{n=0}^\infty \binom{\alpha}{n} x^n$           | $(-1,1)$             |
 
 其中 $\displaystyle\binom{\alpha}{n} = \frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}$。
 
 > **注意：** $\ln x$ 在 $x=0$ 处无定义，无法展开为麦克劳林级数。改用**泰勒级数**在 $x=1$ 处展开：
+>
 > $$
 > \ln x = \sum_{n=1}^\infty (-1)^{n-1} \frac{(x-1)^n}{n},\quad 0 < x < 2
 > $$
+>
 > 令 $t = x-1$ 即化为 $\ln(1+t)$ 的麦克劳林展开。
 
 ### 求幂级数和函数的一般步骤

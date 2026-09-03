@@ -1,17 +1,28 @@
 # 行列式
+
 ## n级排列
+
 **由$1,2,3,\dotsb,n$组成的一个有序数组叫做一个n级排列**
-+ n级排列中一个数也不能少
-+ 1~n可组成的n级排列有$n!$种
+
+- n级排列中一个数也不能少
+- 1~n可组成的n级排列有$n!$种
+
 ## 逆序
+
 在一个n级排列中,如果较大的数$n_i$排在较小的数$n_j$的前面,则称$n_i$与$n_j$构成一个逆序
+
 ## 奇,偶排列
+
 如果一个排列的逆序数为奇数,则其为奇排列,否则为偶排列
- 1~n可组成的n级排列有$n!$种,其中奇排列和偶排列各占一半
+1~n可组成的n级排列有$n!$种,其中奇排列和偶排列各占一半
+
 ## 对换
+
 在一个n级排列中,交换两个元素的位置
 每做一次兑换,该排列的奇偶性改变一次
+
 ## n阶行列式
+
 $
 \begin{vmatrix}
 a_{11} & a_{12} & \cdots & a_{1n} \\
@@ -31,26 +42,28 @@ a_{n1} & a_{n2} & \cdots & a_{nn}
 \end{vmatrix}
 = \sum\limits_{j_1j_2\dots j_n} (-1)^{N(j_1j_2\dots j_n)} a_{1j_1} a_{2j_2} \dots a_{nj_n}
 $
-+ 行标取标准排列
-+ 列标取排列的所有可能
-+ 不同行不同列 $n$ 个元素相乘
-$$
-D = \begin{vmatrix}
-a_{11} & a_{12} & \cdots & a_{1n} \\
-a_{21} & a_{22} & \cdots & a_{2n} \\
-\vdots  & \vdots  & \ddots & \vdots  \\
-a_{n1} & a_{n2} & \cdots & a_{nn}
-\end{vmatrix}
-\qquad
-D^T = \begin{vmatrix}
-a_{11} & a_{21} & \cdots & a_{n1} \\
-a_{12} & a_{22} & \cdots & a_{n2} \\
-\vdots  & \vdots  & \ddots & \vdots  \\
-a_{1n} & a_{2n} & \cdots & a_{nn}
-\end{vmatrix}
-$$
+
+- 行标取标准排列
+- 列标取排列的所有可能
+- 不同行不同列 $n$ 个元素相乘
+  $$
+  D = \begin{vmatrix}
+  a_{11} & a_{12} & \cdots & a_{1n} \\
+  a_{21} & a_{22} & \cdots & a_{2n} \\
+  \vdots  & \vdots  & \ddots & \vdots  \\
+  a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+  \qquad
+  D^T = \begin{vmatrix}
+  a_{11} & a_{21} & \cdots & a_{n1} \\
+  a_{12} & a_{22} & \cdots & a_{n2} \\
+  \vdots  & \vdots  & \ddots & \vdots  \\
+  a_{1n} & a_{2n} & \cdots & a_{nn}
+  \end{vmatrix}
+  $$
 
 ## 行列式的性质
+
 **$D^T = D$，即行列式与其转置行列式相等**
 
 $$
@@ -133,6 +146,7 @@ $$
 $$
 
 **若行列式的k行(列)的各元素都是两数之和,则这个行列式可以拆开成两个行列式之和,这两个行列式k行(列)分别为那两个加数,其余数与原行列式相同**
+
 $$
 \begin{vmatrix}
 a_{11} & a_{12} & a_{13} \\
@@ -206,7 +220,9 @@ $$
 ## 行列式按一行(列)展开
 
 ### 余子式与代数余子式
+
 #### 余子式
+
 在 $n$ 阶行列式中，去掉元素 $a_{ij}$ 所在的第 $i$ 行和第 $j$ 列后，剩下的 $n-1$ 阶行列式称为元素 $a_{ij}$ 的 **余子式**，记作 $M_{ij}$
 
 $$
@@ -219,7 +235,9 @@ a_{i+1,1} & \cdots & a_{i+1,j-1} & a_{i+1,j+1} & \cdots & a_{i+1,n} \\
 a_{n1} & \cdots & a_{n,j-1} & a_{n,j+1} & \cdots & a_{nn}
 \end{vmatrix}
 $$
+
 #### 代数余子式
+
 代数余子式:$A_{ij} = (-1)^{i+j} M_{ij}$
 
 ## 按一行(列)展开定理
@@ -230,7 +248,7 @@ $$
 $$D = a_{i1}A_{i1} + a_{i2}A_{i2} + \cdots + a_{in}A_{in} = \sum_{j=1}^{n} a_{ij} A_{ij}$$
 
 **按第 $j$ 列展开**
-$$ D = a_{1j}A_{1j} + a_{2j}A_{2j} + \cdots + a_{nj}A_{nj} = \sum_{i=1}^{n} a_{ij} A_{ij} $$
+$$ D = a*{1j}A*{1j} + a*{2j}A*{2j} + \cdots + a*{nj}A*{nj} = \sum*{i=1}^{n} a*{ij} A\_{ij} $$
 
 ### 示例：按第一行展开 3 阶行列式
 
@@ -243,6 +261,7 @@ a_{31} & a_{32} & a_{33}
 $$
 
 各元素的余子式：
+
 $$
 M_{11} = \begin{vmatrix} a_{22} & a_{23} \\ a_{32} & a_{33} \end{vmatrix},\;
 M_{12} = \begin{vmatrix} a_{21} & a_{23} \\ a_{31} & a_{33} \end{vmatrix},\;
@@ -250,6 +269,7 @@ M_{13} = \begin{vmatrix} a_{21} & a_{22} \\ a_{31} & a_{32} \end{vmatrix}
 $$
 
 代数余子式：
+
 $$
 A_{11} = (-1)^{1+1}M_{11} = M_{11},\;
 A_{12} = (-1)^{1+2}M_{12} = -M_{12},\;
@@ -257,6 +277,7 @@ A_{13} = (-1)^{1+3}M_{13} = M_{13}
 $$
 
 按第一行展开：
+
 $$
 \begin{aligned}
 D &= a_{11}A_{11} + a_{12}A_{12} + a_{13}A_{13} \\
@@ -277,6 +298,7 @@ D = \begin{vmatrix}
 $$
 
 余子式：
+
 $$
 M_{11} = \begin{vmatrix}5&6\\8&10\end{vmatrix} = 2,\;
 M_{12} = \begin{vmatrix}4&6\\7&10\end{vmatrix} = -2,\;
@@ -284,6 +306,7 @@ M_{13} = \begin{vmatrix}4&5\\7&8\end{vmatrix} = -3
 $$
 
 代数余子式：
+
 $$
 A_{11} = M_{11} = 2,\;
 A_{12} = -M_{12} = 2,\;
@@ -291,6 +314,7 @@ A_{13} = M_{13} = -3
 $$
 
 按第一行展开：
+
 $$
 D = 1\cdot2 + 2\cdot2 + 3\cdot(-3) = 2 + 4 - 9 = -3
 $$
@@ -300,20 +324,23 @@ $$
 某行(列)的各元素与另一行(列)的对应代数余子式乘积之和等于零：
 
 **用第 $k$ 行的代数余子式乘第 $i$ 行元素 $(i \neq k)$**
-$$ a_{i1}A_{k1} + a_{i2}A_{k2} + \cdots + a_{in}A_{kn} = \sum_{j=1}^{n} a_{ij} A_{kj} = 0 \quad (i \neq k) $$
+$$ a*{i1}A*{k1} + a*{i2}A*{k2} + \cdots + a*{in}A*{kn} = \sum*{j=1}^{n} a*{ij} A\_{kj} = 0 \quad (i \neq k) $$
 
 **用第 $k$ 列的代数余子式乘第 $j$ 列元素 $(j \neq k)$**
-$$ a_{1j}A_{1k} + a_{2j}A_{2k} + \cdots + a_{nj}A_{nk} = \sum_{i=1}^{n} a_{ij} A_{ik} = 0 \quad (j \neq k) $$
+$$ a*{1j}A*{1k} + a*{2j}A*{2k} + \cdots + a*{nj}A*{nk} = \sum*{i=1}^{n} a*{ij} A\_{ik} = 0 \quad (j \neq k) $$
 
 ### 示例
 
 对行列式 $D = \begin{vmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 10 \end{vmatrix}$，已知第一行的代数余子式 $A_{11}=2,\; A_{12}=2,\; A_{13}=-3$：
 
 用第二行元素乘第一行的代数余子式：
+
 $$
 4\cdot A_{11} + 5\cdot A_{12} + 6\cdot A_{13} = 4\cdot2 + 5\cdot2 + 6\cdot(-3) = 8 + 10 - 18 = 0
 $$
+
 ## 行列式按多行(列)展开
+
 ### k阶子式的余子式和代数余子式
 
 #### k阶子式
@@ -354,7 +381,7 @@ $$
 
 在 $n$ 阶行列式 $D$ 中，任意选取 $k$ 行（或 $k$ 列），由这 $k$ 行中的所有 $k$ 阶子式 $M_1, M_2, \dots, M_t$（其中 $t = C_n^k$）分别与其对应的代数余子式 $A_1, A_2, \dots, A_t$ 乘积之和等于行列式 $D$ 的值：
 
-$$ D = \sum_{s=1}^{t} M_s A_s $$
+$$ D = \sum\_{s=1}^{t} M_s A_s $$
 
 这是行列式按一行（列）展开定理的推广。
 
@@ -430,7 +457,9 @@ $$
 
 1. 当 $x_1, x_2, \dots, x_n$ 中有任意两个相等时，行列式的值为零。
 2. 范德蒙德行列式常用于证明 $n$ 个点可以唯一确定一个 $n-1$ 次多项式（多项式插值的存在唯一性）。
+
 ### 克莱姆法则
+
 克莱姆法则用于求解含有 $n$ 个未知数和 $n$ 个线性方程的方程组。
 
 设有线性方程组：
@@ -530,14 +559,16 @@ x_3 = \frac{D_3}{D} = \frac{-2}{4} = -\frac{1}{2}
 $$
 
 ## 克莱姆法则推论
+
 对于齐次线性方程组($b_1, b_2, \dots, b_n$ = 0)
 
-+ 齐次线性方程组有非零解的充分必要条件是系数行列式$D$ = 0
-+ 线性齐次方程组只有零解的充分必要条件是系数行列式$D \not ={0}$
+- 齐次线性方程组有非零解的充分必要条件是系数行列式$D$ = 0
+- 线性齐次方程组只有零解的充分必要条件是系数行列式$D \not ={0}$
 
 # 矩阵
 
 ## 矩阵相关概念
+
 由 $m \times n$ 个数 $a_{ij}$ 排成的 $m$ 行 $n$ 列的数表称为 $m \times n$ 矩阵，记作：
 
 $$
@@ -556,10 +587,12 @@ $$
 若两个矩阵 $A$ 和 $B$ 的行数相同、列数也相同，则称 $A$ 与 $B$ 是 **同型矩阵**。
 
 **示例：**
+
 $$
 A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix},\quad
 B = \begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix}
 $$
+
 $A$ 和 $B$ 都是 $2 \times 2$ 矩阵，它们是同型矩阵。
 
 ### 矩阵相等
@@ -583,9 +616,11 @@ a_{n1} & a_{n2} & \cdots & a_{nn}
 $$
 
 **示例：**
+
 $$
 \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}
 $$
+
 是一个 3 阶方阵。
 
 ### 行矩阵
@@ -593,9 +628,11 @@ $$
 只有一行（$m = 1$）的矩阵称为 **行矩阵**（行向量）。
 
 **示例：**
+
 $$
 A = \begin{pmatrix} 1 & 2 & 3 & 4 \end{pmatrix}
 $$
+
 是一个 $1 \times 4$ 行矩阵。
 
 ### 列矩阵
@@ -603,9 +640,11 @@ $$
 只有一列（$n = 1$）的矩阵称为 **列矩阵**（列向量）。
 
 **示例：**
+
 $$
 A = \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}
 $$
+
 是一个 $3 \times 1$ 列矩阵。
 
 ### 零矩阵
@@ -613,6 +652,7 @@ $$
 所有元素均为 $0$ 的矩阵称为 **零矩阵**，记作 $0$ 或 $0_{m \times n}$。
 
 **示例：**
+
 $$
 0_{2 \times 3} = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}
 $$
@@ -631,6 +671,7 @@ a_{11} & a_{12} & \cdots & a_{1n} \\
 $$
 
 **示例：**
+
 $$
 \begin{pmatrix} 1 & 2 & 3 \\ 0 & 4 & 5 \\ 0 & 0 & 6 \end{pmatrix}
 $$
@@ -649,6 +690,7 @@ a_{n1} & a_{n2} & \cdots & a_{nn}
 $$
 
 **示例：**
+
 $$
 \begin{pmatrix} 1 & 0 & 0 \\ 2 & 3 & 0 \\ 4 & 5 & 6 \end{pmatrix}
 $$
@@ -667,6 +709,7 @@ a_{11} & 0 & \cdots & 0 \\
 $$
 
 **示例：**
+
 $$
 \operatorname{diag}(1, 2, 3) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix}
 $$
@@ -685,9 +728,11 @@ k & 0 & \cdots & 0 \\
 $$
 
 **示例：**
+
 $$
 \begin{pmatrix} 5 & 0 & 0 \\ 0 & 5 & 0 \\ 0 & 0 & 5 \end{pmatrix}
 $$
+
 是一个 3 阶数量矩阵。
 
 ### 单位矩阵
@@ -706,6 +751,7 @@ $$
 **性质：** 对任意 $m \times n$ 矩阵 $A$，有 $A E_n = A$，$E_m A = A$。
 
 **示例：**
+
 $$
 E_2 = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix},\quad
 E_3 = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}
@@ -722,12 +768,14 @@ A + B = (a_{ij} + b_{ij})
 $$
 
 **性质：**
+
 1. $A + B = B + A$（交换律）
 2. $(A + B) + C = A + (B + C)$（结合律）
 3. $A + 0 = A$
 4. $A + (-A) = 0$，其中 $-A = (-a_{ij})$
 
 **示例：**
+
 $$
 \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}
 + \begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix}
@@ -743,12 +791,14 @@ kA = (k a_{ij})
 $$
 
 **性质：**
+
 1. $(kl)A = k(lA)$
 2. $k(A + B) = kA + kB$
 3. $(k + l)A = kA + lA$
 4. $1 \cdot A = A$
 
 **示例：**
+
 $$
 3 \begin{pmatrix} 1 & -2 \\ 0 & 4 \end{pmatrix}
 = \begin{pmatrix} 3 & -6 \\ 0 & 12 \end{pmatrix}
@@ -765,12 +815,14 @@ $$
 即 $C$ 的第 $i$ 行第 $j$ 列元素等于 $A$ 的第 $i$ 行与 $B$ 的第 $j$ 列对应元素乘积之和。
 
 **性质：**
+
 1. $(AB)C = A(BC)$（结合律）
 2. $A(B + C) = AB + AC$（左分配律）
 3. $(B + C)A = BA + CA$（右分配律）
 4. $\boldsymbol{AB \neq BA}$（**乘法一般不满足交换律**）
 
 **示例：**
+
 $$
 A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix},\quad
 B = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
@@ -789,6 +841,7 @@ $$
 可见 $AB \neq BA$。
 
 **注意：** 两个非零矩阵相乘可能得到零矩阵：
+
 $$
 \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}
 \begin{pmatrix} 1 & 1 \\ -1 & -1 \end{pmatrix}
@@ -806,6 +859,7 @@ $$
 $$
 
 **性质：**
+
 1. $(A^T)^T = A$
 2. $(A + B)^T = A^T + B^T$
 3. $(kA)^T = kA^T$
@@ -813,12 +867,14 @@ $$
 5. $(A^k)^T = (A^T)^k$
 
 **示例：**
+
 $$
 A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix},\quad
 A^T = \begin{pmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{pmatrix}
 $$
 
 若 $A^T = A$，则 $A$ 为 **对称矩阵**；若 $A^T = -A$，则 $A$ 为 **反对称矩阵**。
+
 ### 对称矩阵
 
 设 $A$ 为 $n$ 阶方阵，若 $A^T = A$，即 $a_{ij} = a_{ji}$（对所有 $i, j$），则称 $A$ 为 **对称矩阵**。
@@ -833,6 +889,7 @@ a_{1n} & a_{2n} & \cdots & a_{nn}
 $$
 
 **性质：**
+
 1. 对称矩阵的转置等于自身
 2. 若 $A, B$ 为对称矩阵，则 $A + B$ 也为对称矩阵
 3. 若 $A$ 为对称矩阵，则 $kA$（$k$ 为常数）也为对称矩阵
@@ -842,6 +899,7 @@ $$
 7. 对称矩阵的幂 $A^k$（$k$ 为正整数）仍为对称矩阵
 
 **示例：**
+
 $$
 A = \begin{pmatrix} 1 & 2 \\ 2 & 3 \end{pmatrix},\quad
 A^T = \begin{pmatrix} 1 & 2 \\ 2 & 3 \end{pmatrix} = A
@@ -864,6 +922,7 @@ $$
 由定义可知，反对称矩阵的对角线元素满足 $a_{ii} = -a_{ii}$，故 $a_{ii} = 0$。
 
 **性质：**
+
 1. 反对称矩阵的转置等于其相反矩阵
 2. 若 $A, B$ 为反对称矩阵，则 $A + B$ 也为反对称矩阵
 3. 对于任意方阵 $A$，$A - A^T$ 为反对称矩阵
@@ -877,6 +936,7 @@ $$
 7. 反对称矩阵的特征值为 $0$ 或纯虚数
 
 **示例：**
+
 $$
 A = \begin{pmatrix} 0 & 3 \\ -3 & 0 \end{pmatrix},\quad
 A^T = \begin{pmatrix} 0 & -3 \\ 3 & 0 \end{pmatrix} = -A
@@ -887,6 +947,7 @@ $$
 对于 $n$ 阶方阵 $A = (a_{ij})$，其 **行列式** 记为 $|A|$ 或 $\det(A)$，是由矩阵元素按行列式规则计算得到的一个数值。**只有方阵才有行列式**。
 
 **性质：**
+
 1. $|A^T| = |A|$（转置不改变行列式的值）
 2. $|kA| = k^n |A|$（$k$ 为常数，$n$ 为矩阵阶数）
 3. $|AB| = |A| \cdot |B|$（矩阵乘积的行列式等于行列式的乘积$\qquad$只有当$A和B$为同阶的方阵时才成立）
@@ -896,6 +957,7 @@ $$
 7. 若 $A$ 为三角矩阵（上三角或下三角），则 $|A|$ 等于对角线元素的乘积
 
 **示例：**
+
 $$
 A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix},\quad
 |A| = 1\cdot4 - 2\cdot3 = -2
@@ -910,11 +972,9 @@ $$
 |A^2| = |A|^2 = (-2)^2 = 4
 $$
 
-
 ### 伴随矩阵
 
 $n$ 阶方阵 $A$ 的 **伴随矩阵** $A^*$ 定义为：
-
 
 $$
 设A = \begin{pmatrix}
@@ -953,10 +1013,12 @@ $$
 $A_{11} = d,\; A_{12} = -c,\; A_{21} = -b,\; A_{22} = a$
 
 伴随矩阵（转置放置）：
+
 $$
 A^* = \begin{pmatrix} A_{11} & A_{21} \\ A_{12} & A_{22} \end{pmatrix}
 = \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}
 $$
+
 这就是 2 阶矩阵的 "主交换，副变号" 法则。
 
 ### 逆矩阵
@@ -997,7 +1059,8 @@ $$
 
 其中 $A^*$ 为 $A$ 的 **伴随矩阵**（由所有代数余子式 $A_{ij}$ 转置构成）。
 
-#### 推论 
+#### 推论
+
 1. $设A 是n阶方阵,若存在n阶方阵B,使AB =E 或 BA = E,则A可逆,且A^{-1} = B$
 
 #### 性质
@@ -1017,6 +1080,7 @@ $$
 $|A| = 1\cdot4 - 2\cdot3 = -2 \neq 0$，故 $A$ 可逆。
 
 伴随矩阵（2 阶矩阵口诀：主交换，副变号）：
+
 $$
 A^* = \begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix}
 $$
@@ -1045,6 +1109,7 @@ $$
 初等行变换和初等列变换统称为 **初等变换**。
 
 **示例：**
+
 $$
 \begin{pmatrix}
 1 & 2 & 3 \\
@@ -1074,10 +1139,12 @@ $$
 ##### 行阶梯形矩阵
 
 满足以下条件的矩阵称为 **行阶梯形矩阵**：
+
 1. 若有零行（元素全为零的行），零行在矩阵的最下方
 2. 各非零行的第一个非零元素（称为 **主元**）的列标随行标的增大而严格增大
 
 **示例：**
+
 $$
 \begin{pmatrix}
 1 & 2 & -1 & 0 \\
@@ -1094,11 +1161,13 @@ $$
 ##### 行最简形矩阵
 
 满足以下条件的行阶梯形矩阵称为 **行最简形矩阵**：
+
 1. 是行阶梯形矩阵
 2. 各非零行的主元都是 $1$
 3. 每个主元所在列的其他元素全为 $0$
 
 **示例：**
+
 $$
 \begin{pmatrix}
 1 & 0 & 2 & 0 \\
@@ -1117,6 +1186,7 @@ $$
 若矩阵 $A$ 经过有限次初等变换变成矩阵 $B$，则称 $A$ 与 $B$ 等价，记作 $A \cong B$。
 
 **性质：**
+
 1. 反身性：$A \cong A$
 2. 对称性：若 $A \cong B$，则 $B \cong A$
 3. 传递性：若 $A \cong B$ 且 $B \cong C$，则 $A \cong C$
@@ -1142,6 +1212,7 @@ E(i, j) = \begin{pmatrix}
 $$
 
 **示例（3 阶）：**
+
 $$
 E(1, 3) = \begin{pmatrix}
 0 & 0 & 1 \\
@@ -1165,6 +1236,7 @@ E(i(k)) = \begin{pmatrix}
 $$
 
 **示例（3 阶）：**
+
 $$
 E(2(3)) = \begin{pmatrix}
 1 & 0 & 0 \\
@@ -1190,6 +1262,7 @@ E(i, j(k)) = \begin{pmatrix}
 $$
 
 **示例（3 阶）：**
+
 $$
 E(1, 3(2)) = \begin{pmatrix}
 1 & 0 & 2 \\
@@ -1207,6 +1280,7 @@ $$
 设 $A = \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{pmatrix}$
 
 左乘 $E(1, 3)$（交换第 1、3 行）：
+
 $$
 E(1, 3)A = \begin{pmatrix}
 0 & 0 & 1 \\
@@ -1226,6 +1300,7 @@ a_{11} & a_{12} & a_{13}
 $$
 
 右乘 $E(1, 3)$（交换第 1、3 列）：
+
 $$
 AE(1, 3) = \begin{pmatrix}
 a_{11} & a_{12} & a_{13} \\
@@ -1247,14 +1322,16 @@ $$
 ##### 初等矩阵的性质
 
 1. **初等矩阵的行列式都不为零**
-  + $|E(ij)| = -1$
-  + $|E(i(k))| = k$
-  + $|E(ij(l))| = 1$
+
+- $|E(ij)| = -1$
+- $|E(i(k))| = k$
+- $|E(ij(l))| = 1$
+
 2. **初等矩阵都是可逆的**，且其逆矩阵仍是同类型的初等矩阵：
    - $E(i, j)^{-1} = E(i, j)$（交换两次恢复原状）
    - $E(i(k))^{-1} = E(i(\frac{1}{k}))$（乘以 $k$ 的逆是乘以 $\frac{1}{k}$）
    - $E(i, j(k))^{-1} = E(i, j(-k))$（加 $k$ 倍的逆是加 $-k$ 倍）
-  
+
 3. **初等矩阵的转置矩阵仍为同种类型的初等矩阵**
 4. **矩阵可逆的充要条件：** $n$ 阶方阵 $A$ 可逆 $\iff$ $A$ 可以表示为有限个初等矩阵的乘积 $\iff$ $A$ 与单位矩阵等价
 
@@ -1263,6 +1340,7 @@ $$
 将一个大矩阵用若干条纵、横线分割成若干小块，每个小块看作一个子矩阵（子块），这种以子块为元素的矩阵称为 **分块矩阵**。
 
 **示例：**
+
 $$
 A = \begin{pmatrix}
 1 & 0 & 0 & 0 \\
@@ -1280,6 +1358,7 @@ $$
 $$
 \begin{vmatrix} A & 0 \\ 0 & B \end{vmatrix} = |A| \cdot |B|
 $$
+
 #### 特殊分块矩阵
 
 ##### 上三角形分块矩阵
@@ -1346,7 +1425,7 @@ $$
 
 ### 分块矩阵的逆矩阵
 
-分块矩阵的逆一般无统一的简单表达式，可通过设未知子块解矩阵方程求得。对于 $2 \times 2$ 分块方阵 $\begin{pmatrix} A & B \\ C & D \end{pmatrix}$，设其逆为 $\begin{pmatrix} X & Y \\ Z & W \end{pmatrix}$， $AX + BZ = E$ 
+分块矩阵的逆一般无统一的简单表达式，可通过设未知子块解矩阵方程求得。对于 $2 \times 2$ 分块方阵 $\begin{pmatrix} A & B \\ C & D \end{pmatrix}$，设其逆为 $\begin{pmatrix} X & Y \\ Z & W \end{pmatrix}$， $AX + BZ = E$
 
 **特别地，对于特殊分块矩阵，逆矩阵有简洁公式：**
 
@@ -1448,8 +1527,8 @@ $$
 
 **对于 $n$ 阶方阵 $A$：**
 
-+ $A \text{ 满秩} \iff r(A) = n \iff |A| \neq 0 \iff A \text{ 可逆} \iff A \text{ 非奇异}$
-+ $A \text{ 降秩} \iff r(A) < n \iff |A| = 0 \iff A \text{ 不可逆} \iff A \text{ 奇异}$
+- $A \text{ 满秩} \iff r(A) = n \iff |A| \neq 0 \iff A \text{ 可逆} \iff A \text{ 非奇异}$
+- $A \text{ 降秩} \iff r(A) < n \iff |A| = 0 \iff A \text{ 不可逆} \iff A \text{ 奇异}$
 
 #### 秩的性质
 
@@ -1470,8 +1549,10 @@ $$
 12. $若A为m\times n矩阵,B为n\times s 矩阵,且 AB = 0 ,则 r(A)+r(B) \leq n$
 13. **Frobenius 不等式：** $r(AB) + r(BC) \le r(B) + r(ABC)$
 14. **分块矩阵的秩：**
-   - $r\begin{pmatrix} A & 0 \\ 0 & B \end{pmatrix} = r(A) + r(B)$
-   - $r\begin{pmatrix} A & B \\ C & D \end{pmatrix} \ge r(A) + r(D - CA^{-1}B)$（当 $A$ 可逆时等号成立）
+
+- $r\begin{pmatrix} A & 0 \\ 0 & B \end{pmatrix} = r(A) + r(B)$
+- $r\begin{pmatrix} A & B \\ C & D \end{pmatrix} \ge r(A) + r(D - CA^{-1}B)$（当 $A$ 可逆时等号成立）
+
 15. **与伴随矩阵的秩关系：**
     设 $A$ 为 $n$ 阶方阵，则
     $$
@@ -1497,6 +1578,7 @@ A &= \begin{pmatrix} 1 & 2 & 3 & 4 \\ 2 & 4 & 6 & 8 \\ 1 & 1 & 1 & 1 \end{pmatri
 $$
 
 行阶梯形矩阵有 2 个非零行，故 $r(A) = 2$。
+
 # 向量
 
 ## 向量的概念和线性运算
@@ -1543,6 +1625,7 @@ $$
 $$
 
 **性质：**
+
 1. $\boldsymbol{\alpha} + \boldsymbol{\beta} = \boldsymbol{\beta} + \boldsymbol{\alpha}$（交换律）
 2. $(\boldsymbol{\alpha} + \boldsymbol{\beta}) + \boldsymbol{\gamma} = \boldsymbol{\alpha} + (\boldsymbol{\beta} + \boldsymbol{\gamma})$（结合律）
 3. $\boldsymbol{\alpha} + \boldsymbol{0} = \boldsymbol{\alpha}$
@@ -1557,6 +1640,7 @@ k\boldsymbol{\alpha} = (ka_1, ka_2, \dots, ka_n)
 $$
 
 **性质：**
+
 1. $k(l\boldsymbol{\alpha}) = (kl)\boldsymbol{\alpha}$
 2. $(k + l)\boldsymbol{\alpha} = k\boldsymbol{\alpha} + l\boldsymbol{\alpha}$
 3. $k(\boldsymbol{\alpha} + \boldsymbol{\beta}) = k\boldsymbol{\alpha} + k\boldsymbol{\beta}$
@@ -1617,11 +1701,13 @@ $$
 判断 $\boldsymbol{\beta} = (1, 2, 3)$ 能否由 $\boldsymbol{\alpha}_1 = (1, 0, 1)$，$\boldsymbol{\alpha}_2 = (0, 1, 1)$，$\boldsymbol{\alpha}_3 = (1, 1, 2)$ 线性表示。
 
 解方程组：
+
 $$
 x_1\begin{pmatrix}1\\0\\1\end{pmatrix} + x_2\begin{pmatrix}0\\1\\1\end{pmatrix} + x_3\begin{pmatrix}1\\1\\2\end{pmatrix} = \begin{pmatrix}1\\2\\3\end{pmatrix}
 $$
 
 得：
+
 $$
 \begin{cases}
 x_1 + x_3 = 1 \\
@@ -1633,7 +1719,8 @@ $$
 解得 $x_1 = 1 - t,\; x_2 = 2 - t,\; x_3 = t$（$t$ 为任意常数），故 $\boldsymbol{\beta}$ 可由 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3$ 线性表示。
 
 ### 性质
-+ $向量组 a_1 ,a_2, \dots,a_n 中任一向量a_i 均可由本向量组线性表示$
+
+- $向量组 a_1 ,a_2, \dots,a_n 中任一向量a_i 均可由本向量组线性表示$
 
 ### **等价向量组**
 
@@ -1642,6 +1729,7 @@ $$
 若向量组 $A$ 与向量组 $B$ 可以互相线性表示，则称 $A$ 与 $B$ **等价**。
 
 **性质：**
+
 1. 反身性：每个向量组与自身等价
 2. 对称性：若 $A$ 与 $B$ 等价，则 $B$ 与 $A$ 等价
 3. 传递性：若 $A$ 与 $B$ 等价，$B$ 与 $C$ 等价，则 $A$ 与 $C$ 等价
@@ -1718,6 +1806,7 @@ $$
 **定义：** 设有两个向量组 $A: \boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m$ 和 $B: \boldsymbol{\beta}_1, \boldsymbol{\beta}_2, \dots, \boldsymbol{\beta}_n$，若 $A$ 中每个向量都可由 $B$ 线性表示，且 $B$ 中每个向量也都可由 $A$ 线性表示，则称向量组 $A$ 与 $B$ **等价**。
 
 **性质：**
+
 1. **反身性：** 向量组与自身等价
 2. **对称性：** 若 $A$ 与 $B$ 等价，则 $B$ 与 $A$ 等价
 3. **传递性：** 若 $A$ 与 $B$ 等价，且 $B$ 与 $C$ 等价，则 $A$ 与 $C$ 等价
@@ -1728,6 +1817,7 @@ $$
 ### **定义**
 
 设向量组 $A$ 中存在 $r$ 个向量 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_r$ 满足：
+
 1. $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_r$ 线性无关
 2. $A$ 中任意 $r+1$ 个向量都线性相关（或者说 $A$ 中任一向量都可由这 $r$ 个向量线性表示）
 
@@ -1742,10 +1832,11 @@ $$
 5. 向量组的任意两个最大无关组之间等价
 6. $若向量组I 可由向量组II线性表示,则向量组I的极大线性无关组可由向量组II的极大线性无关组线性表示$
 7. 等价的向量组,其极大线性无关组也等价
-   
+
 ### 求解极大线性无关组
 
 **方法（行简化阶梯形法）：**
+
 1. 以向量组中各向量为**列**构造矩阵 $A$
 2. 对 $A$ 仅施以**初等行变换**，化为**行最简形（简化行阶梯形）**
 3. 每个**首非零元所在列**对应的原向量构成一个极大无关组
@@ -1754,6 +1845,7 @@ $$
 > **例：** 求 $\boldsymbol{\alpha}_1=(1,1,2),\ \boldsymbol{\alpha}_2=(1,2,3),\ \boldsymbol{\alpha}_3=(1,3,4)$ 的一个极大无关组，并将其余向量用该组表示
 >
 > 以各向量为列构造矩阵，并施以行变换化为行最简形：
+>
 > $$
 > \begin{aligned}
 > A &= \begin{pmatrix}
@@ -1789,6 +1881,7 @@ $$
 **定义：** 向量组 $\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m$ 的最大无关组所含向量的个数称为该向量组的 **秩**，记作 $r(\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \dots, \boldsymbol{\alpha}_m)$。
 
 **性质：**
+
 1. $0 \le r(\boldsymbol{\alpha}_1, \dots, \boldsymbol{\alpha}_m) \le min(向量维数,向量组包含向量个数)$
 2. 向量组线性无关 $\iff$ 秩 $= m$；线性相关 $\iff$ 秩 $< m$
 3. 等价向量组有相同的秩
@@ -1830,6 +1923,7 @@ $$
 $r(A) = 3 = m$，故向量组线性无关。
 
 **解法二（行列式）：**
+
 $$
 |\boldsymbol{\alpha}_1, \boldsymbol{\alpha}_2, \boldsymbol{\alpha}_3| = \begin{vmatrix}
 1 & 1 & 1 \\
@@ -1837,6 +1931,7 @@ $$
 1 & 3 & 6
 \end{vmatrix} = 1 \cdot 2 \cdot 6 + 1 \cdot 3 \cdot 1 + 1 \cdot 1 \cdot 3 - 1 \cdot 2 \cdot 1 - 1 \cdot 3 \cdot 1 - 1 \cdot 1 \cdot 6 = 12 + 3 + 3 - 2 - 3 - 6 = 7 \neq 0
 $$
+
 故向量组线性无关。
 
 # 线性方程组
@@ -1844,6 +1939,7 @@ $$
 ## 线性方程组的表示形式及初等变换
 
 **一般形式**
+
 $$
 \begin{cases}
 a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\
@@ -1854,12 +1950,15 @@ a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n = b_m
 $$
 
 **矩阵形式：**
+
 $$
 \boldsymbol{A}\boldsymbol{x} = \boldsymbol{b}
 $$
+
 其中 $\boldsymbol{A} = (a_{ij})_{m \times n}$ 为系数矩阵，$\boldsymbol{x} = (x_1, x_2, \dots, x_n)^\mathrm{T}$ 为未知向量，$\boldsymbol{b} = (b_1, b_2, \dots, b_m)^\mathrm{T}$ 为常数向量。
 
 **向量形式：**
+
 $$
 x_1\boldsymbol{\alpha}_1 + x_2\boldsymbol{\alpha}_2 + \cdots + x_n\boldsymbol{\alpha}_n = \boldsymbol{b}
 $$
@@ -1909,6 +2008,7 @@ $$
 其中 $\boldsymbol{x}_p$ 为特解，$\boldsymbol{\eta}_i$ 为导出组的基础解系，$k_i$ 为任意常数。
 
 **解的情况：**
+
 - $r(\boldsymbol{A}) < r(\overline{\boldsymbol{A}})$：无解
 - $r(\boldsymbol{A}) = r(\overline{\boldsymbol{A}}) = n$：唯一解
 - $r(\boldsymbol{A}) = r(\overline{\boldsymbol{A}}) < n$：无穷多解（自由度为 $n - r$）
@@ -1922,6 +2022,7 @@ $$
 $$
 
 即
+
 $$
 \begin{cases}
 a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = 0 \\
@@ -1932,6 +2033,7 @@ a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n = 0
 $$
 
 **性质：**
+
 1. 齐次方程组至少有零解（平凡解）。
 2. 有非零解 $\iff r(\boldsymbol{A}) < n$。
 3. 若 $m < n$（方程数 < 未知数个数），则必有非零解。
@@ -1969,6 +2071,7 @@ $$
 **性质**
 $齐次线性方程组有非零解 \iff \alpha_1,\alpha_2, \dots, \alpha_n线性相关$
 $齐次线性方程组=只有零解 \iff \alpha_1,\alpha_2, \dots, \alpha_n线性无关$
+
 ### 判定流程
 
 ```
@@ -1991,10 +2094,11 @@ $齐次线性方程组=只有零解 \iff \alpha_1,\alpha_2, \dots, \alpha_n线�
 ```
 
 ### 推论
- + 对于齐次线性方程组,如果方程个数小于未知数个数,则齐次线性方程组必有非零解
- + 对于线性方程组,若系数矩阵$A$为方阵
-   + 对于齐次线性方程组 $A不可逆\iff |A| = 0\iff r(A)<n\iff Ax=0有非零解$ <br> $A可逆\iff |A| \not= 0\iff r(A)=n\iff Ax=0只有零解$
-   + 对于非齐次线性方程组 $A可逆\iff 有唯一解$ <br> $A不可逆 \iff 无解或无穷多解$
+
+- 对于齐次线性方程组,如果方程个数小于未知数个数,则齐次线性方程组必有非零解
+- 对于线性方程组,若系数矩阵$A$为方阵
+  - 对于齐次线性方程组 $A不可逆\iff |A| = 0\iff r(A)<n\iff Ax=0有非零解$ <br> $A可逆\iff |A| \not= 0\iff r(A)=n\iff Ax=0只有零解$
+  - 对于非齐次线性方程组 $A可逆\iff 有唯一解$ <br> $A不可逆 \iff 无解或无穷多解$
 
 ## 线性方程组解的性质与结构
 
@@ -2029,6 +2133,7 @@ $$
 对于齐次线性方程组 $\boldsymbol{Ax} = \boldsymbol{0}$（$r = r(\boldsymbol{A})$），其极大线性无关组称为**基础解系**。
 
 **定义：** 若 $\boldsymbol{\eta}_1, \boldsymbol{\eta}_2, \dots, \boldsymbol{\eta}_t$ 满足：
+
 1. 均为 $\boldsymbol{Ax} = \boldsymbol{0}$ 的解
 2. 线性无关
 3. 任一解均可由它们线性表示
@@ -2061,7 +2166,6 @@ $$
 
 主变量：$x_1, x_3$，自由变量：$x_2, x_4$（$n - r = 4 - 2 = 2$）。
 
-
 $$
 写出同解方程组:
 \begin{cases}
@@ -2077,6 +2181,7 @@ $$
 通解：$\boldsymbol{x} = k_1\boldsymbol{\eta}_1 + k_2\boldsymbol{\eta}_2$，$k_1, k_2 \in \mathbb{R}$
 
 **性质：**
+
 - 基础解系不唯一，但所含向量个数 $n - r$ 唯一
 - 解空间中任意 $n - r$ 个线性无关的解向量均可构成基础解系
 - 通解为 $\boldsymbol{x} = \sum_{i=1}^{n-r} k_i \boldsymbol{\eta}_i$
@@ -2312,86 +2417,86 @@ $$
 
 ## 特征值与特征向量的性质
 
-+ $n阶矩阵A在复数域内必有n个特征值$
-+ $n阶矩阵A与其转置矩阵A^T有相同的特征多项式,进而有相同的特征值(特征向量不能保证相同)$
-+ $设n阶矩阵A的n个特征值为\lambda_1,\lambda_2,\dots,\lambda_n,则$
-  + $\lambda_1+\lambda_2+\dots+\lambda_n = a_{11}+a_{22}+\dots+a_{nn}(矩阵的特征值之和等于矩阵的迹)$
-  + $\lambda_1\lambda_2\dots\lambda_n = |A|$
-+ $若\lambda是矩阵A的特征值,则$
-  + $k\lambda是kA的特征值$
-  + $\lambda^k是A^k的特征值$
-  + $f(\lambda)是f(A)的特征值,其中f(\cdot)为多项式$
-  + $若A可逆,则\frac{1}{\lambda}是A^{-1}的特征值$
-  + $若A可逆,则\frac{|A|}{\lambda}是A^*的特征值$
-+ $n阶方阵A可逆 \iff|A|\not ={0} \iff A的所有特征值都不等于0$
-+ $n阶方阵A不可逆 \iff |A| = 0 \iff A的特征值至少有一个是0$
-+ $矩阵A不同特征值对应的特征向量线性无关$
-+ $若\lambda是矩阵A的k重特征值,则A的对应于\lambda的线性无关的特征向量的个数不超过k个$
-+ $若\lambda是矩阵A的单特征值,则A对应于\lambda的线性无关的特征向量有且只有1个$
-+ $属于同一个特征值的特征向量的非零线性组合仍是属于该特征值的特征向量$
-+ $若n阶方阵A的秩r(A) = 1,则A的n-1个特征根全为0,最后一个特征根为A的迹(tr(A))$
+- $n阶矩阵A在复数域内必有n个特征值$
+- $n阶矩阵A与其转置矩阵A^T有相同的特征多项式,进而有相同的特征值(特征向量不能保证相同)$
+- $设n阶矩阵A的n个特征值为\lambda_1,\lambda_2,\dots,\lambda_n,则$
+  - $\lambda_1+\lambda_2+\dots+\lambda_n = a_{11}+a_{22}+\dots+a_{nn}(矩阵的特征值之和等于矩阵的迹)$
+  - $\lambda_1\lambda_2\dots\lambda_n = |A|$
+- $若\lambda是矩阵A的特征值,则$
+  - $k\lambda是kA的特征值$
+  - $\lambda^k是A^k的特征值$
+  - $f(\lambda)是f(A)的特征值,其中f(\cdot)为多项式$
+  - $若A可逆,则\frac{1}{\lambda}是A^{-1}的特征值$
+  - $若A可逆,则\frac{|A|}{\lambda}是A^*的特征值$
+- $n阶方阵A可逆 \iff|A|\not ={0} \iff A的所有特征值都不等于0$
+- $n阶方阵A不可逆 \iff |A| = 0 \iff A的特征值至少有一个是0$
+- $矩阵A不同特征值对应的特征向量线性无关$
+- $若\lambda是矩阵A的k重特征值,则A的对应于\lambda的线性无关的特征向量的个数不超过k个$
+- $若\lambda是矩阵A的单特征值,则A对应于\lambda的线性无关的特征向量有且只有1个$
+- $属于同一个特征值的特征向量的非零线性组合仍是属于该特征值的特征向量$
+- $若n阶方阵A的秩r(A) = 1,则A的n-1个特征根全为0,最后一个特征根为A的迹(tr(A))$
 
 ## 相似矩阵的概念与性质
 
 ### 定义
 
-+ $设A,B都是n阶方阵,若存在n阶可逆矩阵P,使得P^{-1}AP = B,则称B是A的相似矩阵,或称A与B相似,记为A \sim B$
-+ 特别的,如果A能与对角行矩阵相似,则称A可对角化
-+ $对A进行运算P^{-1}AP称为对A进行相似变换,P称为相似变换矩阵(或过渡矩阵)$
+- $设A,B都是n阶方阵,若存在n阶可逆矩阵P,使得P^{-1}AP = B,则称B是A的相似矩阵,或称A与B相似,记为A \sim B$
+- 特别的,如果A能与对角行矩阵相似,则称A可对角化
+- $对A进行运算P^{-1}AP称为对A进行相似变换,P称为相似变换矩阵(或过渡矩阵)$
 
 ### 性质
 
-+ $反身性:A \sim A$
-+ $对称性:若A \sim B,则B \sim A$
-+ $传递性:若A \sim B,B \sim C,则A \sim C$
+- $反身性:A \sim A$
+- $对称性:若A \sim B,则B \sim A$
+- $传递性:若A \sim B,B \sim C,则A \sim C$
 
 ### 相似矩阵的推论
 
-+ $若A \sim B,则|A| = |B|$
-+ $若A \sim B,则r(A) = r(B)$
-+ $若A \sim B,则tr(A) = tr(B)$
-+ $若A \sim B,则A与B有相同的特征多项式,从而有相同的特征值(包括特征值的代数重数)$
-+ $若A 与对角形矩阵相似(A可对角化 ),则A的特征值就是对角形矩阵主对角线上的元素$
-+ $若A \sim B,则A与B有相同的特征值\lambda,且若P^{-1}AP = B,当\alpha是B的对应于\lambda的特征向量时,P\alpha是A的对应于\lambda的特征向量$
-+ $若A \sim B,则A^T \sim B^T$
-+ $若A \sim B,且A可逆,则B也可逆,且A^{-1} \sim B^{-1},A^* \sim B^*$
-+ $若A \sim B,则A^k \sim B^k\ (k为正整数)$
-+ $若A \sim B,则f(A) \sim f(B),其中f(\cdot)为多项式$
+- $若A \sim B,则|A| = |B|$
+- $若A \sim B,则r(A) = r(B)$
+- $若A \sim B,则tr(A) = tr(B)$
+- $若A \sim B,则A与B有相同的特征多项式,从而有相同的特征值(包括特征值的代数重数)$
+- $若A 与对角形矩阵相似(A可对角化 ),则A的特征值就是对角形矩阵主对角线上的元素$
+- $若A \sim B,则A与B有相同的特征值\lambda,且若P^{-1}AP = B,当\alpha是B的对应于\lambda的特征向量时,P\alpha是A的对应于\lambda的特征向量$
+- $若A \sim B,则A^T \sim B^T$
+- $若A \sim B,且A可逆,则B也可逆,且A^{-1} \sim B^{-1},A^* \sim B^*$
+- $若A \sim B,则A^k \sim B^k\ (k为正整数)$
+- $若A \sim B,则f(A) \sim f(B),其中f(\cdot)为多项式$
 
 ### 矩阵可对角化的条件
 
-+ $n阶方阵A可对角化\iff A有n个线性无关的特征向量$
-+ $n阶方阵A可对角化\iff 对于A的每个特征值,其代数重数等于几何重数(即特征值的重数等于其对应的线性无关特征向量的个数)$
-+ $若A有n个互异的特征值,则A必可对角化(反之不一定成立)$
-+ $若n阶方阵A的秩r(A) = 1,则A的n-1个特征根全为0,最后一个特征根为A的迹(tr(A))$
+- $n阶方阵A可对角化\iff A有n个线性无关的特征向量$
+- $n阶方阵A可对角化\iff 对于A的每个特征值,其代数重数等于几何重数(即特征值的重数等于其对应的线性无关特征向量的个数)$
+- $若A有n个互异的特征值,则A必可对角化(反之不一定成立)$
+- $若n阶方阵A的秩r(A) = 1,则A的n-1个特征根全为0,最后一个特征根为A的迹(tr(A))$
 
 ## 矩阵的对角化
 
 ### 性质
 
-+ $若A \sim \Lambda(\Lambda为对角矩阵),则\Lambda的主对角线上元素为A的特征值$
-+ $若n阶矩阵A有n个互逆的特征值,则A可对角化$
-+ $若A可对角化,则A的秩等于其非零特征值的个数$
-+ $若A可对角化,则A的迹等于其特征值之和$
-+ $若A可对角化,则A的行列式等于其特征值之积$
-+ $若A可对角化,则A^T也可对角化,且与A相似于同一对角矩阵$
-+ $若A可对角化且可逆,则A^{-1}也可对角化,且A^{-1}的特征值为A的特征值的倒数$
-+ $若A可对角化,则f(A)也可对角化,且f(A)的特征值为f(\lambda_i),其中f(\cdot)为多项式$
-+ $n阶方阵A可对角化\iff A有n个线性无关的特征向量$
-+ $n阶方阵A可对角化\iff 对于A的每个特征值,其代数重数等于几何重数$
-+ $n阶方阵A的每个特征值都是单根\implies A可对角化(反之不一定)$
-+ $实对称矩阵必可正交对角化(即存在正交矩阵Q使得Q^TAQ = \Lambda)$
-+ $若A为n阶幂等矩阵(A^2 = A),则A必可对角化,且特征值只能为0或1$
+- $若A \sim \Lambda(\Lambda为对角矩阵),则\Lambda的主对角线上元素为A的特征值$
+- $若n阶矩阵A有n个互逆的特征值,则A可对角化$
+- $若A可对角化,则A的秩等于其非零特征值的个数$
+- $若A可对角化,则A的迹等于其特征值之和$
+- $若A可对角化,则A的行列式等于其特征值之积$
+- $若A可对角化,则A^T也可对角化,且与A相似于同一对角矩阵$
+- $若A可对角化且可逆,则A^{-1}也可对角化,且A^{-1}的特征值为A的特征值的倒数$
+- $若A可对角化,则f(A)也可对角化,且f(A)的特征值为f(\lambda_i),其中f(\cdot)为多项式$
+- $n阶方阵A可对角化\iff A有n个线性无关的特征向量$
+- $n阶方阵A可对角化\iff 对于A的每个特征值,其代数重数等于几何重数$
+- $n阶方阵A的每个特征值都是单根\implies A可对角化(反之不一定)$
+- $实对称矩阵必可正交对角化(即存在正交矩阵Q使得Q^TAQ = \Lambda)$
+- $若A为n阶幂等矩阵(A^2 = A),则A必可对角化,且特征值只能为0或1$
 
 ### 对角化的步骤
 
 设 $A$ 为 $n$ 阶方阵且可对角化，求可逆矩阵 $P$ 及对角矩阵 $\Lambda$ 使得 $P^{-1}AP = \Lambda$ 的步骤如下：
 
-+ **步骤1**：求出 $A$ 的全部特征值 $\lambda_1,\lambda_2,\dots,\lambda_n$（含重根）
-+ **步骤2**：对每个特征值 $\lambda_i$，解齐次线性方程组 $(\lambda_i I - A)\boldsymbol{x} = \boldsymbol{0}$，求出基础解系，得到 $A$ 的线性无关的特征向量
-+ **步骤3**：将所得的全部特征向量按列排成矩阵 $P$，即 $P = (\boldsymbol{\xi}_1, \boldsymbol{\xi}_2, \dots, \boldsymbol{\xi}_n)$
-+ **步骤4**：对应的对角矩阵 $\Lambda = \operatorname{diag}(\lambda_1, \lambda_2, \dots, \lambda_n)$，其中 $\lambda_i$ 与 $P$ 中第 $i$ 列特征向量 $\boldsymbol{\xi}_i$ 对应
-+ **步骤5**：验证 $P^{-1}AP = \Lambda$（可用 $AP = P\Lambda$ 来检验）
+- **步骤1**：求出 $A$ 的全部特征值 $\lambda_1,\lambda_2,\dots,\lambda_n$（含重根）
+- **步骤2**：对每个特征值 $\lambda_i$，解齐次线性方程组 $(\lambda_i I - A)\boldsymbol{x} = \boldsymbol{0}$，求出基础解系，得到 $A$ 的线性无关的特征向量
+- **步骤3**：将所得的全部特征向量按列排成矩阵 $P$，即 $P = (\boldsymbol{\xi}_1, \boldsymbol{\xi}_2, \dots, \boldsymbol{\xi}_n)$
+- **步骤4**：对应的对角矩阵 $\Lambda = \operatorname{diag}(\lambda_1, \lambda_2, \dots, \lambda_n)$，其中 $\lambda_i$ 与 $P$ 中第 $i$ 列特征向量 $\boldsymbol{\xi}_i$ 对应
+- **步骤5**：验证 $P^{-1}AP = \Lambda$（可用 $AP = P\Lambda$ 来检验）
 
 ### 示例
 
@@ -2409,7 +2514,6 @@ $$
    特征值为 $\lambda_1 = 1$（二重），$\lambda_2 = -1$（单根）。
 
 2. 求特征向量：
-
    - 当 $\lambda = 1$ 时：
 
      $$
@@ -2488,9 +2592,9 @@ $$
 
 #### 实对称矩阵的性质
 
-+ **定理1**：实对称矩阵的特征值都是实数
-+ **定理2**：实对称矩阵的不同特征值对应的特征向量相互正交（属于 $\mathbb{R}^n$ 的标准内积）
-+ **定理3**：设 $A$ 为 $n$ 阶实对称矩阵，则存在 $n$ 阶正交矩阵 $Q$，使得
+- **定理1**：实对称矩阵的特征值都是实数
+- **定理2**：实对称矩阵的不同特征值对应的特征向量相互正交（属于 $\mathbb{R}^n$ 的标准内积）
+- **定理3**：设 $A$ 为 $n$ 阶实对称矩阵，则存在 $n$ 阶正交矩阵 $Q$，使得
 
   $$
   Q^{-1}AQ = Q^TAQ = \Lambda = \operatorname{diag}(\lambda_1, \lambda_2, \dots, \lambda_n)
@@ -2500,9 +2604,9 @@ $$
 
 #### 正交对角化的步骤
 
-+ **步骤1**：求出 $A$ 的全部特征值
-+ **步骤2**：对每个特征值 $\lambda$，求出其对应的特征向量。对同一特征值的多个线性无关的特征向量，使用 **Schmidt 正交化** 方法将其正交化，再单位化
-+ **步骤3**：将所有单位化的特征向量按列排成矩阵 $Q$，则 $Q$ 为正交矩阵（$Q^TQ = I$），且 $Q^TAQ = \Lambda$
+- **步骤1**：求出 $A$ 的全部特征值
+- **步骤2**：对每个特征值 $\lambda$，求出其对应的特征向量。对同一特征值的多个线性无关的特征向量，使用 **Schmidt 正交化** 方法将其正交化，再单位化
+- **步骤3**：将所有单位化的特征向量按列排成矩阵 $Q$，则 $Q$ 为正交矩阵（$Q^TQ = I$），且 $Q^TAQ = \Lambda$
 
 #### Schmidt 正交化
 
@@ -2539,7 +2643,6 @@ $$
    特征值为 $\lambda_1 = 2$（二重），$\lambda_2 = 8$（单根）。
 
 2. 求特征向量并正交化：
-
    - $\lambda = 2$ 时，$(\lambda I - A)\boldsymbol{x} = \boldsymbol{0}$：
 
      $$
@@ -2600,10 +2703,10 @@ $$
 
 设 $A, B$ 均为 $n$ 阶实对称矩阵，若存在可逆矩阵 $P$ 使得 $P^TAP$ 和 $P^TBP$ 同时为对角矩阵，则称 $A$ 与 $B$ **可同时对角化**。
 
-+ **定理**：若 $A$ 为正定矩阵，$B$ 为实对称矩阵，则存在可逆矩阵 $P$ 使得
+- **定理**：若 $A$ 为正定矩阵，$B$ 为实对称矩阵，则存在可逆矩阵 $P$ 使得
 
   $$
   P^TAP = I,\quad P^TBP = \Lambda
   $$
 
-+ 更一般地，若 $A, B$ 均为实对称矩阵且 $AB = BA$（即可交换），则 $A$ 与 $B$ 可同时正交对角化
+- 更一般地，若 $A, B$ 均为实对称矩阵且 $AB = BA$（即可交换），则 $A$ 与 $B$ 可同时正交对角化
